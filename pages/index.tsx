@@ -5,6 +5,7 @@ import Layout from '../components/layout'
 import { getAllPosts } from '../lib/api'
 import Head from 'next/head'
 import Post from '../interfaces/post'
+import {TITLE} from '../lib/constants'
 
 type Props = {
   allPosts: Post[]
@@ -17,7 +18,7 @@ export default function Index({ allPosts }: Props) {
     <>
       <Layout>
         <Head>
-          <title>ebisen blog</title>
+          <title>{TITLE}</title>
         </Head>
         <Container>
           <Intro />
