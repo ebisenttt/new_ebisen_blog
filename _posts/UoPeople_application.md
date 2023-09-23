@@ -1,8 +1,8 @@
 ---
 title: "UoPeopleの入学手続き"
-date: 2023-01-31T08:04:59+09:00
-draft: false
-tag: ["UoPeople"]
+date: '2023-01-31T08:04:59+09:00'
+tag:
+    - "UoPeople"
 ---
 
 UoPeopleのBachelor of CS degree programにApplyしたのでその記録を残しておく。

@@ -1,9 +1,9 @@
 ---
 title: "はじめに | 初学者によるRuby on Rails Tutorial学習記録"
-date: 2021-03-03T17:01:50+09:00
-draft: false
-
-tags: ['ruby', 'rails']
+date: '2021-03-03T17:01:50+09:00'
+tag:
+    - 'ruby'
+    - 'rails'
 ---
 # この記事の目的
 この記事の目的は，「プログラミング初学者がRuby on Rails Tutorialで学習した際につまづいた点を記録し，共有すること」です。

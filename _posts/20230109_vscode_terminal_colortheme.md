@@ -1,7 +1,6 @@
 ---
 title: "VSCODEのterminalの配色テーマをコピペできるサイト「Base16 Terminal Colors」が便利だった話"
-date: 2023-01-09T15:03:01+09:00
-draft: true
+date: '2023-01-09T15:03:01+09:00'
 ---
 
 ## はじめに

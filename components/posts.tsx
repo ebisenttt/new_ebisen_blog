@@ -18,7 +18,6 @@ const Posts = ({ posts }: Props) => {
             title={post.title}
             date={post.date}
             slug={post.slug}
-            excerpt={post.excerpt}
           />
         ))}
       </div>

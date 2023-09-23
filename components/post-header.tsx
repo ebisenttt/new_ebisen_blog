@@ -6,11 +6,10 @@ import type Author from '../interfaces/author'
 
 type Props = {
   title: string
-  coverImage: string
   date: string
 }
 
-const PostHeader = ({ title, coverImage, date}: Props) => {
+const PostHeader = ({ title, date}: Props) => {
   return (
     <>
       <PostTitle>{title}</PostTitle>

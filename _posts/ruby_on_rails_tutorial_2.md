@@ -1,9 +1,9 @@
 ---
 title: "2章 | 初学者によるRuby on Rails Tutorial学習記録"
-date: 2021-03-06T14:29:08+09:00
-draft: false
-
-tags: ['ruby', 'rails']
+date: '2021-03-06T14:29:08+09:00'
+tag:
+  - 'ruby'
+  - 'rails'
 ---
 この記事では，プログラミング初学者によるRuby on Rails Tutorial学習中のつまずきを章別に共有します。一覧は次のページに用意しています。
 [はじめに | 初学者によるRuby on Rails Tutorial学習記録](https://ebisenttt.github.io/blog/article/ruby_on_rails_tutorial_0/)
