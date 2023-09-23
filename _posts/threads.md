@@ -1,7 +1,6 @@
 ---
 title: "MetaのSNS'threads'に登録してみた"
-date: 2023-07-07T06:58:43+09:00
-draft: false1
+date: '2023-07-07T06:58:43+09:00'
 ---
 # treadsとは
 threadsというMeta社のSNSにアカウントを作成した．

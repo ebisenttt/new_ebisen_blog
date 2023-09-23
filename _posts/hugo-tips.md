@@ -1,6 +1,6 @@
 ---
 title: "Hugoで作ったブログ記事をGithubにdeployする"
-date: 2020-08-30T17:01:12+09:00
+date: '2020-08-30T17:01:12+09:00'
 draft: false
 
 tags: ["hugo", "github"]

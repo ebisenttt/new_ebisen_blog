@@ -1,9 +1,12 @@
 ---
 title: "SoftBankAirのWi-fi通信速度を定期計測してみた（1/2）"
-date: 2021-07-06T21:54:57+09:00
+date: '2021-07-06T21:54:57+09:00'
 draft: true
 
-tags: ["wifi", "softbank air", "Shell Script"]
+tag:
+    - "wifi"
+    - "softbank air"
+    - "Shell Script"
 ---
 # はじめに
 光回線工事ができない賃貸物件のため，SoftbankAirを利用しています。「通信速度が遅い」という声が多く，あまり評判のよくないSoftbankAirについて，中長期的に通信速度を記録してみました。

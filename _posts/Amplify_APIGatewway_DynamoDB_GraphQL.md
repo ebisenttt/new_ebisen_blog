@@ -1,7 +1,6 @@
 ---
 title: 'AmplifyとAPIGatewwayとLambdaとDynamoDB（GraphQL）と'
-date: 2022-08-19T09:18:57+09:00
-draft: true
+date: '2022-08-19T09:18:57+09:00'
 ---
 
 AWS で Amplify を使った Web アプリを作成中です。DynamoDB とどのように連携するのか初心者目線で作業履歴を残しておきます。
