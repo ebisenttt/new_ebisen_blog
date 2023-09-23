@@ -11,6 +11,9 @@ import Head from 'next/head'
 import markdownToHtml from '../../lib/markdownToHtml'
 import type PostType from '../../interfaces/post'
 import {TITLE} from '../../lib/constants'
+import { useEffect } from 'react'
+import Prism from 'prismjs'
+import "prismjs/components/prism-jsx";
 
 type Props = {
   post: PostType
@@ -24,6 +27,11 @@ export default function Post({ post, morePosts, preview }: Props) {
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   }
+
+  useEffect(()=>{
+    Prism.highlightAll()
+  },[])
+
   return (
     <Layout preview={preview}>
       <Container>
@@ -32,7 +40,7 @@ export default function Post({ post, morePosts, preview }: Props) {
           <PostTitle>Loading…</PostTitle>
         ) : (
           <>
-            <article className="mb-32">
+            <article className="mb-32 prose dark:prose-invert">
               <Head>
                 <title>{title}</title>
                 <meta name="keywords" content={post.tag?.join(',')}/>

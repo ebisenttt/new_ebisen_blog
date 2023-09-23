@@ -6,13 +6,32 @@
 .markdown ul,
 .markdown ol,
 .markdown blockquote {
-  @apply my-6;
+  @apply my-6 text-base;
 }
 
 .markdown h2 {
-  @apply text-3xl mt-12 mb-4 leading-snug;
+  @apply text-2xl mt-12 mb-4 leading-snug;
 }
 
 .markdown h3 {
-  @apply text-2xl mt-8 mb-4 leading-snug;
+  @apply text-xl mt-8 mb-4 leading-snug;
+}
+
+.markdown ul {
+  @apply list-disc list-inside pl-5 -indent-5;
+}
+.markdown ul ul {
+  @apply ml-5 my-0;
+}
+
+.markdown ol {
+  @apply list-decimal ml-5;
+}
+
+.markdown a {
+  @apply text-rose-300 decoration-solid underline;
+}
+
+.markdown code {
+  @apply text-sm;
 }

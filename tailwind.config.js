@@ -29,8 +29,20 @@ module.exports = {
         sm: '0 5px 10px rgba(0, 0, 0, 0.12)',
         md: '0 8px 30px rgba(0, 0, 0, 0.12)',
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            'code::before': {
+              content: 'none',
+            },
+            'code::after': {
+              content: 'none',
+            },
+          },
+        },
+      }),
     },
   },
   darkMode: 'class',
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 }
