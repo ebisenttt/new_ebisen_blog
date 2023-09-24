@@ -1,6 +1,10 @@
 ---
-title: "Renew_blog"
+title: "ブログをリニューアルした話"
 date: '2023-09-17T10:57:13+09:00'
+draft: false
+tag:
+  - 'blog'
+  - 'markdown'
 ---
 ## ブログリニューアルの動機
 - 個人開発を通して技術の学習をする
