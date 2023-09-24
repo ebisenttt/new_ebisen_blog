@@ -10,10 +10,9 @@ import PostTitle from '../../components/post-title'
 import Head from 'next/head'
 import markdownToHtml from '../../lib/markdownToHtml'
 import type PostType from '../../interfaces/post'
-import {TITLE} from '../../lib/constants'
+import { TITLE } from '../../lib/constants'
 import { useEffect } from 'react'
 import Prism from 'prismjs'
-import "prismjs/components/prism-jsx";
 
 type Props = {
   post: PostType
@@ -28,9 +27,9 @@ export default function Post({ post, morePosts, preview }: Props) {
     return <ErrorPage statusCode={404} />
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     Prism.highlightAll()
-  },[])
+  }, [])
 
   return (
     <Layout preview={preview}>
@@ -43,12 +42,9 @@ export default function Post({ post, morePosts, preview }: Props) {
             <article className="mb-32 prose dark:prose-invert">
               <Head>
                 <title>{title}</title>
-                <meta name="keywords" content={post.tag?.join(',')}/>
+                <meta name="keywords" content={post.tag?.join(',')} />
               </Head>
-              <PostHeader
-                title={post.title}
-                date={post.date}
-              />
+              <PostHeader title={post.title} date={post.date} />
               <PostBody content={post.content} />
             </article>
           </>
@@ -69,10 +65,9 @@ export async function getStaticProps({ params }: Params) {
     'title',
     'date',
     'slug',
-    'author',
     'content',
+    'tag',
     'ogImage',
-    'coverImage',
   ])
   const content = await markdownToHtml(post.content || '')
 

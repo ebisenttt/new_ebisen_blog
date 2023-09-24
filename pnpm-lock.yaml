@@ -14,6 +14,9 @@ dependencies:
   date-fns:
     specifier: ^2.28.0
     version: 2.30.0
+  devicon:
+    specifier: ^2.15.1
+    version: 2.15.1
   gray-matter:
     specifier: ^4.0.3
     version: 4.0.3
@@ -898,6 +901,10 @@ packages:
   /dequal@2.0.3:
     resolution: {integrity: sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA==}
     engines: {node: '>=6'}
+    dev: false
+
+  /devicon@2.15.1:
+    resolution: {integrity: sha512-iyapbDVaq1PgMSMZ4IekgjH230aSUU4kHmZ142lQ2TJ+9HB4P4V78eNDkyaQEEoi0KJhxIGPcTSFqxHaZ4OMyw==}
     dev: false
 
   /didyoumean@1.2.2:

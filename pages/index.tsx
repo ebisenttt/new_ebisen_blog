@@ -5,7 +5,7 @@ import Layout from '../components/layout'
 import { getAllPosts } from '../lib/api'
 import Head from 'next/head'
 import Post from '../interfaces/post'
-import {TITLE} from '../lib/constants'
+import { TITLE } from '../lib/constants'
 
 type Props = {
   allPosts: Post[]
@@ -28,12 +28,8 @@ export default function Index({ allPosts }: Props) {
 }
 
 export const getStaticProps = async () => {
-  const allPosts = getAllPosts([
-    'title',
-    'date',
-    'slug',
-    'excerpt',
-  ])
+  const fields = ['title', 'date', 'slug', 'excerpt', 'tag']
+  const allPosts = getAllPosts(fields)
 
   return {
     props: { allPosts },

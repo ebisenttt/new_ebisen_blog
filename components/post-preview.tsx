@@ -1,14 +1,13 @@
 import DateFormatter from './date-formatter'
 import Link from 'next/link'
 import Card from '../components/card'
+import PostType from '../interfaces/post'
+import Container from './container'
+import Badge from './badge'
 
-type Props = {
-  title: string
-  date: string
-  slug: string
-}
+type Props = Pick<PostType, 'title' | 'date' | 'slug' | 'tag'>
 
-const PostPreview = ({ title, date, slug }: Props) => {
+const PostPreview = ({ title, date, slug, tag = [] }: Props) => {
   return (
     <Link
       as={`/posts/${slug}`}
@@ -17,6 +16,11 @@ const PostPreview = ({ title, date, slug }: Props) => {
     >
       <Card>
         <h3 className="text-xl mb-3 leading-snug">{title}</h3>
+        <div className="mb-4">
+          {tag.map((t) => (
+            <Badge text={t} />
+          ))}
+        </div>
         <div className="text-base mb-4">
           <DateFormatter dateString={date} />
         </div>
