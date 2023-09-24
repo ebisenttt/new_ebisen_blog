@@ -38,4 +38,11 @@ tag:
 
 - スタイルを変更．
   - tailwindcss/typographyを使った
-  - syntax highlightが効かない．原因調べて試行錯誤してみたが，remark用のライブラリが非推奨になっている．react-markdownに乗り換えたほうが周辺のライブラリが充実してるのでいいかも．
+  - **TODO** syntax highlightが効かない．原因調べて試行錯誤してみたが，remark用のライブラリが非推奨になっている．react-markdownに乗り換えたほうが周辺のライブラリが充実してるのでいいかも．
+
+## 9/24
+
+- eslint, prettierを設定
+  - プラグインの導入，configファイル，vscodeの設定のそれぞれでいろんな方法があるのでちょっと詰まった．vscodeの設定を見直したら解決した．
+- 記事のタグを設定
+  - frontmatterに書いたtagが記事に表示されるようにした．色をtailwind cssのクラスで追加し，絵文字と[DEVICON](https://devicon.dev/)でロゴも追加した．DEVICONめちゃ便利．

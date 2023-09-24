@@ -17,8 +17,8 @@ const PostPreview = ({ title, date, slug, tag = [] }: Props) => {
       <Card>
         <h3 className="text-xl mb-3 leading-snug">{title}</h3>
         <div className="mb-4">
-          {tag.map((t) => (
-            <Badge text={t} />
+          {tag.map((t, i) => (
+            <Badge key={`${i}_${t}`} text={t} />
           ))}
         </div>
         <div className="text-base mb-4">

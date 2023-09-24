@@ -19,27 +19,28 @@ function Badge({ text }: Props) {
   )
 }
 
+const styles = {
+  UoPeople: { icon: '🎓', color: 'dark:bg-violet-900 dark:text-violet-300' },
+  ruby: {
+    icon: <i className="devicon-ruby-plain" />,
+    color: 'dark:bg-red-900 dark:text-red-300',
+  },
+  rails: {
+    icon: <i className="devicon-rails-plain" />,
+    color: 'dark:bg-red-900 dark:text-red-300',
+  },
+  markdown: {
+    icon: <i className="devicon-markdown-original" />,
+    color: 'dark:bg-gray-700 dark:text-gray-200',
+  },
+}
+
 function mapBadgeTextToStyle(text: string):
   | {
       icon: string | ReactNode
       color: string
     }
   | undefined {
-  const styles = {
-    UoPeople: { icon: '🎓', color: 'dark:bg-violet-900 dark:text-violet-300' },
-    ruby: {
-      icon: <i className="devicon-ruby-plain" />,
-      color: 'dark:bg-red-900 dark:text-red-300',
-    },
-    rails: {
-      icon: <i className="devicon-rails-plain" />,
-      color: 'dark:bg-red-900 dark:text-red-300',
-    },
-    markdown: {
-      icon: <i className="devicon-markdown-original" />,
-      color: 'dark:bg-gray-900 dark:text-gray-300',
-    },
-  }
   return styles[text]
 }
 
