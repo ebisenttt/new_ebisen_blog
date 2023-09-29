@@ -1,46 +1,31 @@
-import Avatar from './avatar'
 import DateFormatter from './date-formatter'
-import CoverImage from './cover-image'
 import Link from 'next/link'
-import type Author from '../interfaces/author'
+import Card from '../components/card'
+import PostType from '../interfaces/post'
+import Container from './container'
+import Badge from './badge'
 
-type Props = {
-  title: string
-  coverImage: string
-  date: string
-  excerpt: string
-  author: Author
-  slug: string
-}
+type Props = Pick<PostType, 'title' | 'date' | 'slug' | 'tag'>
 
-const PostPreview = ({
-  title,
-  coverImage,
-  date,
-  excerpt,
-  author,
-  slug,
-}: Props) => {
+const PostPreview = ({ title, date, slug, tag = [] }: Props) => {
   return (
-    <div>
-      <div className="mb-5">
-        <CoverImage slug={slug} title={title} src={coverImage} />
-      </div>
-      <h3 className="text-3xl mb-3 leading-snug">
-        <Link
-          as={`/posts/${slug}`}
-          href="/posts/[slug]"
-          className="hover:underline"
-        >
-          {title}
-        </Link>
-      </h3>
-      <div className="text-lg mb-4">
-        <DateFormatter dateString={date} />
-      </div>
-      <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-      <Avatar name={author.name} picture={author.picture} />
-    </div>
+    <Link
+      as={`/posts/${slug}`}
+      href="/posts/[slug]"
+      className="hover:underline"
+    >
+      <Card>
+        <h3 className="text-xl mb-3 leading-snug">{title}</h3>
+        <div className="mb-4">
+          {tag.map((t, i) => (
+            <Badge key={`${i}_${t}`} text={t} />
+          ))}
+        </div>
+        <div className="text-base mb-4">
+          <DateFormatter dateString={date} />
+        </div>
+      </Card>
+    </Link>
   )
 }
 
