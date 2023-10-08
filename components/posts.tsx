@@ -1,5 +1,6 @@
 import PostPreview from './post-preview'
 import type Post from '../interfaces/post'
+import { TabLayout } from './tabLayout'
 
 type Props = {
   posts: Post[]
@@ -7,22 +8,17 @@ type Props = {
 
 const Posts = ({ posts }: Props) => {
   return (
-    <section>
-      <h2 className="mb-8 text-2xl md:text-5xl font-bold tracking-tighter leading-tight">
-        Posts
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-16 lg:gap-x-32 gap-y-8 md:gap-y-16 mb-32">
-        {posts.map((post) => (
-          <PostPreview
-            key={post.slug}
-            title={post.title}
-            date={post.date}
-            slug={post.slug}
-            tag={post.tag}
-          />
-        ))}
-      </div>
-    </section>
+    <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-16 lg:gap-x-32 gap-y-8 md:gap-y-16 mb-32">
+      {posts.map((post) => (
+        <PostPreview
+          key={post.slug}
+          title={post.title}
+          date={post.date}
+          slug={post.slug}
+          tag={post.tag}
+        />
+      ))}
+    </div>
   )
 }
 

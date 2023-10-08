@@ -6,6 +6,7 @@ import { getAllPosts } from '../lib/api'
 import Head from 'next/head'
 import Post from '../interfaces/post'
 import { TITLE } from '../lib/constants'
+import { TabLayout } from '../components/tabLayout'
 
 type Props = {
   allPosts: Post[]
@@ -20,7 +21,7 @@ export default function Index({ allPosts }: Props) {
         </Head>
         <Container>
           <Intro />
-          <Posts posts={allPosts} />
+          <TabLayout bodies={[<Posts posts={allPosts} />, <div>tabs</div>]} />
         </Container>
       </Layout>
     </>
