@@ -1,6 +1,5 @@
 import PostPreview from './post-preview'
 import type Post from '../interfaces/post'
-import { TabLayout } from './tabLayout'
 
 type Props = {
   posts: Post[]

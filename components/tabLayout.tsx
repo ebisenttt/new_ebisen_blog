@@ -30,9 +30,15 @@ const TabHeader = ({ titles, selectedIndex, onClick }: TabHeaderProps) => {
   return (
     <div className="flex cursor-pointer">
       {titles.map((title, index) => (
-        <div onClick={() => onClick(index)} className={index > 0 && 'ml-8'}>
+        <div
+          key={title}
+          onClick={() => onClick(index)}
+          className={index > 0 ? 'ml-8' : undefined}
+        >
           <h2
-            className={`${index !== selectedIndex && notSelectedTabColor}
+            className={`${
+              index !== selectedIndex ? notSelectedTabColor : undefined
+            }
               mb-8 text-2xl md:text-5xl font-bold tracking-tighter leading-tight`}
           >
             {title}
