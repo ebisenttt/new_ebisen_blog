@@ -80,7 +80,7 @@ export const Profile = () => {
       <Section title="これまで">
         <div className="px-8">
           <p>
-            <ol>
+            <ol className="-indent-4">
               <li>📝 大学・大学院で教育学を勉強</li>
               <li>→ 🏫 公立高校で数学科の教員</li>
               <li>→ 💻 プログラミングに触れ始める</li>
