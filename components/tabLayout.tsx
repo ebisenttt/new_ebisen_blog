@@ -1,9 +1,7 @@
 import { ReactElement, useState } from 'react'
-type TabLayoutProps = { bodies: ReactElement[] }
+type TabLayoutProps = { menuTitles; bodies: ReactElement[] }
 
-const TITLES = ['Posts', 'Tags']
-
-export const TabLayout = ({ bodies }: TabLayoutProps) => {
+export const TabLayout = ({ menuTitles, bodies }: TabLayoutProps) => {
   const [selectedIndex, setSelectedIndex] = useState<number>(0)
   const onClick = (index) => {
     setSelectedIndex(index)
@@ -11,7 +9,7 @@ export const TabLayout = ({ bodies }: TabLayoutProps) => {
   return (
     <>
       <TabHeader
-        titles={TITLES}
+        titles={menuTitles}
         selectedIndex={selectedIndex}
         onClick={(index) => onClick(index)}
       />

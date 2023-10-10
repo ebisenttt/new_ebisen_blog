@@ -8,6 +8,9 @@ import Post from '../interfaces/post'
 import { TITLE } from '../lib/constants'
 import { TabLayout } from '../components/tabLayout'
 import { Tags } from 'components/tags'
+import { Profile } from 'components/profile'
+
+const MENU_TITLES = ['Posts', 'Tags', 'Me']
 
 type Props = {
   allPosts: Post[]
@@ -27,9 +30,11 @@ export default function Index({ allPosts }: Props) {
         <Container>
           <Intro />
           <TabLayout
+            menuTitles={MENU_TITLES}
             bodies={[
               <Posts posts={allPosts} />,
               <Tags allTags={allTags} allPosts={allPosts} />,
+              <Profile />,
             ]}
           />
         </Container>
