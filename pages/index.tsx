@@ -6,12 +6,21 @@ import { getAllPosts } from '../lib/api'
 import Head from 'next/head'
 import Post from '../interfaces/post'
 import { TITLE } from '../lib/constants'
+import { TabLayout } from '../components/tabLayout'
+import { Tags } from 'components/tags'
+import { Profile } from 'components/profile'
+
+const MENU_TITLES = ['Posts', 'Tags', 'Me']
 
 type Props = {
   allPosts: Post[]
 }
 
 export default function Index({ allPosts }: Props) {
+  const allTags = Array.from(new Set(allPosts.flatMap((post) => post.tag)))
+    .filter((e) => e)
+    .sort()
+
   return (
     <>
       <Layout>
@@ -20,7 +29,14 @@ export default function Index({ allPosts }: Props) {
         </Head>
         <Container>
           <Intro />
-          <Posts posts={allPosts} />
+          <TabLayout
+            menuTitles={MENU_TITLES}
+            bodies={[
+              <Posts posts={allPosts} />,
+              <Tags allTags={allTags} allPosts={allPosts} />,
+              <Profile />,
+            ]}
+          />
         </Container>
       </Layout>
     </>

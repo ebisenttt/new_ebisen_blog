@@ -39,7 +39,7 @@ export default function Post({ post, morePosts, preview }: Props) {
           <PostTitle>Loading…</PostTitle>
         ) : (
           <>
-            <article className="mb-32 prose dark:prose-invert">
+            <article className="mx-auto mb-32 prose dark:prose-invert">
               <Head>
                 <title>{title}</title>
                 <meta name="keywords" content={post.tag?.join(',')} />
