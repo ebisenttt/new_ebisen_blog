@@ -32,6 +32,6 @@
   @apply text-rose-300 decoration-solid underline;
 }
 
-.markdown code {
+.markdown code[class^='language'] {
   @apply text-sm;
 }
