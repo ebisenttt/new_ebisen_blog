@@ -43,9 +43,14 @@ const COMP_PROG_ICONS: IconType[] = [
     src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
   },
 ]
+
+const CERTIFICAITON_ICONS: IconType[] = [
+  { name: 'html5level1', src: '/assets/me/html5_lv1.jpg' },
+]
+
 export const Profile = () => {
   return (
-    <article className="flex flex-col mx-auto max-w-prose gap-8">
+    <article className="flex flex-col mx-auto max-w-prose gap-8 mb-16">
       <Section>
         <div className="flex flex-col items-center gap-4 mb-8">
           <Logo />
@@ -66,35 +71,47 @@ export const Profile = () => {
         <h4 className="text-xl">競プロ</h4>
         <p>
           競技プログラミングもかじってます．
-          <a
+          <OutsideLink
             href="https://atcoder.jp/users/ebisen"
-            target="_blank"
-            className="text-rose-300 decoration-solid underline"
-          >
-            AtCoderのレートは茶色
-          </a>
-          です．
+            text="AtCoderのレートは茶色"
+          />
         </p>
         <IconsGallary icons={COMP_PROG_ICONS} />
       </Section>
+      <Section title="資格">
+        <ol className="list-inside list-disc">
+          <li>
+            <OutsideLink
+              href="https://www.ipa.go.jp/shiken/kubun/ip.html"
+              text="ITパスポート"
+            />
+            &nbsp;(2023-06)
+          </li>
+          <li>
+            <OutsideLink
+              href="https://html5exam.jp/outline/lv1.html"
+              text="「HTML5プロフェッショナル認定 レベル1」 認定プロフェッショナル"
+            />
+            &nbsp;(2023-10)
+          </li>
+        </ol>
+        <IconsGallary icons={CERTIFICAITON_ICONS} />
+      </Section>
       <Section title="これまで">
-        <div className="px-8">
-          <p>
-            <ol className="-indent-4">
-              <li>📝 大学・大学院で教育学を勉強</li>
-              <li>→ 🏫 公立高校で数学科の教員</li>
-              <li>→ 💻 プログラミングに触れ始める</li>
-              <li>
-                → 🎓 University of People（オンラインの大学）でCS学部に入学
-              </li>
-              <li>→ ⚡️ フロントエンドエンジニアにキャリアチェンジ</li>
-            </ol>
-          </p>
-        </div>
+        <p>
+          <ol className="">
+            <li>📝 大学・大学院で教育学を勉強</li>
+            <li>→ 🏫 公立高校で数学科の教員</li>
+            <li>→ 💻 プログラミングに触れ始める</li>
+            <li>→ 🎓 University of People（オンラインの大学）でCS学部に入学</li>
+            <li>→ ⚡️ フロントエンドエンジニアにキャリアチェンジ</li>
+          </ol>
+        </p>
       </Section>
     </article>
   )
 }
+
 const Logo = () => {
   const LOGO_SRC = '/assets/logo.png'
 
@@ -125,7 +142,6 @@ const Section = ({ title, children }: SectionProps) => {
 type IconsGallaryProps = {
   icons: IconType[]
 }
-
 const IconsGallary = ({ icons }: IconsGallaryProps) => {
   return (
     <div className="flex justify-center p-4">
@@ -139,3 +155,18 @@ const IconsGallary = ({ icons }: IconsGallaryProps) => {
     </div>
   )
 }
+
+type OutsideLinkProps = {
+  href: string
+  text: string
+}
+
+const OutsideLink = ({ href, text }: OutsideLinkProps) => (
+  <a
+    href={href}
+    target="_blank"
+    className="text-rose-300 decoration-solid underline"
+  >
+    {text}
+  </a>
+)
