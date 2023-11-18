@@ -1,6 +1,6 @@
 import { parseISO, format } from 'date-fns'
 
-type Props = {
+interface Props {
   dateString: string
 }
 

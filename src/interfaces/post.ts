@@ -1,4 +1,4 @@
-type PostType = {
+interface PostType {
   title: string
   date: string
   content: string

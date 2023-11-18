@@ -1,9 +1,12 @@
-import { ReactElement, useState } from 'react'
-type TabLayoutProps = { menuTitles; bodies: ReactElement[] }
+import { type ReactElement, useState } from 'react'
+interface TabLayoutProps {
+  menuTitles: string[]
+  bodies: ReactElement[]
+}
 
 export const TabLayout = ({ menuTitles, bodies }: TabLayoutProps) => {
   const [selectedIndex, setSelectedIndex] = useState<number>(0)
-  const onClick = (index) => {
+  const onClick = (index: number) => {
     setSelectedIndex(index)
   }
   return (
@@ -11,14 +14,16 @@ export const TabLayout = ({ menuTitles, bodies }: TabLayoutProps) => {
       <TabHeader
         titles={menuTitles}
         selectedIndex={selectedIndex}
-        onClick={(index) => onClick(index)}
+        onClick={(index) => {
+          onClick(index)
+        }}
       />
       <TabBody bodies={bodies} selectedIndex={selectedIndex} />
     </>
   )
 }
 
-type TabHeaderProps = {
+interface TabHeaderProps {
   titles: string[]
   selectedIndex: number
   onClick: (index: number) => void
@@ -30,7 +35,9 @@ const TabHeader = ({ titles, selectedIndex, onClick }: TabHeaderProps) => {
       {titles.map((title, index) => (
         <div
           key={title}
-          onClick={() => onClick(index)}
+          onClick={() => {
+            onClick(index)
+          }}
           className={index > 0 ? 'ml-8' : undefined}
         >
           <h2
@@ -47,7 +54,7 @@ const TabHeader = ({ titles, selectedIndex, onClick }: TabHeaderProps) => {
   )
 }
 
-type TabBodyProps = {
+interface TabBodyProps {
   bodies: ReactElement[]
   selectedIndex: number
 }

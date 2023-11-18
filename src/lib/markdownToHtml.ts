@@ -1,7 +1,8 @@
 import { remark } from 'remark'
 import remarkEmbedder from '@remark-embedder/core'
-import { CodePenTransformer } from './embedInMarkdown'
 import html from 'remark-html'
+
+import { CodePenTransformer } from './embedInMarkdown'
 
 export default async function markdownToHtml(markdown: string) {
   const result = await remark()

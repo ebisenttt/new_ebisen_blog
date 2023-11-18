@@ -4,5 +4,9 @@
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.detectIndentation": false,
-  "editor.tabCompletion": "off"
+  "editor.tabCompletion": "on",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }
