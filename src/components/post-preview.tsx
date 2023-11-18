@@ -1,8 +1,9 @@
-import DateFormatter from './date-formatter'
 import Link from 'next/link'
-import Card from '../components/card'
-import PostType from '../interfaces/post'
-import Container from './container'
+
+import type PostType from '../interfaces/post'
+
+import Card from './card'
+import DateFormatter from './date-formatter'
 import Badge from './badge'
 
 type Props = Pick<PostType, 'title' | 'date' | 'slug' | 'tag'>

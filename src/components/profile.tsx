@@ -1,7 +1,7 @@
 import Image from 'next/image'
-import { ReactNode } from 'react'
+import { type ReactNode } from 'react'
 
-type IconType = {
+interface IconType {
   name: string
   src: string
 }
@@ -122,14 +122,14 @@ const Logo = () => {
   )
 }
 
-type SectionProps = {
+interface SectionProps {
   title?: string
   children: ReactNode
 }
 const Section = ({ title, children }: SectionProps) => {
   return (
     <section className="flex flex-col max-w-2xl gap-2">
-      {title && (
+      {title !== undefined && (
         <span className="w-full">
           <h3 className="text-2xl font-bold">{title}</h3>
         </span>
@@ -139,7 +139,7 @@ const Section = ({ title, children }: SectionProps) => {
   )
 }
 
-type IconsGallaryProps = {
+interface IconsGallaryProps {
   icons: IconType[]
 }
 const IconsGallary = ({ icons }: IconsGallaryProps) => {
@@ -147,7 +147,7 @@ const IconsGallary = ({ icons }: IconsGallaryProps) => {
     <div className="flex justify-center p-4">
       <ul className="list-none inline-flex gap-2">
         {icons.map((icon) => (
-          <li>
+          <li key={icon.name}>
             <Image src={icon.src} alt={icon.name} width={60} height={60} />
           </li>
         ))}
@@ -156,7 +156,7 @@ const IconsGallary = ({ icons }: IconsGallaryProps) => {
   )
 }
 
-type OutsideLinkProps = {
+interface OutsideLinkProps {
   href: string
   text: string
 }
@@ -166,6 +166,7 @@ const OutsideLink = ({ href, text }: OutsideLinkProps) => (
     href={href}
     target="_blank"
     className="text-rose-300 decoration-solid underline"
+    rel="noreferrer"
   >
     {text}
   </a>

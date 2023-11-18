@@ -1,9 +1,10 @@
-import Badge from './badge'
-import Post from 'interfaces/post'
+import type Post from 'interfaces/post'
 import Posts from 'components/posts'
 import { useState } from 'react'
 
-type TagsProps = {
+import Badge from './badge'
+
+interface TagsProps {
   allTags: string[]
   allPosts: Post[]
 }
@@ -26,7 +27,9 @@ export const Tags = ({ allTags, allPosts }: TagsProps) => {
         {allTags.map((tag) => (
           <button
             key={tag}
-            onClick={() => onBadgeClick(tag)}
+            onClick={() => {
+              onBadgeClick(tag)
+            }}
             className={
               tag === selectedTag ? undefined : notSelectedTagButtonClass
             }

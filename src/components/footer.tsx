@@ -1,5 +1,6 @@
-import Container from './container'
 import Image from 'next/image'
+
+import Container from './container'
 
 const Footer = () => {
   return (
