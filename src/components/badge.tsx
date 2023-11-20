@@ -39,6 +39,18 @@ const BADGE_STYLES: Record<string, BadgeStyle> = {
     icon: <i className="devicon-markdown-original" />,
     color: 'dark:bg-gray-700 dark:text-gray-200',
   },
+  HTML: {
+    icon: <i className="devicon-html5-plain colored"></i>,
+    color: 'dark:bg-orange-900 dark:text-orange-300',
+  },
+  typescript: {
+    icon: <i className="devicon-typescript-plain colored"></i>,
+    color: 'dark:bg-blue-900 dark:text-blue-300',
+  },
+  eslint: {
+    icon: <i className="devicon-eslint-original colored"></i>,
+    color: 'dark:bg-violet-500 dark:text-violet-300',
+  },
 }
 
 function mapTextToBadgeStyle(text: string): BadgeStyle | undefined {

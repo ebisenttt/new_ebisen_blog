@@ -31,7 +31,7 @@ export default function Index({ allPosts }: Props) {
   })
   const allTags = Array.from(new Set(allPosts.flatMap((post) => post.tag)))
     .filter((tag): tag is string => typeof tag === 'string')
-    .sort((a, b) => tagCount[a] - tagCount[b])
+    .sort((a, b) => -(tagCount[a] - tagCount[b]))
 
   return (
     <>

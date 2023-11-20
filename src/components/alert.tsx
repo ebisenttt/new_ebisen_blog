@@ -4,9 +4,9 @@ interface Props {
   preview?: boolean
 }
 
-const Alert = ({ preview }: Props) => {
+const Alert = ({ preview = false }: Props) => {
   // 特に表示したいアラートはないのでpreview時のみ表示する．
-  if (preview === undefined || !preview) {
+  if (!preview) {
     return null
   }
 
