@@ -5,7 +5,7 @@
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc",
-    "lint:fix": "eslint --fix 'src/components/**/*.{ts,tsx}'"
+    "lint:fix": "eslint --fix 'src/**/*.{ts,tsx}'"
   },
   "dependencies": {
     "@remark-embedder/core": "^3.0.2",

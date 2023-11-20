@@ -1,19 +1,21 @@
+import { useEffect } from 'react'
+
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import Head from 'next/head'
-import { useEffect } from 'react'
-import Prism from 'prismjs'
 
-import Container from '../../components/container'
-import PostBody from '../../components/post-body'
-import Header from '../../components/header'
-import PostHeader from '../../components/post-header'
-import Layout from '../../components/layout'
-import { getPostBySlug, getAllPosts } from '../../lib/api'
-import PostTitle from '../../components/post-title'
-import markdownToHtml from '../../lib/markdownToHtml'
-import type PostType from '../../interfaces/post'
-import { TITLE } from '../../lib/constants'
+import Prism from 'prismjs'
+import Container from 'components/container'
+import PostBody from 'components/post-body'
+import Header from 'components/header'
+import PostHeader from 'components/post-header'
+import Layout from 'components/layout'
+import { getPostBySlug, getAllPosts } from 'lib/api'
+import PostTitle from 'components/post-title'
+import markdownToHtml from 'lib/markdownToHtml'
+import { TITLE } from 'lib/constants'
+
+import type PostType from 'interfaces/post'
 
 interface Props {
   post: PostType

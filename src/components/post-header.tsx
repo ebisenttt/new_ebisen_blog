@@ -1,6 +1,6 @@
-import DateFormatter from './date-formatter'
-import PostTitle from './post-title'
-import Badge from './badge'
+import DateFormatter from 'components/date-formatter'
+import PostTitle from 'components/post-title'
+import Badge from 'components/badge'
 
 interface Props {
   title: string
