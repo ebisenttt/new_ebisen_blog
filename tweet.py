@@ -4,8 +4,10 @@ import sys
 import datetime
 from dotenv import load_dotenv
 
+BASE_URL = 'https://ebisen.com/posts'
+
 def twitter_authorize():
-  load_dotenv('.env.local') # テスト用
+  # load_dotenv('.env.local') # テスト用
 
   consumer_key = os.environ.get('TWITTER_CONSUMER_KEY')
   consumer_secret = os.environ.get('TWITTER_CONSUMER_SECRET')
@@ -24,10 +26,13 @@ def twitter_authorize():
   return client
 
 def tweet():
-  # filename = sys.argv[1]
-  client = twitter_authorize()
+  filename = sys.argv[1]
+  url = f"{BASE_URL}/{filename}"
+  tweet_text = "記事を投稿しました\n"
+  + f"{datetime.datetime.now().strftime('%Y/%m/%d %H:%M:%S')}\n"
+  + url
 
-  tweet_text = "テスト投稿です" + datetime.datetime.now().strftime('%Y/%m/%d %H:%M:%S')
+  client = twitter_authorize()
   result = client.create_tweet(text = tweet_text)
   print(result)
 
