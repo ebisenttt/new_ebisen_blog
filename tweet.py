@@ -28,9 +28,9 @@ def twitter_authorize():
 def tweet():
   filename = sys.argv[1]
   url = f"{BASE_URL}/{filename}"
-  tweet_text = "記事を投稿しました\n"
-  + f"{datetime.datetime.now().strftime('%Y/%m/%d %H:%M:%S')}\n"
-  + url
+  tweet_text = f"記事を投稿しました\n"\
+    + f"{datetime.datetime.now().strftime('%Y/%m/%d %H:%M:%S')}\n"\
+    + url
 
   client = twitter_authorize()
   result = client.create_tweet(text = tweet_text)
