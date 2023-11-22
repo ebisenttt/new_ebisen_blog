@@ -2,12 +2,12 @@ import os
 import tweepy
 import sys
 import datetime
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 
 BASE_URL = 'https://ebisen.com/posts'
 
 def twitter_authorize():
-  # load_dotenv('.env.local') # テスト用
+  load_dotenv('.env.local') # テスト用
 
   consumer_key = os.environ.get('TWITTER_CONSUMER_KEY')
   consumer_secret = os.environ.get('TWITTER_CONSUMER_SECRET')
@@ -26,7 +26,8 @@ def twitter_authorize():
   return client
 
 def tweet():
-  filename = sys.argv[1]
+  filename = "test_post_7.md"
+  # filename = sys.argv[1]
   url = f"{BASE_URL}/{filename}"
   tweet_text = f"記事を投稿しました\n"\
     + f"{datetime.datetime.now().strftime('%Y/%m/%d %H:%M:%S')}\n"\
