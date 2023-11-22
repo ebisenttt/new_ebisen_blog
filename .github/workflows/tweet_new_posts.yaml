@@ -2,13 +2,13 @@ name: Tweet New Posts
 
 on:
   pull_request:
-      types:
-        - closed
-      branches:
-        - feature/twitter-api
-        - feature/twitter-api-test
-      paths:
-        - '_posts/**'
+    types:
+      - closed
+    branches:
+      - feature/twitter-api
+      - feature/twitter-api-test
+    paths:
+      - '_posts/**'
 
 jobs:
   tweet:
@@ -24,11 +24,12 @@ jobs:
           python-version: '3.x'
 
       - name: Install dependencies
-        run: pip install tweepy
-        run: pip install os
-        run: pip install sys
-        run: pip install datetime
-        run: pip install python-dotenv
+        run: |
+          pip install tweepy
+          pip install os
+          pip install sys
+          pip install datetime
+          pip install python-dotenv
 
       - name: Tweet
         env:
