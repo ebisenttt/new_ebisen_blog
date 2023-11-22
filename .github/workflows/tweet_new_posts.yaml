@@ -1,12 +1,14 @@
 name: Tweet New Posts
 
 on:
-  pull_request:closed:
-    branches:
-      - feature/twitter-api
-      - feature/twitter-api-test
-    paths:
-      - '_posts/**'
+  pull_request:
+      types:
+        - closed
+      branches:
+        - feature/twitter-api
+        - feature/twitter-api-test
+      paths:
+        - '_posts/**'
 
 jobs:
   tweet:
@@ -35,6 +37,6 @@ jobs:
           TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
           TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
         run: |
-        for filename in $(git diff origin/feature/twitter-api-test origin/feature/twitter-api --name-only --diff-filter=A -- '*.md') ; do
-          python tweet.py $filename
-        done
+          for filename in $(git diff origin/feature/twitter-api-test origin/feature/twitter-api --name-only --diff-filter=A -- '*.md') ; do
+            python tweet.py $filename
+          done
