@@ -26,10 +26,6 @@ jobs:
       - name: Install dependencies
         run: |
           pip install tweepy
-          pip install os
-          pip install sys
-          pip install datetime
-          pip install python-dotenv
 
       - name: Tweet
         env:

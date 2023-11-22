@@ -2,7 +2,7 @@ import os
 import tweepy
 import sys
 import datetime
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
 BASE_URL = 'https://ebisen.com/posts'
 
