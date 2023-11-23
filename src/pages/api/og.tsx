@@ -1,5 +1,3 @@
-import { type NextRequest } from 'next/server'
-
 import { ImageResponse } from '@vercel/og'
 import { TITLE as BLOG_TITLE } from 'lib/constants'
 
@@ -7,12 +5,13 @@ export const config = {
   runtime: 'edge',
 }
 
-export default async function handler(req: NextRequest) {
-  const { searchParams } = new URL(req.url)
-  const isTitleExist = searchParams.has('title')
-  const text = isTitleExist
-    ? searchParams.get('title') + '\n' + BLOG_TITLE
-    : BLOG_TITLE
+interface Props {
+  params: { slug: string }
+}
+
+export default async function handler({ params }: Props) {
+  const slug = params.slug
+  const text = slug === null ? BLOG_TITLE : slug + '\n' + BLOG_TITLE
 
   return new ImageResponse(
     (
