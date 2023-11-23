@@ -23,12 +23,18 @@ interface Props {
   preview?: boolean
 }
 
+// htmlからタグを除去してテキストのみを取得する
+function getRawTextsFromHtml(html: string) {
+  return html.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, '')
+}
+
 export default function Post({ post, preview }: Props) {
   const router = useRouter()
   const title = `${post.title} | ${TITLE}`
   if (!router.isFallback && post?.slug === undefined) {
     return <ErrorPage statusCode={404} />
   }
+  const rawContentTexts = getRawTextsFromHtml(post.content)
 
   useEffect(() => {
     Prism.highlightAll()
@@ -45,7 +51,7 @@ export default function Post({ post, preview }: Props) {
             <Head>
               <title>{title}</title>
               <meta name="keywords" content={post.tag?.join(',')} />
-              <meta name="description" content={post.content} />
+              <meta name="description" content={rawContentTexts} />
               <meta property="og:title" content={title} />
               <meta property="og:description" content={post.content} />
               <meta property="og:image" content={HOME_OG_IMAGE_URL} />
@@ -55,7 +61,7 @@ export default function Post({ post, preview }: Props) {
               />
               <meta property="twitter:card" content="summary_large_image" />
               <meta property="twitter:title" content={title} />
-              <meta property="twitter:description" content={post.content} />
+              <meta property="twitter:description" content={rawContentTexts} />
               <meta property="twitter:image" content={post.content} />
             </Head>
             <article className="mx-auto mb-32 prose dark:prose-invert">
