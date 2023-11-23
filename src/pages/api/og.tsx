@@ -18,13 +18,15 @@ export default async function handler(req: NextRequest) {
     (
       <div
         style={{
-          fontSize: 48,
           width: '100%',
           height: '100%',
           display: 'flex',
           textAlign: 'center',
           alignItems: 'center',
           justifyContent: 'center',
+          fontSize: 48,
+          color: '#111827', // text-slate-900
+          backgroundColor: '#F8FAFC', // bg-slate-50
         }}
       >
         {text}
