@@ -54,6 +54,7 @@ export default function Post({ post, preview }: Props) {
               <meta name="keywords" content={post.tag?.join(',')} />
               <meta name="description" content={rawContentTexts} />
               <meta property="og:title" content={title} />
+              <meta property="og:type" content="article" />
               <meta property="og:description" content={rawContentTexts} />
               <meta property="og:image" content={ogImageUrl} />
               <meta
