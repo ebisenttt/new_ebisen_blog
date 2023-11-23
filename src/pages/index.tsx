@@ -71,7 +71,7 @@ export default function Index({ allPosts }: Props) {
           <meta property="twitter:card" content="summary_large_image" />
           <meta property="twitter:title" content={TITLE} />
           <meta property="twitter:description" content={DESCRIPTION_TEXT} />
-          <meta property="twitter:image" content={DESCRIPTION_TEXT} />
+          <meta property="twitter:image" content={HOME_OG_IMAGE_URL} />
         </Head>
         <Container>
           <Intro />

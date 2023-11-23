@@ -42,23 +42,23 @@ export default function Post({ post, preview }: Props) {
           <PostTitle>Loading…</PostTitle>
         ) : (
           <>
+            <Head>
+              <title>{title}</title>
+              <meta name="keywords" content={post.tag?.join(',')} />
+              <meta name="description" content={post.content} />
+              <meta property="og:title" content={title} />
+              <meta property="og:description" content={post.content} />
+              <meta property="og:image" content={HOME_OG_IMAGE_URL} />
+              <meta
+                property="og:url"
+                content={process.env.NEXT_PUBLIC_VERCEL_URL}
+              />
+              <meta property="twitter:card" content="summary_large_image" />
+              <meta property="twitter:title" content={title} />
+              <meta property="twitter:description" content={post.content} />
+              <meta property="twitter:image" content={post.content} />
+            </Head>
             <article className="mx-auto mb-32 prose dark:prose-invert">
-              <Head>
-                <title>{title}</title>
-                <meta name="keywords" content={post.tag?.join(',')} />
-                <meta name="description" content={post.content} />
-                <meta property="og:title" content={TITLE} />
-                <meta property="og:description" content={post.content} />
-                <meta property="og:image" content={HOME_OG_IMAGE_URL} />
-                <meta
-                  property="og:url"
-                  content={process.env.NEXT_PUBLIC_VERCEL_URL}
-                />
-                <meta property="twitter:card" content="summary_large_image" />
-                <meta property="twitter:title" content={title} />
-                <meta property="twitter:description" content={post.content} />
-                <meta property="twitter:image" content={post.content} />
-              </Head>
               <PostHeader title={post.title} date={post.date} tag={post.tag} />
               <PostBody content={post.content} />
             </article>
