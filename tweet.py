@@ -27,7 +27,7 @@ def twitter_authorize():
 
 def tweet():
   filename = sys.argv[1]
-  path = filename.replace('.md','')
+  path = filename.replace('_posts/','').replace('.md','')
   url = f"{BASE_URL}/{path}"
   tweet_text = f"記事を投稿しました\n"\
     + f"{datetime.datetime.now().strftime('%Y/%m/%d %H:%M:%S')}\n"\
