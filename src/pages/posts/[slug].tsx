@@ -35,6 +35,7 @@ export default function Post({ post, preview }: Props) {
     return <ErrorPage statusCode={404} />
   }
   const rawContentTexts = getRawTextsFromHtml(post.content)
+  const ogImageUrl = `${HOME_OG_IMAGE_URL}?title=${title}`
 
   useEffect(() => {
     Prism.highlightAll()
@@ -54,7 +55,7 @@ export default function Post({ post, preview }: Props) {
               <meta name="description" content={rawContentTexts} />
               <meta property="og:title" content={title} />
               <meta property="og:description" content={post.content} />
-              <meta property="og:image" content={HOME_OG_IMAGE_URL} />
+              <meta property="og:image" content={ogImageUrl} />
               <meta
                 property="og:url"
                 content={process.env.NEXT_PUBLIC_VERCEL_URL}
@@ -62,7 +63,7 @@ export default function Post({ post, preview }: Props) {
               <meta property="twitter:card" content="summary_large_image" />
               <meta property="twitter:title" content={title} />
               <meta property="twitter:description" content={rawContentTexts} />
-              <meta property="twitter:image" content={post.content} />
+              <meta property="twitter:image" content={ogImageUrl} />
             </Head>
             <article className="mx-auto mb-32 prose dark:prose-invert">
               <PostHeader title={post.title} date={post.date} tag={post.tag} />
