@@ -12,7 +12,7 @@ on:
 jobs:
   tweet:
     runs-on: ubuntu-latest
-    environment: Preview
+    environment: Production
 
     steps:
       - name: Set up Python
