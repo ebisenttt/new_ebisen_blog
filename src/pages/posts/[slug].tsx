@@ -13,7 +13,7 @@ import Layout from 'components/layout'
 import { getPostBySlug, getAllPosts } from 'lib/api'
 import PostTitle from 'components/post-title'
 import markdownToHtml from 'lib/markdownToHtml'
-import { TITLE } from 'lib/constants'
+import { TITLE, HOME_OG_IMAGE_URL } from 'lib/constants'
 
 import type PostType from 'interfaces/post'
 
@@ -47,6 +47,17 @@ export default function Post({ post, preview }: Props) {
                 <title>{title}</title>
                 <meta name="keywords" content={post.tag?.join(',')} />
                 <meta name="description" content={post.content} />
+                <meta property="og:title" content={TITLE} />
+                <meta property="og:description" content={post.content} />
+                <meta property="og:image" content={HOME_OG_IMAGE_URL} />
+                <meta
+                  property="og:url"
+                  content={process.env.NEXT_PUBLIC_VERCEL_URL}
+                />
+                <meta property="twitter:card" content="summary_large_image" />
+                <meta property="twitter:title" content={title} />
+                <meta property="twitter:description" content={post.content} />
+                <meta property="twitter:image" content={post.content} />
               </Head>
               <PostHeader title={post.title} date={post.date} tag={post.tag} />
               <PostBody content={post.content} />

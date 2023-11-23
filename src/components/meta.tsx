@@ -1,7 +1,5 @@
 import Head from 'next/head'
 
-import { HOME_OG_IMAGE_URL } from 'lib/constants'
-
 const Meta = () => {
   return (
     <Head>
@@ -33,16 +31,6 @@ const Meta = () => {
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-      <meta property="og:title" content="Link preview title" />
-      <meta property="og:image" content={HOME_OG_IMAGE_URL} />
-      <meta property="og:description" content="Link preview description" />
-      <meta property="og:url" content="Canonical link preview URL" />
-      <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:title" content="Twitter link preview title" />
-      <meta
-        property="twitter:description"
-        content="Twitter link preview description"
-      />
     </Head>
   )
 }
