@@ -46,6 +46,7 @@ export default function Post({ post, preview }: Props) {
               <Head>
                 <title>{title}</title>
                 <meta name="keywords" content={post.tag?.join(',')} />
+                <meta name="description" content={post.content} />
               </Head>
               <PostHeader title={post.title} date={post.date} tag={post.tag} />
               <PostBody content={post.content} />

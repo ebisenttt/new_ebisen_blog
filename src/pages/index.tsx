@@ -39,6 +39,10 @@ export default function Index({ allPosts }: Props) {
       <Layout>
         <Head>
           <title>{TITLE}</title>
+          <meta
+            name="description"
+            content="ひよっこエンジニアの備忘録. 個人開発のつまずきや作業ログなどを気軽に投稿します."
+          />
         </Head>
         <Container>
           <Intro />
