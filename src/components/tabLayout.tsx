@@ -1,4 +1,5 @@
 import { type ReactElement, useState } from 'react'
+
 interface TabLayoutProps {
   menuTitles: string[]
   bodies: ReactElement[]

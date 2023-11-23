@@ -1,8 +1,9 @@
-import type Post from 'interfaces/post'
-import Posts from 'components/posts'
 import { useState } from 'react'
 
-import Badge from './badge'
+import Posts from 'components/posts'
+import Badge from 'components/badge'
+
+import type Post from 'interfaces/post'
 
 interface TagsProps {
   allTags: string[]

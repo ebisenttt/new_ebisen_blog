@@ -30,22 +30,27 @@
     "import/order": [
       "error",
       {
-        "groups": [
-          "builtin",
-          "external",
-          "internal",
-          "parent",
-          "sibling",
-          "index"
-        ],
+        "groups": ["builtin", "external", "internal", "index", "type"],
         "newlines-between": "always",
         "pathGroups": [
           {
             "pattern": "react",
             "group": "external",
             "position": "before"
-          }
-        ]
+          },
+          { "pattern": "next/*", "group": "external", "position": "before" }
+        ],
+        "pathGroupsExcludedImportTypes": ["react", "next"],
+        "alphabetize": {
+          "orderImportKind": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ],
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": ["../", "./"]
       }
     ]
   }
