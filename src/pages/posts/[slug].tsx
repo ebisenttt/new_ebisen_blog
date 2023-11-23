@@ -25,7 +25,7 @@ interface Props {
 
 // htmlからタグを除去してテキストのみを取得する
 function getRawTextsFromHtml(html: string) {
-  return html.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, '')
+  return html.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, '').slice(0, 100)
 }
 
 export default function Post({ post, preview }: Props) {
@@ -54,7 +54,7 @@ export default function Post({ post, preview }: Props) {
               <meta name="keywords" content={post.tag?.join(',')} />
               <meta name="description" content={rawContentTexts} />
               <meta property="og:title" content={title} />
-              <meta property="og:description" content={post.content} />
+              <meta property="og:description" content={rawContentTexts} />
               <meta property="og:image" content={ogImageUrl} />
               <meta
                 property="og:url"
