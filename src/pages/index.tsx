@@ -62,7 +62,6 @@ export default function Index({ allPosts }: Props) {
           <meta name="description" content={DESCRIPTION_TEXT} />
           <meta name="keywords" content={KEYWORDS.join(',')} />
           <meta property="og:title" content={TITLE} />
-          <meta property="og:type" content="blog" />
           <meta property="og:description" content={DESCRIPTION_TEXT} />
           <meta property="og:image" content={HOME_OG_IMAGE_URL} />
           <meta
