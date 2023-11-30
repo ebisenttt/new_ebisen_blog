@@ -4,7 +4,7 @@ import sys
 import datetime
 # from dotenv import load_dotenv テスト用
 
-BASE_URL = 'https://ebisen.com/posts'
+BASE_URL = 'https://ebisenttt.com/posts'
 
 def twitter_authorize():
   # load_dotenv('.env.local') # テスト用
