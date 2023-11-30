@@ -39,9 +39,10 @@ tag:
 
 [Twitter Developerの登録手順](https://zenn.dev/harumin/articles/753e755fc245ae)
 
-## Twitte Developerの設定
+## Twitter Developerの設定
 
 「Setting」タブの「User authentication settings」の「Edit」ボタンを押すと，諸々の設定ができます．いくつか重要な点があるので書いておきます．
+![Settingタブ](/public/posts/githubactions_twitterapi_og_0/twitter_dev.png)
 
 ### APP Permission
 
@@ -56,6 +57,8 @@ APP Permissionは **Read and write** にしておきます．デフォルトの 
 ### APP Info
 
 なんでもいいです．外部公開したWebアプリならこの辺の設定により，ユーザーの導線が変わりますが，今回は自分でポストするだけなので，必須項目が埋まっていればいいです．
+
+![Edit画面](/public/posts/githubactions_twitterapi_og_0/twitter_dev_edit.png)
 
 ## Tokenの取得
 
