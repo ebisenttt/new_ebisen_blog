@@ -4,10 +4,10 @@
     "es2021": true
   },
   "extends": [
-    "standard-with-typescript",
     "plugin:react/recommended",
     "prettier",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@next/next/recommended"
   ],
   "plugins": ["unused-imports", "import"],
   "parserOptions": {
