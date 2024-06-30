@@ -5,7 +5,17 @@
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc",
-    "lint:fix": "eslint --fix 'src/**/*.{ts,tsx}'"
+    "lint": "eslint 'src/**/*.{ts,tsx}'"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "lint-staged && pnpm build"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint && typecheck"
+    ]
   },
   "dependencies": {
     "@remark-embedder/core": "^3.0.2",
@@ -42,6 +52,8 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-unused-imports": "^3.0.0",
     "gts": "^5.3.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.7",
     "postcss": "^8.4.14",
     "prettier": "^3.0.3",
     "tailwindcss": "^3.1.4",
