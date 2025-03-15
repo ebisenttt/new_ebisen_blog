@@ -6,29 +6,12 @@ on:
       - develop
 
 jobs:
-  create-pr:
+  create-release-pr:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Get commit messages
-        id: commits
-        run: |
-          echo "::set-output name=messages::$(git log main..develop --pretty=format:'%h - %s')"
-
-      - name: Create or Update Pull Request
-        uses: peter-evans/create-pull-request@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          base: main
-          head: develop
-          title: 'Release: Merge develop into main'
-          body: |
-            This PR merges changes from develop into main.
-
-            ## Commits
-            ${{ steps.commits.outputs.messages }}
-          draft: false
-          update-existing-pr: true
+      - uses: actions/checkout@v2
+      - name: Create release pr
+        run: gh pr create -B "main" -t "release" -b ""
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
