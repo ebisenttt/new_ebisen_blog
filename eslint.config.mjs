@@ -1,80 +1,103 @@
-import { defineConfig } from "eslint/config";
-import unusedImports from "eslint-plugin-unused-imports";
-import _import from "eslint-plugin-import";
-import { fixupPluginRules } from "@eslint/compat";
-import globals from "globals";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-import js from "@eslint/js";
-import { FlatCompat } from "@eslint/eslintrc";
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+import { defineConfig } from 'eslint/config'
+import unusedImports from 'eslint-plugin-unused-imports'
+import _import from 'eslint-plugin-import'
+import globals from 'globals'
+import js from '@eslint/js'
+import { FlatCompat } from '@eslint/eslintrc'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 const compat = new FlatCompat({
-    baseDirectory: __dirname,
-    recommendedConfig: js.configs.recommended,
-    allConfig: js.configs.all
-});
+  baseDirectory: __dirname,
+  recommendedConfig: js.configs.recommended,
+  allConfig: js.configs.all,
+})
 
-export default defineConfig([{
+export default defineConfig([
+  {
     extends: compat.extends(
-        "plugin:react/recommended",
-        "prettier",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:@next/next/recommended",
+      'plugin:react/recommended',
+      'prettier',
+      'plugin:@typescript-eslint/recommended',
+      'plugin:@next/next/recommended',
     ),
 
     plugins: {
-        "unused-imports": unusedImports,
-        import: fixupPluginRules(_import),
+      'unused-imports': unusedImports,
+      import: _import,
     },
 
     languageOptions: {
-        globals: {
-            ...globals.browser,
-        },
+      globals: {
+        ...globals.browser,
+      },
 
-        ecmaVersion: "latest",
-        sourceType: "script",
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+    },
+
+    settings: {
+      react: {
+        version: 'detect',
+      },
     },
 
     rules: {
-        "react/react-in-jsx-scope": "off",
-        "@typescript-eslint/no-unused-vars": "error",
-        "@typescript-eslint/explicit-function-return-type": "off",
-        "unused-imports/no-unused-imports": "error",
+      'react/react-in-jsx-scope': 'off',
+      '@typescript-eslint/no-unused-vars': 'error',
+      '@typescript-eslint/explicit-function-return-type': 'off',
+      'unused-imports/no-unused-imports': 'error',
 
-        "unused-imports/no-unused-vars": ["warn", {
-            vars: "all",
-            varsIgnorePattern: "^_",
-            args: "after-used",
-            argsIgnorePattern: "^_",
-        }],
+      'unused-imports/no-unused-vars': [
+        'warn',
+        {
+          vars: 'all',
+          varsIgnorePattern: '^_',
+          args: 'after-used',
+          argsIgnorePattern: '^_',
+        },
+      ],
 
-        "import/order": ["error", {
-            groups: ["builtin", "external", "internal", "index", "type"],
-            "newlines-between": "always",
+      'import/order': [
+        'error',
+        {
+          groups: ['builtin', 'external', 'internal', 'index', 'type'],
+          'newlines-between': 'always',
 
-            pathGroups: [{
-                pattern: "react",
-                group: "external",
-                position: "before",
-            }, {
-                pattern: "next/*",
-                group: "external",
-                position: "before",
-            }],
-
-            pathGroupsExcludedImportTypes: ["react", "next"],
-
-            alphabetize: {
-                orderImportKind: "asc",
-                caseInsensitive: true,
+          pathGroups: [
+            {
+              pattern: 'react',
+              group: 'external',
+              position: 'before',
             },
-        }],
+            {
+              pattern: 'next/*',
+              group: 'external',
+              position: 'before',
+            },
+          ],
 
-        "no-restricted-imports": ["error", {
-            patterns: ["../", "./"],
-        }],
+          pathGroupsExcludedImportTypes: ['react', 'next'],
+
+          alphabetize: {
+            orderImportKind: 'asc',
+            caseInsensitive: true,
+          },
+        },
+      ],
+
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: ['../', './'],
+        },
+      ],
+
+      '@next/next/no-duplicate-head': 'off', // 次のエラーが発生するため一時的にoff: context.getAncestor() is not a function
+      '@next/next/no-page-custom-font': 'off', // 次のエラーが発生するため一時的にoff: context.getAncestor() is not a function
     },
-}]);
+  },
+])
