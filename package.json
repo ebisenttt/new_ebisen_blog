@@ -5,7 +5,8 @@
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint 'src/**/*.{ts,tsx}'"
+    "lint": "eslint 'src/**/*.{ts,tsx}'",
+    "prepare": "husky"
   },
   "husky": {
     "hooks": {
@@ -31,8 +32,8 @@
     "prismjs": "^1.30.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "remark": "^14.0.3",
-    "remark-gfm": "^3.0.1",
+    "remark": "^15.0.1",
+    "remark-gfm": "^4.0.1",
     "remark-html": "^15.0.2",
     "vercel": "^32.7.2"
   },
