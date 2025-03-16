@@ -1,0 +1,80 @@
+import { defineConfig } from "eslint/config";
+import unusedImports from "eslint-plugin-unused-imports";
+import _import from "eslint-plugin-import";
+import { fixupPluginRules } from "@eslint/compat";
+import globals from "globals";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import js from "@eslint/js";
+import { FlatCompat } from "@eslint/eslintrc";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const compat = new FlatCompat({
+    baseDirectory: __dirname,
+    recommendedConfig: js.configs.recommended,
+    allConfig: js.configs.all
+});
+
+export default defineConfig([{
+    extends: compat.extends(
+        "plugin:react/recommended",
+        "prettier",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@next/next/recommended",
+    ),
+
+    plugins: {
+        "unused-imports": unusedImports,
+        import: fixupPluginRules(_import),
+    },
+
+    languageOptions: {
+        globals: {
+            ...globals.browser,
+        },
+
+        ecmaVersion: "latest",
+        sourceType: "script",
+    },
+
+    rules: {
+        "react/react-in-jsx-scope": "off",
+        "@typescript-eslint/no-unused-vars": "error",
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "unused-imports/no-unused-imports": "error",
+
+        "unused-imports/no-unused-vars": ["warn", {
+            vars: "all",
+            varsIgnorePattern: "^_",
+            args: "after-used",
+            argsIgnorePattern: "^_",
+        }],
+
+        "import/order": ["error", {
+            groups: ["builtin", "external", "internal", "index", "type"],
+            "newlines-between": "always",
+
+            pathGroups: [{
+                pattern: "react",
+                group: "external",
+                position: "before",
+            }, {
+                pattern: "next/*",
+                group: "external",
+                position: "before",
+            }],
+
+            pathGroupsExcludedImportTypes: ["react", "next"],
+
+            alphabetize: {
+                orderImportKind: "asc",
+                caseInsensitive: true,
+            },
+        }],
+
+        "no-restricted-imports": ["error", {
+            patterns: ["../", "./"],
+        }],
+    },
+}]);
