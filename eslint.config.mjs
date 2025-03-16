@@ -18,6 +18,17 @@ const compat = new FlatCompat({
 
 export default defineConfig([
   {
+    ignores: [
+      'node_modules',
+      '.next',
+      '.vercel',
+      'public',
+      '_drafts',
+      '_posts',
+      'tailwind.config.js',
+    ],
+  },
+  {
     extends: compat.extends(
       'plugin:react/recommended',
       'prettier',
