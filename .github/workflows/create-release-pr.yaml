@@ -11,7 +11,17 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Create release pr
+
+      - name: Check for existing PR with title "release"
+        id: check_pr
+        run: |
+          gh pr list --base main --head develop --search "release in:title" --json title --jq '. | length'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true
+
+      - name: Create release PR
+        if: steps.check_pr.outputs.result == '0'
         run: gh pr create -B "main" -t "release" -b ""
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
