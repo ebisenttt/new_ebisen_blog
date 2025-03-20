@@ -20,8 +20,10 @@
   "exclude": ["node_modules"],
   "include": [
     "next-env.d.ts",
+    "new-types.d.ts",
     "src/**/*.ts",
     "src/**/*.tsx",
+    "src/**/*.css",
     "_drafts/**/*",
     "tailwind.config.js",
     "postcss.config.js"
