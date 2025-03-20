@@ -3,7 +3,8 @@ import html from 'remark-html'
 import gfm from 'remark-gfm'
 import parse from 'remark-parse'
 import remarkEmbedder from '@remark-embedder/core'
-import { CodePenTransformer } from 'lib/embedInMarkdown'
+
+import { CodePenTransformer } from '@/lib/embedInMarkdown'
 
 export default async function markdownToHtml(markdown: string) {
   const result = await unified()
