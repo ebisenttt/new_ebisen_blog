@@ -202,4 +202,7 @@ const config: Config = {
   // watchman: true,
 }
 
-export default createJestConfig(config)
+export default {
+  ...createJestConfig(config)(),
+  transformIgnorePatterns: ['/node_modules/.pnpm/(?!unified)'],
+}
