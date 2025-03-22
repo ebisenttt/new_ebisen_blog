@@ -10,6 +10,8 @@ describe('markdownToHtml', () => {
       '##### this is h5',
       '###### this is h6',
       'this is a paragraph',
+      '',
+      'https://codepen.io/ebisenttt/pen/gOqXMrR',
     ].join('\n')
     const result = await markdownToHtml(markdown)
     expect(result).toContain('<h1>Hello, world!</h1>')
@@ -19,5 +21,8 @@ describe('markdownToHtml', () => {
     expect(result).toContain('<h5>this is h5</h5>')
     expect(result).toContain('<h6>this is h6</h6>')
     expect(result).toContain('<p>this is a paragraph</p>')
+    expect(result).toContain(
+      '<iframe src="https://codepen.io/ebisenttt/embed/gOqXMrR',
+    )
   })
 })
