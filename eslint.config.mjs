@@ -26,6 +26,7 @@ export default defineConfig([
       '_drafts',
       '_posts',
       'tailwind.config.js',
+      'coverage',
     ],
   },
   {
