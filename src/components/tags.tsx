@@ -1,9 +1,10 @@
 import { useState } from 'react'
 
-import Posts from 'components/posts'
-import Badge from 'components/badge'
 
-import type Post from 'interfaces/post'
+import Posts from '@/components/posts'
+import Badge from '@/components/badge'
+
+import type Post from '@/interfaces/post'
 
 interface TagsProps {
   allTags: string[]
@@ -13,8 +14,8 @@ interface TagsProps {
 export const Tags = ({ allTags, allPosts }: TagsProps) => {
   const [selectedTag, setSelectedTag] = useState<string>(allTags[0])
 
-  const filteredPosts = allPosts.filter(
-    (post) => post.tag?.includes(selectedTag),
+  const filteredPosts = allPosts.filter((post) =>
+    post.tag?.includes(selectedTag),
   )
   const notSelectedTagButtonClass = 'opacity-50'
 

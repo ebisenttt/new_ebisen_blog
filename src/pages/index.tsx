@@ -1,16 +1,17 @@
 import Head from 'next/head'
 
-import { Profile } from 'components/profile'
-import { Tags } from 'components/tags'
-import Container from 'components/container'
-import Posts from 'components/posts'
-import Intro from 'components/intro'
-import Layout from 'components/layout'
-import { TabLayout } from 'components/tabLayout'
-import { getAllPosts } from 'lib/api'
-import { TITLE, HOME_OG_IMAGE_URL } from 'lib/constants'
 
-import type Post from 'interfaces/post'
+import { TITLE, HOME_OG_IMAGE_URL } from '@/constants'
+import { getAllPosts } from '@/lib/api'
+import { Profile } from '@/components/profile'
+import { Tags } from '@/components/tags'
+import Container from '@/components/container'
+import Posts from '@/components/posts'
+import Intro from '@/components/intro'
+import Layout from '@/components/layout'
+import { TabLayout } from '@/components/tabLayout'
+
+import type Post from '@/interfaces/post'
 
 const MENU_TITLES = ['Posts', 'Tags', 'Me']
 const DESCRIPTION_TEXT =

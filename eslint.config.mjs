@@ -26,6 +26,7 @@ export default defineConfig([
       '_drafts',
       '_posts',
       'tailwind.config.js',
+      'coverage',
     ],
   },
   {
@@ -54,6 +55,11 @@ export default defineConfig([
       react: {
         version: 'detect',
       },
+      'import/resolver': {
+        typescript: {
+          project: './tsconfig.json',
+        },
+      },
     },
 
     rules: {
@@ -72,6 +78,7 @@ export default defineConfig([
         },
       ],
 
+      'import/no-unresolved': 'error',
       'import/order': [
         'error',
         {

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { TITLE } from 'lib/constants'
+import { TITLE } from '@/constants'
 
 const Header = () => {
   return (
