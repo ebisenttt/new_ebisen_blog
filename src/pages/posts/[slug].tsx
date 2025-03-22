@@ -7,7 +7,6 @@ import Head from 'next/head'
 
 import Prism from 'prismjs'
 
-import type PostType from '@/interfaces/post'
 
 import { getPostBySlug, getAllPosts } from '@/lib/api'
 import markdownToHtml from '@/lib/markdownToHtml'
@@ -18,6 +17,8 @@ import Header from '@/components/header'
 import PostHeader from '@/components/post-header'
 import Layout from '@/components/layout'
 import PostTitle from '@/components/post-title'
+
+import type PostType from '@/interfaces/post'
 
 interface Props {
   post: PostType

@@ -55,6 +55,11 @@ export default defineConfig([
       react: {
         version: 'detect',
       },
+      'import/resolver': {
+        typescript: {
+          project: './tsconfig.json',
+        },
+      },
     },
 
     rules: {
@@ -73,6 +78,7 @@ export default defineConfig([
         },
       ],
 
+      'import/no-unresolved': 'error',
       'import/order': [
         'error',
         {

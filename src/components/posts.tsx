@@ -1,6 +1,7 @@
+import PostPreview from '@/components/post-preview'
+
 import type Post from '@/interfaces/post'
 
-import PostPreview from '@/components/post-preview'
 
 interface Props {
   posts: Post[]

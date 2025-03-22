@@ -1,6 +1,5 @@
 import Head from 'next/head'
 
-import type Post from '@/interfaces/post'
 
 import { TITLE, HOME_OG_IMAGE_URL } from '@/constants'
 import { getAllPosts } from '@/lib/api'
@@ -11,6 +10,8 @@ import Posts from '@/components/posts'
 import Intro from '@/components/intro'
 import Layout from '@/components/layout'
 import { TabLayout } from '@/components/tabLayout'
+
+import type Post from '@/interfaces/post'
 
 const MENU_TITLES = ['Posts', 'Tags', 'Me']
 const DESCRIPTION_TEXT =

@@ -55,6 +55,7 @@
     "babel-plugin-prismjs": "^2.1.0",
     "eslint": "^9.22.0",
     "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-typescript": "^4.2.2",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-n": "^16.6.2",
     "eslint-plugin-promise": "^6.6.0",
