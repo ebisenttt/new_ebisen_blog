@@ -35,9 +35,9 @@ node_modules
    ├─ .pnpm
    │     ├─ package_a
    │     │     └─ node_modules
-   │     │           └─ package_b // .pnpm/package_bを指す
+   │     │           └─ package_b // .pnpm/package_bを参照する
    │     └─ package_b
-   └─ package_a // .pnpm/package_aを指す
+   └─ package_a // .pnpm/package_aを参照する
 ```
 
 ## `Jest`の`transformIgnorePatterns`
@@ -45,8 +45,8 @@ node_modules
 JestはCommonJSで書かれており、ESMAScriptで書かれたコードをテストする際にはCommonJSにトランスパイルされます。ただし、デフォルトで`node_modules`配下はトランスパイルの対象から除外されています。つまり、`node_modules`配下にECMAScriptで書かれたモジュールが存在する場合はエラーが起きます。これを回避するために設定ファイルでトランスパイルの対象から除外するリスト`transformIgnorePatterns`を上書きする必要があります。Jestはこのリストの文字列を`RegExp`オブジェクトの`test`メソッドを使用してパスが一致するか判定し、一致する場合はトランスパイルしません。
 
 ```ts
-// /node_modules/some-esm-package はtransformして欲しい
-// /node_modules配下の他のディレクトリはtransformしないで欲しい
+// /node_modules/some-esm-package はトランスパイルして欲しい
+// /node_modules配下の他のディレクトリはトランスパイルしないで欲しい
 transformIgnorePatterns: ['/node_modules/(?!some-esm-package)']
 ```
 
