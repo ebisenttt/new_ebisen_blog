@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react'
 
 import { useRouter } from 'next/router'
@@ -6,7 +5,6 @@ import ErrorPage from 'next/error'
 import Head from 'next/head'
 
 import Prism from 'prismjs'
-
 
 import { getPostBySlug, getAllPosts } from '@/lib/api'
 import markdownToHtml from '@/lib/markdownToHtml'
@@ -49,7 +47,7 @@ export default function Post({ post, preview }: Props) {
       <Container>
         <Header />
         {router.isFallback ? (
-          <PostTitle>Loading…</PostTitle>
+          <PostTitle title={'Loading…'} />
         ) : (
           <>
             <Head>

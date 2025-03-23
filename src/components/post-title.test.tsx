@@ -6,7 +6,7 @@ import PostTitle from '@/components/post-title'
 
 describe('PostTitle', () => {
   test('タイトルが表示される', async () => {
-    const { getByText } = render(<PostTitle>タイトル</PostTitle>)
+    const { getByText } = render(<PostTitle title="タイトル" />)
     expect(getByText('タイトル')).toBeInTheDocument()
   })
 })
