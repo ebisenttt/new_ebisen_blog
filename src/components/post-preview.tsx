@@ -1,9 +1,9 @@
 import Link from 'next/link'
 
-
 import Card from '@/components/card'
 import DateFormatter from '@/components/date-formatter'
 import Badge from '@/components/badge'
+import { backQuoteToCodeElement } from '@/utils/backQuoteToCodeElement'
 
 import type PostType from '@/interfaces/post'
 
@@ -17,7 +17,10 @@ const PostPreview = ({ title, date, slug, tag = [] }: Props) => {
       className="hover:underline"
     >
       <Card>
-        <h3 className="text-xl mb-3 leading-snug">{title}</h3>
+        <h3
+          className="text-xl mb-3 leading-snug"
+          dangerouslySetInnerHTML={{ __html: backQuoteToCodeElement(title) }}
+        />
         <div className="mb-4">
           {tag.map((t, i) => (
             <Badge key={`${i}_${t}`} text={t} />
