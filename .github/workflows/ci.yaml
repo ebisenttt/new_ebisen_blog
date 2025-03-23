@@ -38,4 +38,31 @@ jobs:
         run: pnpm typecheck
 
       - name: Run tests
-        run: pnpm test
+        run: pnpm test -- --coverage --coverageReporters=json
+
+      - name: Post coverage to PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require('fs');
+            const coverageSummary = JSON.parse(fs.readFileSync('coverage/coverage-summary.json', 'utf8'));
+            const lines = coverageSummary.total.lines.pct;
+            const statements = coverageSummary.total.statements.pct;
+            const functions = coverageSummary.total.functions.pct;
+            const branches = coverageSummary.total.branches.pct;
+
+            const commentBody = `
+            ## Test Coverage Report
+            - **Lines:** ${lines}%
+            - **Statements:** ${statements}%
+            - **Functions:** ${functions}%
+            - **Branches:** ${branches}%
+            `;
+
+            github.rest.issues.createComment({
+              issue_number: context.payload.pull_request.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: commentBody,
+            });
