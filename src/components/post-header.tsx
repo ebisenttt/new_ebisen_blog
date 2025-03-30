@@ -12,7 +12,7 @@ const PostHeader = ({ title, date, tag = [] }: Props) => {
   return (
     <>
       <div className="mb-12">
-        <PostTitle>{title}</PostTitle>
+        <PostTitle title={title} />
         <div className="text-center">
           {tag.map((t, i) => (
             <Badge key={`${i}_${t}`} text={t} />

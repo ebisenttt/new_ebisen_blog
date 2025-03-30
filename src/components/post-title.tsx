@@ -1,14 +1,15 @@
-import { type ReactNode } from 'react'
+import { backQuoteToCodeElement } from '@/utils/backQuoteToCodeElement'
 
-interface Props {
-  children?: ReactNode
+type Props = {
+  title: string
 }
 
-const PostTitle = ({ children }: Props) => {
+const PostTitle = ({ title }: Props) => {
   return (
-    <h1 className="text-5xl font-bold tracking-tighter leading-tight md:leading-none text-center">
-      {children}
-    </h1>
+    <h1
+      className="text-5xl font-bold tracking-tighter leading-tight md:leading-none text-center"
+      dangerouslySetInnerHTML={{ __html: backQuoteToCodeElement(title) }}
+    />
   )
 }
 
