@@ -1,10 +1,9 @@
 import os
 import tweepy
 import sys
-import datetime
 # from dotenv import load_dotenv テスト用
 
-BASE_URL = 'https://ebisenttt.com/posts'
+BASE_URL = 'https://ebisenttt.net/posts'
 
 def twitter_authorize():
   # load_dotenv('.env.local') # テスト用
@@ -30,7 +29,6 @@ def tweet():
   path = filename.replace('.md','')
   url = f"{BASE_URL}/{path}"
   tweet_text = f"記事を投稿しました\n"\
-    + f"{datetime.datetime.now().strftime('%Y/%m/%d %H:%M:%S')}\n"\
     + url
 
   client = twitter_authorize()
