@@ -2,7 +2,6 @@ import type { ReactNode } from 'react'
 
 import Image from 'next/image'
 
-
 interface IconType {
   name: string
   src: string
@@ -22,16 +21,16 @@ const WEB_ICONS: IconType[] = [
     src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
   },
   {
+    name: 'typescript',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
+  },
+  {
     name: 'react',
     src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
   },
   {
     name: 'nextjs',
     src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg',
-  },
-  {
-    name: 'tailwindcss',
-    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg',
   },
 ]
 
@@ -48,6 +47,8 @@ const COMP_PROG_ICONS: IconType[] = [
 
 const CERTIFICAITON_ICONS: IconType[] = [
   { name: 'html5level1', src: '/assets/me/html5_lv1.jpg' },
+  { name: 'html5level2', src: '/assets/me/html5_lv2.jpg' },
+  { name: 'javasebronze', src: '/assets/me/java_se_bronze.jpg' },
 ]
 
 export const Profile = () => {
@@ -95,6 +96,27 @@ export const Profile = () => {
               text="「HTML5プロフェッショナル認定 レベル1」 認定プロフェッショナル"
             />
             &nbsp;(2023-10)
+          </li>
+          <li>
+            <OutsideLink
+              href="https://html5exam.jp/outline/lv2.html"
+              text="「HTML5プロフェッショナル認定 レベル2」 認定プロフェッショナル"
+            />
+            &nbsp;(2023-11)
+          </li>
+          <li>
+            <OutsideLink
+              href="https://education.oracle.com/ja/oracle-certified-java-programmer-bronze-se-available-only-in-japan/trackp_818"
+              text="Oracle Certified Java Programmer, Bronze SE"
+            />
+            &nbsp;(2024-08)
+          </li>
+          <li>
+            <OutsideLink
+              href="https://www.ipa.go.jp/shiken/kubun/fe.html"
+              text="基本情報技術者試験"
+            />
+            &nbsp;(2024-08)
           </li>
         </ol>
         <IconsGallary icons={CERTIFICAITON_ICONS} />
@@ -150,7 +172,13 @@ const IconsGallary = ({ icons }: IconsGallaryProps) => {
       <ul className="list-none inline-flex gap-2">
         {icons.map((icon) => (
           <li key={icon.name}>
-            <Image src={icon.src} alt={icon.name} width={60} height={60} />
+            <Image
+              src={icon.src}
+              alt={icon.name}
+              width={200}
+              height={200}
+              className="w-auto h-16"
+            />
           </li>
         ))}
       </ul>

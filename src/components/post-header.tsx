@@ -1,6 +1,6 @@
-import DateFormatter from 'components/date-formatter'
-import PostTitle from 'components/post-title'
-import Badge from 'components/badge'
+import DateFormatter from '@/components/date-formatter'
+import PostTitle from '@/components/post-title'
+import Badge from '@/components/badge'
 
 interface Props {
   title: string
@@ -12,7 +12,7 @@ const PostHeader = ({ title, date, tag = [] }: Props) => {
   return (
     <>
       <div className="mb-12">
-        <PostTitle>{title}</PostTitle>
+        <PostTitle title={title} />
         <div className="text-center">
           {tag.map((t, i) => (
             <Badge key={`${i}_${t}`} text={t} />

@@ -1,7 +1,9 @@
+
 import { type NextRequest } from 'next/server'
 
 import { ImageResponse } from '@vercel/og'
-import { TITLE as BLOG_TITLE } from 'lib/constants'
+
+import { TITLE as BLOG_TITLE } from '@/constants'
 
 export const config = {
   runtime: 'edge',
