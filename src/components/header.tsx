@@ -8,7 +8,6 @@ const Header = () => {
       <Link href="/" className="hover:underline">
         {TITLE}
       </Link>
-      .
     </h2>
   )
 }
