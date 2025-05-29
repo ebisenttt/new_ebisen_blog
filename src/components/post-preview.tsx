@@ -21,7 +21,7 @@ const PostPreview = ({ title, date, slug, tag = [] }: Props) => {
           className="text-xl mb-3 leading-snug"
           dangerouslySetInnerHTML={{ __html: backQuoteToCodeElement(title) }}
         />
-        <div className="mb-4">
+        <div className="flex flex-wrap gap-1 mb-4">
           {tag.map((t, i) => (
             <Badge key={`${i}_${t}`} text={t} />
           ))}
