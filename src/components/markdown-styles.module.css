@@ -35,3 +35,7 @@
 .markdown code[class^='language'] {
   @apply text-sm;
 }
+
+.markdown th {
+  @apply text-nowrap;
+}
