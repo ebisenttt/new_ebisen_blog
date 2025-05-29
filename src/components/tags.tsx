@@ -1,6 +1,5 @@
 import { useState } from 'react'
 
-
 import Posts from '@/components/posts'
 import Badge from '@/components/badge'
 
