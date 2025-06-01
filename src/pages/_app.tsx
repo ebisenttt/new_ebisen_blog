@@ -1,5 +1,6 @@
 import type { AppProps } from 'next/app'
 
+import { Analytics } from '@vercel/analytics/next'
 import '@/styles/index.css'
 import 'prismjs/themes/prism-tomorrow.css'
 import { GoogleAnalytics } from '@next/third-parties/google'
@@ -11,6 +12,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       {process.env.NEXT_PUBLIC_GA_ID && (
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
       )}
+      <Analytics />
     </>
   )
 }
