@@ -1,4 +1,5 @@
 import { parseISO as _parseISO, format as _format } from 'date-fns'
+import { ja } from 'date-fns/locale'
 
 export const parseISO = _parseISO
 
@@ -10,8 +11,6 @@ export const formatDate = ({
   format: string
 }): string => {
   return _format(date, format, {
-    locale: {
-      code: 'ja',
-    },
+    locale: ja,
   })
 }
