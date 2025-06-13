@@ -7,7 +7,7 @@ interface Props {
 const DateFormatter = ({ dateString }: Props) => {
   const date = parseISO(dateString)
   return (
-    <time dateTime={dateString}>
+    <time dateTime={dateString} suppressHydrationWarning>
       {formatDate({
         date,
         format: 'yyyy-MM-dd',
