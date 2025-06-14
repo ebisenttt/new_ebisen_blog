@@ -115,9 +115,15 @@ export default defineConfig([
       'no-restricted-imports': [
         'error',
         {
-          paths: [
+          // paths: [
+          //   {
+          //     name: 'date-fns',
+          //     message: '@lib/dateからimportしてください',
+          //   },
+          // ],
+          patterns: [
             {
-              name: 'date-fns',
+              group: ['date-fns*', '@date-fns*'],
               message: '@lib/dateからimportしてください',
             },
           ],
