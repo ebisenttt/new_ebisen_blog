@@ -28,6 +28,8 @@ export function getPostByFilename(filename: string): Post {
     data.date === ''
   ) {
     throw new Error(`Postのタイトルまたは日付が不正です: ${filename}`)
+  } else if (data.tag && !Array.isArray(data.tag)) {
+    throw new Error(`Postのタグは配列でなければなりません: ${filename}`)
   }
 
   return {
