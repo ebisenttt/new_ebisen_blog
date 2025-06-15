@@ -6,7 +6,7 @@ import Head from 'next/head'
 
 import Prism from 'prismjs'
 
-import { getPostBySlug, getAllPosts } from '@/lib/api'
+import { getPostByFilename, getAllPosts } from '@/lib/api'
 import markdownToHtml from '@/lib/markdownToHtml'
 import { TITLE, HOME_OG_IMAGE_URL } from '@/constants'
 import Container from '@/components/container'
@@ -16,11 +16,11 @@ import PostHeader from '@/components/post-header'
 import Layout from '@/components/layout'
 import PostTitle from '@/components/post-title'
 
-import type PostType from '@/interfaces/post'
+import type { Post } from '@/types/post'
 
 interface Props {
-  post: PostType
-  morePosts: PostType[]
+  post: Post
+  morePosts: Post[]
   preview?: boolean
 }
 
@@ -32,7 +32,7 @@ function getRawTextsFromHtml(html: string) {
 export default function Post({ post, preview }: Props) {
   const router = useRouter()
   const title = `${post.title} | ${TITLE}`
-  if (!router.isFallback && post?.slug === undefined) {
+  if (!router.isFallback && post?.filename === undefined) {
     return <ErrorPage statusCode={404} />
   }
   const rawContentTexts = getRawTextsFromHtml(post.content)
@@ -52,7 +52,7 @@ export default function Post({ post, preview }: Props) {
           <>
             <Head>
               <title>{title}</title>
-              <meta name="keywords" content={post.tag?.join(',')} />
+              <meta name="keywords" content={post.tags?.join(',')} />
               <meta name="description" content={rawContentTexts} />
               <meta property="og:title" content={title} />
               <meta property="og:type" content="article" />
@@ -68,7 +68,7 @@ export default function Post({ post, preview }: Props) {
               <meta property="twitter:image" content={ogImageUrl} />
             </Head>
             <article className="mx-auto mb-32 prose dark:prose-invert">
-              <PostHeader title={post.title} date={post.date} tag={post.tag} />
+              <PostHeader title={post.title} date={post.date} tag={post.tags} />
               <PostBody content={post.content} />
             </article>
           </>
@@ -80,19 +80,12 @@ export default function Post({ post, preview }: Props) {
 
 interface Params {
   params: {
-    slug: string
+    name: string
   }
 }
 
 export async function getStaticProps({ params }: Params) {
-  const post = getPostBySlug(params.slug, [
-    'title',
-    'date',
-    'slug',
-    'content',
-    'tag',
-    'ogImage',
-  ])
+  const post = getPostByFilename(params.name)
   const content = await markdownToHtml(post.content ?? '')
 
   return {
@@ -106,13 +99,13 @@ export async function getStaticProps({ params }: Params) {
 }
 
 export async function getStaticPaths() {
-  const posts = getAllPosts(['slug'])
+  const posts = getAllPosts()
 
   return {
     paths: posts.map((post) => {
       return {
         params: {
-          slug: post.slug,
+          name: post.filename,
         },
       }
     }),

@@ -4,15 +4,14 @@ import Card from '@/components/card'
 import DateFormatter from '@/components/date-formatter'
 import Badge from '@/components/badge'
 import { backQuoteToCodeElement } from '@/utils/backQuoteToCodeElement'
+import { Post } from '@/types/post'
 
-import type PostType from '@/interfaces/post'
+type Props = Pick<Post, 'title' | 'date' | 'filename' | 'tags'>
 
-type Props = Pick<PostType, 'title' | 'date' | 'slug' | 'tag'>
-
-const PostPreview = ({ title, date, slug, tag = [] }: Props) => {
+const PostPreview = ({ title, date, filename, tags = [] }: Props) => {
   return (
     <Link
-      as={`/posts/${slug}`}
+      as={`/posts/${filename}`}
       href="/posts/[slug]"
       className="hover:underline"
     >
@@ -22,7 +21,7 @@ const PostPreview = ({ title, date, slug, tag = [] }: Props) => {
           dangerouslySetInnerHTML={{ __html: backQuoteToCodeElement(title) }}
         />
         <div className="flex flex-wrap gap-1 mb-4">
-          {tag.map((t, i) => (
+          {tags.map((t, i) => (
             <Badge key={`${i}_${t}`} text={t} />
           ))}
         </div>

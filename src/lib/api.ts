@@ -3,42 +3,46 @@ import { join } from 'path'
 
 import matter from 'gray-matter'
 
-const postsDirectory = join(process.cwd(), '_posts')
+import { POSTS_DIRECTORY_NAME } from '@/constants'
 
-export function getPostSlugs() {
+import type { Post } from '@/types/post'
+
+const postsDirectory = join(process.cwd(), POSTS_DIRECTORY_NAME)
+
+function getPostFiles() {
   return fs.readdirSync(postsDirectory)
 }
 
-export function getPostBySlug(slug: string, fields: string[] = []) {
-  const realSlug = slug.replace(/\.md$/, '')
-  const fullPath = join(postsDirectory, `${realSlug}.md`)
+export function getPostByFilename(filename: string): Post {
+  const filenameWithoutExtension = filename.replace(/\.md$/, '')
+  const fullPath = join(postsDirectory, `${filenameWithoutExtension}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const { data, content } = matter(fileContents)
 
-  const items: Record<string, string> = {}
+  if (!data.title || !data.date || !content) {
+    throw new Error(`Postの必須項目がありません: ${filename}`)
+  } else if (
+    typeof data.title !== 'string' ||
+    typeof data.date !== 'string' ||
+    data.title === '' ||
+    data.date === ''
+  ) {
+    throw new Error(`Postのタイトルまたは日付が不正です: ${filename}`)
+  } else if (data.tag && !Array.isArray(data.tag)) {
+    throw new Error(`Postのタグは配列でなければなりません: ${filename}`)
+  }
 
-  // Ensure only the minimal needed data is exposed
-  fields.forEach((field) => {
-    if (field === 'slug') {
-      items[field] = realSlug
-    }
-    if (field === 'content') {
-      items[field] = content
-    }
-
-    if (typeof data[field] !== 'undefined') {
-      items[field] = data[field]
-    }
-  })
-
-  return items
+  return {
+    title: data.title,
+    date: data.date,
+    content: content,
+    filename: filenameWithoutExtension,
+    tags: data.tag ?? [],
+  }
 }
 
-export function getAllPosts(fields: string[] = []) {
-  const slugs = getPostSlugs()
-  const posts = slugs
-    .map((slug) => getPostBySlug(slug, fields))
-    // sort posts by date in descending order
+export function getAllPosts() {
+  return getPostFiles()
+    .map((slug) => getPostByFilename(slug))
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
-  return posts
 }
