@@ -85,14 +85,7 @@ interface Params {
 }
 
 export async function getStaticProps({ params }: Params) {
-  const post = getPostByFilename(params.slug, [
-    'title',
-    'date',
-    'slug',
-    'content',
-    'tag',
-    'ogImage',
-  ])
+  const post = getPostByFilename(params.slug)
   const content = await markdownToHtml(post.content ?? '')
 
   return {
@@ -106,13 +99,13 @@ export async function getStaticProps({ params }: Params) {
 }
 
 export async function getStaticPaths() {
-  const posts = getAllPosts(['slug'])
+  const posts = getAllPosts()
 
   return {
     paths: posts.map((post) => {
       return {
         params: {
-          slug: post.slug,
+          slug: post,
         },
       }
     }),

@@ -91,8 +91,7 @@ export default function Index({ allPosts }: Props) {
 }
 
 export const getStaticProps = async () => {
-  const fields = ['title', 'date', 'slug', 'excerpt', 'tag']
-  const allPosts = getAllPosts(fields)
+  const allPosts = getAllPosts()
 
   return {
     props: { allPosts },
