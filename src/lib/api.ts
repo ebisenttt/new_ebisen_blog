@@ -19,9 +19,20 @@ export function getPostByFilename(filename: string): Post {
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const { data, content } = matter(fileContents)
 
+  if (!data.title || !data.date || !content) {
+    throw new Error(`Postの必須項目がありません: ${filename}`)
+  } else if (
+    typeof data.title !== 'string' ||
+    typeof data.date !== 'string' ||
+    data.title === '' ||
+    data.date === ''
+  ) {
+    throw new Error(`Postのタイトルまたは日付が不正です: ${filename}`)
+  }
+
   return {
-    title: data.title ?? '',
-    date: data.date ?? '',
+    title: data.title,
+    date: data.date,
     content: content,
     filename: filenameWithoutExtension,
     tags: data.tag ?? [],
