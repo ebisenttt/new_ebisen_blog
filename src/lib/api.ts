@@ -20,11 +20,11 @@ export function getPostByFilename(filename: string): Post {
   const { data, content } = matter(fileContents)
 
   return {
-    title: data.title,
-    date: data.date,
+    title: data.title ?? '',
+    date: data.date ?? '',
     content: content,
     filename: filenameWithoutExtension,
-    tags: data.tags,
+    tags: data.tag ?? [],
   }
 }
 
