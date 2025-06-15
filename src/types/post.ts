@@ -2,6 +2,6 @@ export type Post = {
   title: string
   date: string
   content: string
-  slug: string
+  filename: string
   tags?: string[]
 }

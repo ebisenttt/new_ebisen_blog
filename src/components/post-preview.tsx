@@ -6,12 +6,12 @@ import Badge from '@/components/badge'
 import { backQuoteToCodeElement } from '@/utils/backQuoteToCodeElement'
 import { Post } from '@/types/post'
 
-type Props = Pick<Post, 'title' | 'date' | 'slug' | 'tags'>
+type Props = Pick<Post, 'title' | 'date' | 'filename' | 'tags'>
 
-const PostPreview = ({ title, date, slug, tags = [] }: Props) => {
+const PostPreview = ({ title, date, filename, tags = [] }: Props) => {
   return (
     <Link
-      as={`/posts/${slug}`}
+      as={`/posts/${filename}`}
       href="/posts/[slug]"
       className="hover:underline"
     >

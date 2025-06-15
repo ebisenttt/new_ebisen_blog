@@ -6,7 +6,7 @@ import Head from 'next/head'
 
 import Prism from 'prismjs'
 
-import { getPostBySlug, getAllPosts } from '@/lib/api'
+import { getPostByFilename, getAllPosts } from '@/lib/api'
 import markdownToHtml from '@/lib/markdownToHtml'
 import { TITLE, HOME_OG_IMAGE_URL } from '@/constants'
 import Container from '@/components/container'
@@ -32,7 +32,7 @@ function getRawTextsFromHtml(html: string) {
 export default function Post({ post, preview }: Props) {
   const router = useRouter()
   const title = `${post.title} | ${TITLE}`
-  if (!router.isFallback && post?.slug === undefined) {
+  if (!router.isFallback && post?.filename === undefined) {
     return <ErrorPage statusCode={404} />
   }
   const rawContentTexts = getRawTextsFromHtml(post.content)
@@ -85,7 +85,7 @@ interface Params {
 }
 
 export async function getStaticProps({ params }: Params) {
-  const post = getPostBySlug(params.slug, [
+  const post = getPostByFilename(params.slug, [
     'title',
     'date',
     'slug',

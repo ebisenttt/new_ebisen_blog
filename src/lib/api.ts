@@ -7,12 +7,12 @@ import { POSTS_DIRECTORY_NAME } from '@/constants'
 
 const postsDirectory = join(process.cwd(), POSTS_DIRECTORY_NAME)
 
-export function getPostSlugs() {
+function getPostFiles() {
   return fs.readdirSync(postsDirectory)
 }
 
-export function getPostBySlug(slug: string, fields: string[] = []) {
-  const realSlug = slug.replace(/\.md$/, '')
+export function getPostByFilename(filename: string, fields: string[] = []) {
+  const realSlug = filename.replace(/\.md$/, '')
   const fullPath = join(postsDirectory, `${realSlug}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const { data, content } = matter(fileContents)
@@ -37,10 +37,10 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
 }
 
 export function getAllPosts(fields: string[] = []) {
-  const slugs = getPostSlugs()
-  const posts = slugs
-    .map((slug) => getPostBySlug(slug, fields))
-    // sort posts by date in descending order
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
-  return posts
+  return (
+    getPostFiles()
+      .map((slug) => getPostByFilename(slug, fields))
+      // sort posts by date in descending order
+      .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
+  )
 }

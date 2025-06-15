@@ -11,10 +11,10 @@ const Posts = ({ posts }: Props) => {
     <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-16 lg:gap-x-32 gap-y-8 md:gap-y-16 mb-32">
       {posts.map((post) => (
         <PostPreview
-          key={post.slug}
+          key={post.filename}
           title={post.title}
           date={post.date}
-          slug={post.slug}
+          filename={post.filename}
           tags={post.tags}
         />
       ))}
