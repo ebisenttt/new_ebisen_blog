@@ -1,6 +1,5 @@
 import Head from 'next/head'
 
-
 import { TITLE, HOME_OG_IMAGE_URL } from '@/constants'
 import { getAllPosts } from '@/lib/api'
 import { Profile } from '@/components/profile'
@@ -11,7 +10,7 @@ import Intro from '@/components/intro'
 import Layout from '@/components/layout'
 import { TabLayout } from '@/components/tabLayout'
 
-import type Post from '@/interfaces/post'
+import type { Post } from '@/types/post'
 
 const MENU_TITLES = ['Posts', 'Tags', 'Me']
 const DESCRIPTION_TEXT =
@@ -42,7 +41,7 @@ interface Props {
 export default function Index({ allPosts }: Props) {
   const tagCount: Record<string, number> = {}
   allPosts.forEach((post) => {
-    const tags = post.tag
+    const tags = post.tags
     tags?.forEach((tag) => {
       if (tagCount[tag] === undefined) {
         tagCount[tag] = 1
@@ -51,7 +50,7 @@ export default function Index({ allPosts }: Props) {
       }
     })
   })
-  const allTags = Array.from(new Set(allPosts.flatMap((post) => post.tag)))
+  const allTags = Array.from(new Set(allPosts.flatMap((post) => post.tags)))
     .filter((tag): tag is string => typeof tag === 'string')
     .sort((a, b) => -(tagCount[a] - tagCount[b]))
 

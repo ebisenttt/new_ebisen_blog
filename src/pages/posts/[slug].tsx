@@ -16,11 +16,11 @@ import PostHeader from '@/components/post-header'
 import Layout from '@/components/layout'
 import PostTitle from '@/components/post-title'
 
-import type PostType from '@/interfaces/post'
+import type { Post } from '@/types/post'
 
 interface Props {
-  post: PostType
-  morePosts: PostType[]
+  post: Post
+  morePosts: Post[]
   preview?: boolean
 }
 
@@ -52,7 +52,7 @@ export default function Post({ post, preview }: Props) {
           <>
             <Head>
               <title>{title}</title>
-              <meta name="keywords" content={post.tag?.join(',')} />
+              <meta name="keywords" content={post.tags?.join(',')} />
               <meta name="description" content={rawContentTexts} />
               <meta property="og:title" content={title} />
               <meta property="og:type" content="article" />
@@ -68,7 +68,7 @@ export default function Post({ post, preview }: Props) {
               <meta property="twitter:image" content={ogImageUrl} />
             </Head>
             <article className="mx-auto mb-32 prose dark:prose-invert">
-              <PostHeader title={post.title} date={post.date} tag={post.tag} />
+              <PostHeader title={post.title} date={post.date} tag={post.tags} />
               <PostBody content={post.content} />
             </article>
           </>

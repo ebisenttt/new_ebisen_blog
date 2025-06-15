@@ -1,9 +1,7 @@
-interface PostType {
+export type Post = {
   title: string
   date: string
   content: string
   slug: string
-  tag?: string[]
+  tags?: string[]
 }
-
-export default PostType

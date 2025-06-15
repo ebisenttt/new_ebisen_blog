@@ -1,7 +1,6 @@
 import PostPreview from '@/components/post-preview'
 
-import type Post from '@/interfaces/post'
-
+import type { Post } from '@/types/post'
 
 interface Props {
   posts: Post[]
@@ -16,7 +15,7 @@ const Posts = ({ posts }: Props) => {
           title={post.title}
           date={post.date}
           slug={post.slug}
-          tag={post.tag}
+          tags={post.tags}
         />
       ))}
     </div>
