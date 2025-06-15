@@ -6,6 +6,7 @@ import Head from 'next/head'
 
 import Prism from 'prismjs'
 
+import { getRawTextsFromHtml } from '@/utils/getRawTextsFromHtml'
 import { getPostByFilename, getAllPosts } from '@/lib/api'
 import markdownToHtml from '@/lib/markdownToHtml'
 import { TITLE, HOME_OG_IMAGE_URL } from '@/constants'
@@ -22,11 +23,6 @@ interface Props {
   post: Post
   morePosts: Post[]
   preview?: boolean
-}
-
-// htmlからタグを除去してテキストのみを取得する
-function getRawTextsFromHtml(html: string) {
-  return html.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, '').slice(0, 100)
 }
 
 export default function Post({ post, preview }: Props) {
