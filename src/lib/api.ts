@@ -3,7 +3,9 @@ import { join } from 'path'
 
 import matter from 'gray-matter'
 
-const postsDirectory = join(process.cwd(), '_posts')
+import { POSTS_DIRECTORY_NAME } from '@/constants'
+
+const postsDirectory = join(process.cwd(), POSTS_DIRECTORY_NAME)
 
 export function getPostSlugs() {
   return fs.readdirSync(postsDirectory)
