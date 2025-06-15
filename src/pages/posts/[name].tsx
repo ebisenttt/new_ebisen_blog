@@ -80,12 +80,12 @@ export default function Post({ post, preview }: Props) {
 
 interface Params {
   params: {
-    slug: string
+    name: string
   }
 }
 
 export async function getStaticProps({ params }: Params) {
-  const post = getPostByFilename(params.slug)
+  const post = getPostByFilename(params.name)
   const content = await markdownToHtml(post.content ?? '')
 
   return {
@@ -105,7 +105,7 @@ export async function getStaticPaths() {
     paths: posts.map((post) => {
       return {
         params: {
-          slug: post.filename,
+          name: post.filename,
         },
       }
     }),
