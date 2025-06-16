@@ -3,6 +3,7 @@ import { ja } from 'date-fns/locale'
 // NOTE:@date-fns/tzからimportできないバグがある
 // https://github.com/date-fns/tz/issues/43
 import { tz } from '@date-fns/tz/tz'
+import { TZDate } from '@date-fns/tz'
 
 export const parseISO = (dateString: string): Date => {
   return _parseISO(dateString, {
@@ -21,3 +22,5 @@ export const formatDate = ({
     locale: ja,
   })
 }
+
+export const now = TZDate.tz('Asia/Tokyo')
