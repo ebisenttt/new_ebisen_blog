@@ -6,6 +6,7 @@ import Container from '@/components/container'
 import Header from '@/components/header'
 import PostHeader from '@/components/post-header'
 import PostBody from '@/components/post-body'
+import markdownToHtml from '@/lib/markdownToHtml'
 
 import { PageClient } from './page-client'
 
@@ -37,7 +38,7 @@ export default async function Page({ params }: Props) {
           <Header />
           <article className="mx-auto mb-32 prose dark:prose-invert">
             <PostHeader title={post.title} date={post.date} tag={post.tags} />
-            <PostBody content={post.content} />
+            <PostBody content={await markdownToHtml(post.content)} />
           </article>
         </Container>
       </Layout>
