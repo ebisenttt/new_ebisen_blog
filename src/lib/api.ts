@@ -4,6 +4,7 @@ import { join } from 'path'
 import matter from 'gray-matter'
 
 import { POSTS_DIRECTORY_NAME } from '@/constants'
+import { readFile } from '@/utils/readFile'
 
 import type { Post } from '@/types/post'
 
@@ -13,10 +14,15 @@ function getPostFiles() {
   return fs.readdirSync(postsDirectory)
 }
 
-export function getPostByFilename(filename: string): Post {
+export function getPostByFilename(filename: string): Post | null {
   const filenameWithoutExtension = filename.replace(/\.md$/, '')
   const fullPath = join(postsDirectory, `${filenameWithoutExtension}.md`)
-  const fileContents = fs.readFileSync(fullPath, 'utf8')
+  const fileContents = readFile(fullPath)
+
+  if (fileContents === null) {
+    return null
+  }
+
   const { data, content } = matter(fileContents)
 
   if (!data.title || !data.date || !content) {
@@ -43,6 +49,8 @@ export function getPostByFilename(filename: string): Post {
 
 export function getAllPosts() {
   return getPostFiles()
-    .map((slug) => getPostByFilename(slug))
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
+    .flatMap((slug) => getPostByFilename(slug) ?? [])
+    .sort((post1, post2) =>
+      post1 !== null && post2 !== null && post1.date > post2.date ? -1 : 1,
+    )
 }

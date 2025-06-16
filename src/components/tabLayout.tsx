@@ -1,3 +1,5 @@
+'use client'
+
 import { type ReactElement, useState } from 'react'
 
 interface TabLayoutProps {
