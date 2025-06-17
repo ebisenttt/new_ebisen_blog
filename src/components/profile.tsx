@@ -122,15 +122,13 @@ export const Profile = () => {
         <IconsGallary icons={CERTIFICAITON_ICONS} />
       </Section>
       <Section title="これまで">
-        <p>
-          <ol className="">
-            <li>📝 大学・大学院で教育学を勉強</li>
-            <li>→ 🏫 公立高校で数学科の教員</li>
-            <li>→ 💻 プログラミングに触れ始める</li>
-            <li>→ 🎓 University of People（オンラインの大学）でCS学部に入学</li>
-            <li>→ ⚡️ フロントエンドエンジニアにキャリアチェンジ</li>
-          </ol>
-        </p>
+        <ol className="">
+          <li>📝 大学・大学院で教育学を勉強</li>
+          <li>→ 🏫 公立高校で数学科の教員</li>
+          <li>→ 💻 プログラミングに触れ始める</li>
+          <li>→ 🎓 University of People（オンラインの大学）でCS学部に入学</li>
+          <li>→ ⚡️ フロントエンドエンジニアにキャリアチェンジ</li>
+        </ol>
       </Section>
     </article>
   )
