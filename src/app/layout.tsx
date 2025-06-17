@@ -1,7 +1,8 @@
 import { GoogleTagManager } from '@next/third-parties/google'
 import { Analytics } from '@vercel/analytics/next'
-import '@/styles/index.css'
 
+import '@/styles/index.css'
+import Footer from '@/components/footer'
 import { TITLE } from '@/constants'
 
 export const metadata = {
@@ -21,7 +22,10 @@ export default function RootLayout({
         <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
       )}
       {process.env.ENV === 'production' && <Analytics />}
-      <body className="dark:bg-gray-900 dark:text-slate-50">{children}</body>
+      <body className="dark:bg-gray-900 dark:text-slate-50">
+        <div className="min-h-screen">{children}</div>
+        <Footer />
+      </body>
     </html>
   )
 }

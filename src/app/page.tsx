@@ -6,7 +6,6 @@ import { Tags } from '@/components/tags'
 import Container from '@/components/container'
 import Posts from '@/components/posts'
 import Intro from '@/components/intro'
-import Layout from '@/components/layout'
 import { TabLayout } from '@/components/tabLayout'
 import { getAllPosts } from '@/lib/api'
 
@@ -69,20 +68,16 @@ export default async function Page() {
     .sort((a, b) => -(tagCount[a] - tagCount[b]))
 
   return (
-    <>
-      <Layout>
-        <Container>
-          <Intro />
-          <TabLayout
-            menuTitles={MENU_TITLES}
-            bodies={[
-              <Posts key="posts" posts={allPosts} />,
-              <Tags key="tags" allTags={allTags} allPosts={allPosts} />,
-              <Profile key="profile" />,
-            ]}
-          />
-        </Container>
-      </Layout>
-    </>
+    <Container>
+      <Intro />
+      <TabLayout
+        menuTitles={MENU_TITLES}
+        bodies={[
+          <Posts key="posts" posts={allPosts} />,
+          <Tags key="tags" allTags={allTags} allPosts={allPosts} />,
+          <Profile key="profile" />,
+        ]}
+      />
+    </Container>
   )
 }

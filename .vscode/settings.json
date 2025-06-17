@@ -10,5 +10,13 @@
     "source.fixAll.eslint": "explicit"
   },
   "eslint.codeActionsOnSave.mode": "all",
-  "eslint.useFlatConfig": true
+  "eslint.useFlatConfig": true,
+  "cSpell.customDictionaries": {
+    "custom-dictionary-workspace": {
+      "name": "custom-dictionary-workspace",
+      "path": "${workspaceFolder:new_ebisen_blog}/.cspell/custom-dictionary-workspace.txt",
+      "addWords": true,
+      "scope": "workspace"
+    }
+  }
 }
