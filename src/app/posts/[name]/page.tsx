@@ -7,6 +7,7 @@ import Header from '@/components/header'
 import PostHeader from '@/components/post-header'
 import PostBody from '@/components/post-body'
 import markdownToHtml from '@/lib/markdownToHtml'
+import 'prismjs/themes/prism-tomorrow.css'
 
 import { PageClient } from './page-client'
 

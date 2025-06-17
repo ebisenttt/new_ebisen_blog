@@ -1,6 +1,5 @@
 import { GoogleTagManager } from '@next/third-parties/google'
 import { Analytics } from '@vercel/analytics/next'
-import 'prismjs/themes/prism-tomorrow.css'
 import '@/styles/index.css'
 
 import { TITLE } from '@/constants'
