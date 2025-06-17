@@ -49,7 +49,7 @@ export function getPostByFilename(filename: string): Post | null {
 
 export function getAllPosts() {
   return getPostFiles()
-    .flatMap((slug) => getPostByFilename(slug) ?? [])
+    .flatMap((filename) => getPostByFilename(filename) ?? [])
     .sort((post1, post2) =>
       post1 !== null && post2 !== null && post1.date > post2.date ? -1 : 1,
     )

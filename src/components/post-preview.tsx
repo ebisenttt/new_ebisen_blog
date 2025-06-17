@@ -10,11 +10,7 @@ type Props = Pick<Post, 'title' | 'date' | 'filename' | 'tags'>
 
 const PostPreview = ({ title, date, filename, tags = [] }: Props) => {
   return (
-    <Link
-      as={`/posts/${filename}`}
-      href="/posts/[slug]"
-      className="hover:underline"
-    >
+    <Link href={`/posts/${filename}`} className="hover:underline">
       <Card>
         <h3
           className="text-xl mb-3 leading-snug"
