@@ -72,7 +72,7 @@ export function getPostByFilename(
   })
 }
 
-export function getAllPosts(options: GetPostOptions = {}) {
+export function getAllPosts(options: GetPostOptions = {}): Post[] {
   const dir = options.postsDirectory ?? postsDirectory
   return getPostFiles(dir)
     .flatMap((filename) => getPostByFilename(filename, options) ?? [])
