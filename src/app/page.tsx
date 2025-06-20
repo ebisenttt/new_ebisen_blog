@@ -51,7 +51,7 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   const tagCount: Record<string, number> = {}
-  const allPosts = getAllPosts()
+  const allPosts = await getAllPosts()
   allPosts.forEach((post) => {
     if (post === null) return
     post.tags?.forEach((tag) => {

@@ -1,26 +1,19 @@
-import fs from 'fs'
-import { join } from 'path'
-
 import matter from 'gray-matter'
 
-import { POSTS_DIRECTORY_NAME } from '@/constants'
+import { getPostFiles, postsDirectory } from '@/utils/file'
 import { readFile as defaultReadFile } from '@/utils/readFile'
 
 import type { Post } from '@/types/post'
 
-const postsDirectory = join(process.cwd(), POSTS_DIRECTORY_NAME)
+import markdownToHtml from './markdownToHtml'
 
-function getPostFiles(directory: string = postsDirectory) {
-  return fs.readdirSync(directory)
-}
-
-export function convertMarkdownToPost({
+export async function convertMarkdownToPost({
   markdown,
   filename,
 }: {
   markdown: string
   filename: string
-}): Post {
+}): Promise<Post> {
   const { data, content } = matter(markdown)
 
   if (!data.title || !data.date || !content) {
@@ -38,10 +31,12 @@ export function convertMarkdownToPost({
     throw new Error(`Postのタグは配列でなければなりません: ${filename}`)
   }
 
+  const htmlContent = await markdownToHtml(content)
+
   return {
     title: data.title,
     date: data.date,
-    content: content,
+    content: htmlContent,
     filename,
     tags: data.tag ?? [],
   }
@@ -52,31 +47,35 @@ type GetPostOptions = {
   postsDirectory?: string
 }
 
-export function getPostByFilename(
+export async function getPostByFilename(
   filename: string,
   options: GetPostOptions = {},
-): Post | null {
+): Promise<Post | null> {
   const { readFileFn = defaultReadFile, postsDirectory: dir = postsDirectory } =
     options
   const filenameWithoutExtension = filename.replace(/\.md$/, '')
-  const fullPath = join(dir, `${filenameWithoutExtension}.md`)
+  const fullPath = `${dir}/${filenameWithoutExtension}.md`
   const fileContents = readFileFn(fullPath)
 
   if (fileContents === null) {
     return null
   }
 
-  return convertMarkdownToPost({
+  return await convertMarkdownToPost({
     markdown: fileContents,
     filename: filenameWithoutExtension,
   })
 }
 
-export function getAllPosts(options: GetPostOptions = {}): Post[] {
+export async function getAllPosts(
+  options: GetPostOptions = {},
+): Promise<Post[]> {
   const dir = options.postsDirectory ?? postsDirectory
-  return getPostFiles(dir)
-    .flatMap((filename) => getPostByFilename(filename, options) ?? [])
-    .sort((post1, post2) =>
-      post1 !== null && post2 !== null && post1.date > post2.date ? -1 : 1,
-    )
+  const files = getPostFiles(dir)
+  const posts = await Promise.all(
+    files.map((filename: string) => getPostByFilename(filename, options)),
+  )
+  return posts
+    .filter((post): post is Post => post !== null)
+    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
 }
