@@ -105,8 +105,6 @@ export default defineConfig([
           ],
         },
       ],
-      '@next/next/no-duplicate-head': 'off', // 次のエラーが発生するため一時的にoff: context.getAncestor() is not a function
-      '@next/next/no-page-custom-font': 'off', // 次のエラーが発生するため一時的にoff: context.getAncestor() is not a function
     },
   },
   {
