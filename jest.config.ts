@@ -14,6 +14,7 @@ const configBase: Config = {
     '^@/(.*)$': '<rootDir>/src/$1',
   },
   testEnvironment: 'jsdom',
+  testMatch: ['<rootDir>/src/**/*.test.{ts,tsx}'],
 }
 
 const config = async () => ({
