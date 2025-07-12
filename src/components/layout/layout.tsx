@@ -1,16 +1,13 @@
-import { Alert } from '../alert'
-import { Footer } from '../layout'
+import { Footer } from './footer'
 
 interface Props {
-  preview?: boolean
   children: React.ReactNode
 }
 
-export const Layout = ({ preview, children }: Props) => {
+export const Layout = ({ children }: Props) => {
   return (
     <>
       <div className="min-h-screen">
-        <Alert preview={preview} />
         <main>{children}</main>
       </div>
       <Footer />
