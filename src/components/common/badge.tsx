@@ -5,7 +5,7 @@ interface Props {
   text: string
 }
 
-function Badge({ text }: Props) {
+export const Badge = ({ text }: Props) => {
   const style = mapTextToBadgeStyle(text)
   const icon = style?.icon
   const defaultColor = 'dark:bg-stone-600 dark:text-gray-200'
@@ -56,5 +56,3 @@ const BADGE_STYLES: Record<string, BadgeStyle> = {
 function mapTextToBadgeStyle(text: string): BadgeStyle | undefined {
   return BADGE_STYLES[text]
 }
-
-export default Badge

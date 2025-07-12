@@ -1,9 +1,9 @@
 import { notFound } from 'next/navigation'
 
 import { getAllPosts, getPostByFilename } from '@/lib/api'
-import Layout from '@/components/layout/layout'
+import { Layout } from '@/components/layout/layout'
 import { Container } from '@/components/common/container'
-import Header from '@/components/layout/header'
+import { Header } from '@/components/layout/header'
 import { PostHeader } from '@/components/post/post-header'
 import { PostBody } from '@/components/post/post-body'
 import markdownToHtml from '@/lib/markdownToHtml'

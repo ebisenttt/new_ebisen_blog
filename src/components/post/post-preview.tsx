@@ -1,8 +1,8 @@
 import Link from 'next/link'
 
-import Card from '@/components/common/card'
+import { Card } from '@/components/common/card'
 import { DateFormatter } from '@/components/post/date-formatter'
-import Badge from '@/components/common/badge'
+import { Badge } from '@/components/common/badge'
 import { backQuoteToCodeElement } from '@/utils/backQuoteToCodeElement'
 import { Post } from '@/types/post'
 

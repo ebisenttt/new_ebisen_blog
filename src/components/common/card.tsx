@@ -4,8 +4,6 @@ interface Props {
   children: ReactNode
 }
 
-function Card({ children }: Props) {
+export const Card = ({ children }: Props) => {
   return <div className="dark:bg-gray-800 rounded p-4">{children}</div>
 }
-
-export default Card
