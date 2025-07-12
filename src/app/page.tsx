@@ -1,13 +1,15 @@
 import { Metadata } from 'next'
 
 import { TITLE, HOME_OG_IMAGE_URL } from '@/constants'
-import { Profile } from '@/components/profile/profile'
-import { Tags } from '@/components/common/tags'
-import { Container } from '@/components/common/container'
-import { Posts } from '@/components/post/posts'
-import { Intro } from '@/components/layout/intro'
-import { Layout } from '@/components/layout/layout'
-import { TabLayout } from '@/components/layout/tabLayout'
+import {
+  Profile,
+  Tags,
+  Container,
+  Posts,
+  Intro,
+  Layout,
+  TabLayout,
+} from '@/components'
 import { getAllPosts } from '@/lib/api'
 
 const MENU_TITLES = ['Posts', 'Tags', 'Me']

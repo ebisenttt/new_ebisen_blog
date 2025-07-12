@@ -123,4 +123,36 @@ export default defineConfig([
       ],
     },
   },
+  {
+    ignores: ['src/components/*'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: ['@/components/*'],
+              message: '@/componentsからimportしてください',
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    files: ['src/components/**/*.{ts,tsx}'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: ['@/components', '@/components/*'],
+              message: 'components内では相対パスを使用してください',
+            },
+          ],
+        },
+      ],
+    },
+  },
 ])

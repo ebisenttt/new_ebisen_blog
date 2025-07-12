@@ -2,10 +2,10 @@
 
 import { useState } from 'react'
 
-import { Posts } from '@/components/post/posts'
-import { Badge } from '@/components/common/badge'
-
 import type { Post } from '@/types/post'
+
+import { Badge } from './badge'
+import { Posts } from '../post/posts'
 
 interface TagsProps {
   allTags: string[]

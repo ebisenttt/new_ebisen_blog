@@ -1,10 +1,10 @@
 import Link from 'next/link'
 
-import { Card } from '@/components/common/card'
-import { DateFormatter } from '@/components/post/date-formatter'
-import { Badge } from '@/components/common/badge'
 import { backQuoteToCodeElement } from '@/utils/backQuoteToCodeElement'
 import { Post } from '@/types/post'
+
+import { Badge, Card } from '../common'
+import { DateFormatter } from './date-formatter'
 
 type Props = Pick<Post, 'title' | 'date' | 'filename' | 'tags'>
 

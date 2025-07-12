@@ -1,4 +1,4 @@
-import { Container } from '@/components/common/container'
+import { Container } from '../common/container'
 
 interface Props {
   preview?: boolean
