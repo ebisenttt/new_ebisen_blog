@@ -14,7 +14,7 @@ type Props = {
 }
 
 export async function generateStaticParams() {
-  return getAllPosts()
+  return (await getAllPosts())
     .flatMap((post) => post?.filename ?? [])
     .map((filename) => ({
       name: filename,
@@ -23,7 +23,7 @@ export async function generateStaticParams() {
 
 export default async function Page({ params }: Props) {
   const { name } = await params
-  const post = getPostByFilename(name)
+  const post = await getPostByFilename(name)
   if (post === null) {
     notFound()
   }
