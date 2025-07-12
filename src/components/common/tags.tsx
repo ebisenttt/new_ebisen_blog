@@ -7,7 +7,7 @@ import type { Post } from '@/types/post'
 import { Badge } from './badge'
 import { Posts } from '../post/posts'
 
-interface TagsProps {
+type TagsProps = {
   allTags: string[]
   allPosts: Post[]
 }

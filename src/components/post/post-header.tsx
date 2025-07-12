@@ -2,7 +2,7 @@ import { DateFormatter } from './date-formatter'
 import { PostTitle } from './post-title'
 import { Badge } from '../common'
 
-interface Props {
+type Props = {
   title: string
   date: string
   tag?: string[]

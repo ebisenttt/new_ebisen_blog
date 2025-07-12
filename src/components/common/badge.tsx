@@ -1,7 +1,7 @@
 import 'devicon'
 import { type ReactNode } from 'react'
 
-interface Props {
+type Props = {
   text: string
 }
 
@@ -20,7 +20,7 @@ export const Badge = ({ text }: Props) => {
   )
 }
 
-interface BadgeStyle {
+type BadgeStyle = {
   icon: string | ReactNode
   color: string
 }

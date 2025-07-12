@@ -1,6 +1,6 @@
 import markdownStyles from './markdown-styles.module.css'
 
-interface Props {
+type Props = {
   content: string
 }
 

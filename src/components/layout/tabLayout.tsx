@@ -2,7 +2,7 @@
 
 import { type ReactElement, useState } from 'react'
 
-interface TabLayoutProps {
+type TabLayoutProps = {
   menuTitles: string[]
   bodies: ReactElement[]
 }
@@ -26,7 +26,7 @@ export const TabLayout = ({ menuTitles, bodies }: TabLayoutProps) => {
   )
 }
 
-interface TabHeaderProps {
+type TabHeaderProps = {
   titles: string[]
   selectedIndex: number
   onClick: (index: number) => void
@@ -57,7 +57,7 @@ const TabHeader = ({ titles, selectedIndex, onClick }: TabHeaderProps) => {
   )
 }
 
-interface TabBodyProps {
+type TabBodyProps = {
   bodies: ReactElement[]
   selectedIndex: number
 }

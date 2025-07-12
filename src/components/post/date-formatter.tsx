@@ -1,6 +1,6 @@
 import { parseISO, formatDate } from '@/lib/date'
 
-interface Props {
+type Props = {
   dateString: string
 }
 

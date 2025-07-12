@@ -2,7 +2,7 @@ import type { Post } from '@/types/post'
 
 import { PostPreview } from './post-preview'
 
-interface Props {
+type Props = {
   posts: Post[]
 }
 
