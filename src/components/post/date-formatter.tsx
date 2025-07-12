@@ -1,10 +1,10 @@
 import { parseISO, formatDate } from '@/lib/date'
 
-interface Props {
+type Props = {
   dateString: string
 }
 
-const DateFormatter = ({ dateString }: Props) => {
+export const DateFormatter = ({ dateString }: Props) => {
   const date = parseISO(dateString)
   return (
     <time dateTime={dateString}>
@@ -15,5 +15,3 @@ const DateFormatter = ({ dateString }: Props) => {
     </time>
   )
 }
-
-export default DateFormatter

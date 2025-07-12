@@ -123,4 +123,49 @@ export default defineConfig([
       ],
     },
   },
+  {
+    ignores: ['src/components/*'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: ['@/components/*'],
+              message: '@/componentsからimportしてください',
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    files: ['src/components/**/*.{ts,tsx}'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: ['@/components', '@/components/*'],
+              message: 'components内では相対パスを使用してください',
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    files: ['src/**/*.{ts,tsx}'],
+    rules: {
+      'no-restricted-syntax': [
+        'error',
+        {
+          selector: 'TSInterfaceDeclaration',
+          message:
+            'interfaceの使用は禁止です。typeエイリアスを使ってください。',
+        },
+      ],
+    },
+  },
 ])

@@ -4,7 +4,7 @@ type Props = {
   title: string
 }
 
-const PostTitle = ({ title }: Props) => {
+export const PostTitle = ({ title }: Props) => {
   return (
     <h1
       className="text-5xl font-bold tracking-tighter leading-tight md:leading-none text-center"
@@ -12,5 +12,3 @@ const PostTitle = ({ title }: Props) => {
     />
   )
 }
-
-export default PostTitle

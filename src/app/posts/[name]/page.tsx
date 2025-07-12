@@ -1,11 +1,7 @@
 import { notFound } from 'next/navigation'
 
 import { getAllPosts, getPostByFilename } from '@/lib/api'
-import Layout from '@/components/layout'
-import Container from '@/components/container'
-import Header from '@/components/header'
-import PostHeader from '@/components/post-header'
-import PostBody from '@/components/post-body'
+import { Header, PostHeader, PostBody, Container, Layout } from '@/components'
 import markdownToHtml from '@/lib/markdownToHtml'
 import 'prismjs/themes/prism-tomorrow.css'
 

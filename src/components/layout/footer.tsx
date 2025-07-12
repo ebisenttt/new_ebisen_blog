@@ -1,8 +1,8 @@
 import Image from 'next/image'
 
-import Container from '@/components/container'
+import { Container } from '../common/container'
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <footer className="bg-neutral-50 border-t border-neutral-200 dark:bg-gray-800 dark:border-none">
       <Container>
@@ -37,5 +37,3 @@ const Footer = () => {
     </footer>
   )
 }
-
-export default Footer

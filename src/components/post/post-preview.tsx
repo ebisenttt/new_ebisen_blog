@@ -1,14 +1,14 @@
 import Link from 'next/link'
 
-import Card from '@/components/card'
-import DateFormatter from '@/components/date-formatter'
-import Badge from '@/components/badge'
 import { backQuoteToCodeElement } from '@/utils/backQuoteToCodeElement'
 import { Post } from '@/types/post'
 
+import { Badge, Card } from '../common'
+import { DateFormatter } from './date-formatter'
+
 type Props = Pick<Post, 'title' | 'date' | 'filename' | 'tags'>
 
-const PostPreview = ({ title, date, filename, tags = [] }: Props) => {
+export const PostPreview = ({ title, date, filename, tags = [] }: Props) => {
   return (
     <Link href={`/posts/${filename}`} className="hover:underline">
       <Card>
@@ -28,5 +28,3 @@ const PostPreview = ({ title, date, filename, tags = [] }: Props) => {
     </Link>
   )
 }
-
-export default PostPreview
