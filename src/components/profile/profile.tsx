@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 
 import Image from 'next/image'
 
-interface IconType {
+type IconType = {
   name: string
   src: string
 }
@@ -144,7 +144,7 @@ const Logo = () => {
   )
 }
 
-interface SectionProps {
+type SectionProps = {
   title?: string
   children: ReactNode
 }
@@ -161,7 +161,7 @@ const Section = ({ title, children }: SectionProps) => {
   )
 }
 
-interface IconsGallaryProps {
+type IconsGallaryProps = {
   icons: IconType[]
 }
 const IconsGallary = ({ icons }: IconsGallaryProps) => {
@@ -184,7 +184,7 @@ const IconsGallary = ({ icons }: IconsGallaryProps) => {
   )
 }
 
-interface OutsideLinkProps {
+type OutsideLinkProps = {
   href: string
   text: string
 }
