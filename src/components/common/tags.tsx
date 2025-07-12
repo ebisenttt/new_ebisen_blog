@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 
-import Posts from '@/components/posts'
-import Badge from '@/components/badge'
+import Posts from '@/components/post/posts'
+import Badge from '@/components/common/badge'
 
 import type { Post } from '@/types/post'
 

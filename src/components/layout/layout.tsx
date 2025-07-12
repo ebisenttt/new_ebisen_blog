@@ -1,5 +1,5 @@
-import Alert from '@/components/alert'
-import Footer from '@/components/footer'
+import { Alert } from '@/components/alert/alert'
+import { Footer } from '@/components/layout/footer'
 
 interface Props {
   preview?: boolean

@@ -1,6 +1,6 @@
-import DateFormatter from '@/components/date-formatter'
-import PostTitle from '@/components/post-title'
-import Badge from '@/components/badge'
+import { DateFormatter } from '@/components/post/date-formatter'
+import { PostTitle } from '@/components/post/post-title'
+import Badge from '@/components/common/badge'
 
 interface Props {
   title: string
@@ -8,7 +8,7 @@ interface Props {
   tag?: string[]
 }
 
-const PostHeader = ({ title, date, tag = [] }: Props) => {
+export const PostHeader = ({ title, date, tag = [] }: Props) => {
   return (
     <>
       <div className="mb-12">
@@ -27,5 +27,3 @@ const PostHeader = ({ title, date, tag = [] }: Props) => {
     </>
   )
 }
-
-export default PostHeader

@@ -1,4 +1,4 @@
-import PostPreview from '@/components/post-preview'
+import { PostPreview } from '@/components/post/post-preview'
 
 import type { Post } from '@/types/post'
 

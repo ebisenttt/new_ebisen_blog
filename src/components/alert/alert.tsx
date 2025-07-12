@@ -1,11 +1,11 @@
-import Container from '@/components/container'
+import { Container } from '@/components/common/container'
 
 interface Props {
   preview?: boolean
 }
 
-const Alert = ({ preview = false }: Props) => {
-  // 特に表示したいアラートはないのでpreview時のみ表示する．
+export const Alert = ({ preview = false }: Props) => {
+  // 特に表示したいアラートはないのでpreview時のみ表示する。
   if (!preview) {
     return null
   }
@@ -29,5 +29,3 @@ const Alert = ({ preview = false }: Props) => {
     </div>
   )
 }
-
-export default Alert
