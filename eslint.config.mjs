@@ -155,4 +155,17 @@ export default defineConfig([
       ],
     },
   },
+  {
+    files: ['src/**/*.{ts,tsx}'],
+    rules: {
+      'no-restricted-syntax': [
+        'error',
+        {
+          selector: 'TSInterfaceDeclaration',
+          message:
+            'interfaceの使用は禁止です。typeエイリアスを使ってください。',
+        },
+      ],
+    },
+  },
 ])
