@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 
-import { TITLE, HOME_OG_IMAGE_URL } from '@/constants'
+import { TITLE } from '@/constants'
 import {
   Profile,
   Tags,
@@ -36,19 +36,6 @@ export const metadata: Metadata = {
     '備忘録',
     'Memo',
   ],
-  openGraph: {
-    title: TITLE,
-    url: process.env.NEXT_PUBLIC_VERCEL_URL,
-    type: 'website',
-    description: DESCRIPTION_TEXT,
-    images: [HOME_OG_IMAGE_URL],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: TITLE,
-    description: DESCRIPTION_TEXT,
-    images: [HOME_OG_IMAGE_URL],
-  },
 }
 
 export default async function Page() {
