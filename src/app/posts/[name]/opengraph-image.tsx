@@ -1,6 +1,8 @@
 import { ImageResponse } from 'next/og'
 
 import { TITLE } from '@/constants'
+import { getPostByFilename } from '@/lib/api'
+import { OpenGraph } from '@/components'
 
 export const size = {
   width: 1200,
@@ -17,6 +19,8 @@ type Props = {
 
 export default async function Image({ params }: Props) {
   const { name } = await params
+  const post = await getPostByFilename(name)
+
   return new ImageResponse(
     (
       <div
@@ -24,6 +28,7 @@ export default async function Image({ params }: Props) {
           width: '100%',
           height: '100%',
           display: 'flex',
+          flexDirection: 'column',
           textAlign: 'center',
           alignItems: 'center',
           justifyContent: 'center',
@@ -31,8 +36,14 @@ export default async function Image({ params }: Props) {
           backgroundColor: '#F8FAFC', // bg-slate-50
         }}
       >
-        <p style={{ fontSize: 48 }}>{name}</p>
-        <p style={{ fontSize: 24 }}>{TITLE}</p>
+        {post?.title ? (
+          <>
+            <p style={{ fontSize: 48 }}>{name}</p>
+            <p style={{ fontSize: 24 }}>{TITLE}</p>
+          </>
+        ) : (
+          <OpenGraph />
+        )}
       </div>
     ),
   )
