@@ -1,8 +1,14 @@
 import fs from 'fs'
+import { join } from 'path'
 
-export const readFile = (path: string) => {
+type Params = {
+  rootPath?: string
+  path: string
+}
+
+export const readFile = ({ rootPath = process.cwd(), path }: Params) => {
   try {
-    return fs.readFileSync(path, 'utf8')
+    return fs.readFileSync(join(rootPath, path), 'utf8')
   } catch {
     return null
   }
