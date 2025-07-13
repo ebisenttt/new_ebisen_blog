@@ -1,6 +1,3 @@
-import { Metadata } from 'next'
-
-import { TITLE, HOME_OG_IMAGE_URL } from '@/constants'
 import {
   Profile,
   Tags,
@@ -13,43 +10,6 @@ import {
 import { getAllPosts } from '@/lib/api'
 
 const MENU_TITLES = ['Posts', 'Tags', 'Me']
-const DESCRIPTION_TEXT =
-  'ひよっこエンジニアの備忘録. 個人開発のつまずきや作業ログなどを気軽に投稿します.'
-export const metadata: Metadata = {
-  title: TITLE,
-  description: DESCRIPTION_TEXT,
-  keywords: [
-    'Next.js',
-    'TypeScript',
-    'React',
-    'Vercel',
-    'Tailwind CSS',
-    '個人開発',
-    'フロントエンドエンジニア',
-    'Frontend Engineer',
-    'Web開発',
-    'Web Development',
-    'プログラミング',
-    'Programming',
-    '技術ブログ',
-    'Tech Blog',
-    '備忘録',
-    'Memo',
-  ],
-  openGraph: {
-    title: TITLE,
-    url: process.env.NEXT_PUBLIC_VERCEL_URL,
-    type: 'website',
-    description: DESCRIPTION_TEXT,
-    images: [HOME_OG_IMAGE_URL],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: TITLE,
-    description: DESCRIPTION_TEXT,
-    images: [HOME_OG_IMAGE_URL],
-  },
-}
 
 export default async function Page() {
   const tagCount: Record<string, number> = {}

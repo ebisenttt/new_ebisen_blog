@@ -1,13 +1,14 @@
 import { GoogleTagManager } from '@next/third-parties/google'
 import { Analytics } from '@vercel/analytics/next'
 import '@/styles/index.css'
+import { Metadata } from 'next'
 
-import { TITLE } from '@/constants'
+import { DESCRIPTION, KEYWORDS, TITLE } from '@/constants'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: TITLE,
-  description:
-    'ひよっこエンジニアの備忘録. 個人開発のつまずきや作業ログなどを気軽に投稿します.',
+  description: DESCRIPTION,
+  keywords: KEYWORDS,
 }
 
 export default function RootLayout({

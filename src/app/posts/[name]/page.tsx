@@ -1,5 +1,8 @@
 import { notFound } from 'next/navigation'
 
+import { Metadata } from 'next'
+
+import { TITLE } from '@/constants'
 import { getAllPosts, getPostByFilename } from '@/lib/api'
 import { Header, PostHeader, PostBody, Container, Layout } from '@/components'
 import markdownToHtml from '@/lib/markdownToHtml'
@@ -19,6 +22,15 @@ export async function generateStaticParams() {
     .map((filename) => ({
       name: filename,
     }))
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { name } = await params
+  const post = await getPostByFilename(name)
+
+  return {
+    title: post?.title ? `${post.title} | ${TITLE}` : TITLE,
+  }
 }
 
 export default async function Page({ params }: Props) {
