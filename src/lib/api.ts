@@ -43,7 +43,7 @@ export async function convertMarkdownToPost({
 }
 
 type GetPostOptions = {
-  readFileFn?: typeof defaultReadFile
+  readFileFn?: (path: string) => string | null
   postsDirectory?: string
 }
 
@@ -55,7 +55,7 @@ export async function getPostByFilename(
     options
   const filenameWithoutExtension = filename.replace(/\.md$/, '')
   const fullPath = `${dir}/${filenameWithoutExtension}.md`
-  const fileContents = readFileFn({ path: fullPath })
+  const fileContents = readFileFn(fullPath)
 
   if (fileContents === null) {
     return null

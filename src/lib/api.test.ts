@@ -115,7 +115,7 @@ describe('getAllPosts', () => {
       'b.md': validMarkdown('B', '2024-06-22'),
       'c.md': validMarkdown('C', '2024-06-21'),
     }
-    mockReadFile.mockImplementation(({ path }) => {
+    mockReadFile.mockImplementation((path) => {
       const fname = path.split('/').pop()!
       return readFileMap[fname] || null
     })
@@ -131,7 +131,7 @@ describe('getAllPosts', () => {
 
   it('should skip files that return null', async () => {
     const files = ['a.md', 'b.md']
-    mockReadFile.mockImplementation(({ path }) =>
+    mockReadFile.mockImplementation((path) =>
       path.endsWith('a.md') ? null : validMarkdown('B', '2024-06-22'),
     )
     jest
