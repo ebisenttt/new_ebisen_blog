@@ -26,7 +26,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { name } = await params
-  const post = getPostByFilename(name)
+  const post = await getPostByFilename(name)
 
   return {
     title: post?.title ? `${post.title} | ${TITLE}` : TITLE,
