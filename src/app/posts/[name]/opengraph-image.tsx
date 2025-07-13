@@ -2,7 +2,11 @@ import { ImageResponse } from 'next/og'
 
 import { TITLE } from '@/constants'
 import { getPostByFilename } from '@/lib/api'
-import { OpenGraph } from '@/components'
+import {
+  Basic as BasicOpenGraph,
+  Wrapper as OpenGraphWrapper,
+  Logo,
+} from '@/components'
 
 export const size = {
   width: 1200,
@@ -21,30 +25,34 @@ export default async function Image({ params }: Props) {
   const { name } = await params
   const post = await getPostByFilename(name)
 
+  if (post === null) {
+    return new ImageResponse(<BasicOpenGraph />, { ...size })
+  }
+
   return new ImageResponse(
     (
-      <div
-        style={{
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          textAlign: 'center',
-          alignItems: 'center',
-          justifyContent: 'center',
-          color: '#111827', // text-slate-900
-          backgroundColor: '#F8FAFC', // bg-slate-50
-        }}
-      >
-        {post?.title ? (
-          <>
-            <p style={{ fontSize: 48 }}>{name}</p>
-            <p style={{ fontSize: 24 }}>{TITLE}</p>
-          </>
-        ) : (
-          <OpenGraph />
-        )}
-      </div>
+      <OpenGraphWrapper style={{ position: 'relative' }}>
+        <p style={{ fontSize: 36 }}>{post.title}</p>
+        <div
+          style={{
+            position: 'absolute',
+            right: 48,
+            bottom: 24,
+            display: 'flex',
+            alignItems: 'center',
+            gap: 8,
+          }}
+        >
+          <Logo height={32} width={32} />
+          <p
+            style={{
+              fontSize: 24,
+            }}
+          >
+            {TITLE}
+          </p>
+        </div>
+      </OpenGraphWrapper>
     ),
   )
 }

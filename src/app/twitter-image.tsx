@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 import { TITLE } from '@/constants'
-import { OpenGraph } from '@/components'
+import { Basic as BasicOpenGraph } from '@/components'
 
 export const alt = TITLE
 export const size = {
@@ -12,5 +12,5 @@ export const size = {
 export const contentType = 'image/png'
 
 export default async function Image() {
-  return new ImageResponse(<OpenGraph />, { ...size })
+  return new ImageResponse(<BasicOpenGraph />, { ...size })
 }

@@ -2,6 +2,8 @@ import type { ReactNode } from 'react'
 
 import Image from 'next/image'
 
+import { Logo as LogoImage } from '../image'
+
 type IconType = {
   name: string
   src: string
@@ -135,11 +137,9 @@ export const Profile = () => {
 }
 
 const Logo = () => {
-  const LOGO_SRC = '/assets/logo.png'
-
   return (
     <div className="bg-white w-48 h-48 flex justify-center items-center rounded-full">
-      <Image src={LOGO_SRC} alt="ロゴ" width={128} height={128} />
+      <LogoImage height={128} width={128} />
     </div>
   )
 }
