@@ -1,7 +1,6 @@
 import { ImageResponse } from 'next/og'
 
 import { TITLE } from '@/constants'
-import { getPostByFilename } from '@/lib/api'
 import {
   Basic as BasicOpenGraph,
   Wrapper as OpenGraphWrapper,
@@ -12,7 +11,6 @@ export const size = {
   width: 1200,
   height: 630,
 }
-
 export const contentType = 'image/png'
 
 type Props = {
@@ -23,16 +21,23 @@ type Props = {
 
 export default async function Image({ params }: Props) {
   const { name } = await params
-  const post = await getPostByFilename(name)
 
-  if (post === null) {
+  const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
+    ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+    : 'http://localhost:3000'
+  const res = await fetch(`${baseUrl}/api/metadata?name=${name}`)
+  const { title } = await res.json()
+
+  if (!res.ok || !title) {
     return new ImageResponse(<BasicOpenGraph />, { ...size })
   }
+
+  const modifiedTitle = title.replace(` | ${TITLE}`, '')
 
   return new ImageResponse(
     (
       <OpenGraphWrapper style={{ position: 'relative' }}>
-        <p style={{ fontSize: 36 }}>{post.title}</p>
+        <p style={{ fontSize: 36 }}>{modifiedTitle}</p>
         <div
           style={{
             position: 'absolute',
