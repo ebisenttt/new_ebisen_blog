@@ -28,8 +28,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { name } = await params
   const post = getPostByFilename(name)
 
-  console.log('posttitle', post?.title)
-
   return {
     title: post?.title ? `${post.title} | ${TITLE}` : TITLE,
   }
