@@ -7,13 +7,16 @@ import { DESCRIPTION, TITLE } from '../src/constants'
 
 async function main() {
   const posts = await getAllPosts()
+  const baseUrl = process.env.VERCEL_URL
+    ? 'https://' + process.env.VERCEL_URL
+    : 'http://localhost:3000'
 
   const items = posts
     .map(
       (post) => `
       <item>
         <title>${escapeXml(post.title)}</title>
-        <link>${process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'}/posts/${post.filename}</link>
+        <link>${baseUrl}/posts/${post.filename}</link>
         <pubDate>${new Date(post.date).toUTCString()}</pubDate>
       </item>
     `,
@@ -24,7 +27,7 @@ async function main() {
 <rss version="2.0">
   <channel>
     <title>${TITLE}</title>
-    <link>${process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'}</link>
+    <link>${baseUrl}</link>
     <description>${DESCRIPTION}</description>
     <ttl>${60 * 24}</ttl>
     ${items}
