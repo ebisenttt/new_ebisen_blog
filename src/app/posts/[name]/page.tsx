@@ -1,11 +1,10 @@
 import { notFound } from 'next/navigation'
 
+import { Metadata } from 'next'
+
+import { TITLE } from '@/constants'
 import { getAllPosts, getPostByFilename } from '@/lib/api'
-import Layout from '@/components/layout'
-import Container from '@/components/container'
-import Header from '@/components/header'
-import PostHeader from '@/components/post-header'
-import PostBody from '@/components/post-body'
+import { Header, PostHeader, PostBody, Container, Layout } from '@/components'
 import markdownToHtml from '@/lib/markdownToHtml'
 import 'prismjs/themes/prism-tomorrow.css'
 
@@ -18,16 +17,25 @@ type Props = {
 }
 
 export async function generateStaticParams() {
-  return getAllPosts()
+  return (await getAllPosts())
     .flatMap((post) => post?.filename ?? [])
     .map((filename) => ({
       name: filename,
     }))
 }
 
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { name } = await params
+  const post = await getPostByFilename(name)
+
+  return {
+    title: post?.title ? `${post.title} | ${TITLE}` : TITLE,
+  }
+}
+
 export default async function Page({ params }: Props) {
   const { name } = await params
-  const post = getPostByFilename(name)
+  const post = await getPostByFilename(name)
   if (post === null) {
     notFound()
   }

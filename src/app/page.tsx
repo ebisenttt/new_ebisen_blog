@@ -1,57 +1,19 @@
-import { Metadata } from 'next'
-
-import { TITLE, HOME_OG_IMAGE_URL } from '@/constants'
-import { Profile } from '@/components/profile'
-import { Tags } from '@/components/tags'
-import Container from '@/components/container'
-import Posts from '@/components/posts'
-import Intro from '@/components/intro'
-import Layout from '@/components/layout'
-import { TabLayout } from '@/components/tabLayout'
+import {
+  Profile,
+  Tags,
+  Container,
+  Posts,
+  Intro,
+  Layout,
+  TabLayout,
+} from '@/components'
 import { getAllPosts } from '@/lib/api'
 
 const MENU_TITLES = ['Posts', 'Tags', 'Me']
-const DESCRIPTION_TEXT =
-  'ひよっこエンジニアの備忘録. 個人開発のつまずきや作業ログなどを気軽に投稿します.'
-export const metadata: Metadata = {
-  title: TITLE,
-  description: DESCRIPTION_TEXT,
-  keywords: [
-    'Next.js',
-    'TypeScript',
-    'React',
-    'Vercel',
-    'Tailwind CSS',
-    '個人開発',
-    'フロントエンドエンジニア',
-    'Frontend Engineer',
-    'Web開発',
-    'Web Development',
-    'プログラミング',
-    'Programming',
-    '技術ブログ',
-    'Tech Blog',
-    '備忘録',
-    'Memo',
-  ],
-  openGraph: {
-    title: TITLE,
-    url: process.env.NEXT_PUBLIC_VERCEL_URL,
-    type: 'website',
-    description: DESCRIPTION_TEXT,
-    images: [HOME_OG_IMAGE_URL],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: TITLE,
-    description: DESCRIPTION_TEXT,
-    images: [HOME_OG_IMAGE_URL],
-  },
-}
 
 export default async function Page() {
   const tagCount: Record<string, number> = {}
-  const allPosts = getAllPosts()
+  const allPosts = await getAllPosts()
   allPosts.forEach((post) => {
     if (post === null) return
     post.tags?.forEach((tag) => {

@@ -105,8 +105,6 @@ export default defineConfig([
           ],
         },
       ],
-      '@next/next/no-duplicate-head': 'off', // 次のエラーが発生するため一時的にoff: context.getAncestor() is not a function
-      '@next/next/no-page-custom-font': 'off', // 次のエラーが発生するため一時的にoff: context.getAncestor() is not a function
     },
   },
   {
@@ -121,6 +119,51 @@ export default defineConfig([
               message: '@lib/dateからimportしてください',
             },
           ],
+        },
+      ],
+    },
+  },
+  {
+    ignores: ['src/components/*'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: ['@/components/*'],
+              message: '@/componentsからimportしてください',
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    files: ['src/components/**/*.{ts,tsx}'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: ['@/components', '@/components/*'],
+              message: 'components内では相対パスを使用してください',
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    files: ['src/**/*.{ts,tsx}'],
+    rules: {
+      'no-restricted-syntax': [
+        'error',
+        {
+          selector: 'TSInterfaceDeclaration',
+          message:
+            'interfaceの使用は禁止です。typeエイリアスを使ってください。',
         },
       ],
     },
