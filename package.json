@@ -3,7 +3,9 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
+    "postbuild": "pnpm generate:rss",
     "start": "next start",
+    "generate:rss": "npx tsx scripts/generate-rss.ts",
     "typecheck": "tsc --noEmit",
     "lint": "eslint",
     "lint-staged": "lint-staged",
