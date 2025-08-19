@@ -77,5 +77,9 @@ export async function getAllPosts(
   )
   return posts
     .filter((post): post is Post => post !== null)
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
+    .sort((post1, post2) => {
+      if (post1.date > post2.date) return -1
+      if (post1.date < post2.date) return 1
+      return 0
+    })
 }
