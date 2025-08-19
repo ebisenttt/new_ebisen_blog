@@ -17,6 +17,8 @@ async function main() {
       <item>
         <title>${escapeXml(post.title)}</title>
         <link>${baseUrl}/posts/${post.filename}</link>
+        <description>${escapeXml(post.description || '')}</description>
+        <guid>${baseUrl}/posts/${post.filename}</guid>
         <pubDate>${new Date(post.date).toUTCString()}</pubDate>
       </item>
     `,
