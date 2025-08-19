@@ -28,7 +28,7 @@ async function main() {
   <channel>
     <title>${TITLE}</title>
     <link>${baseUrl}</link>
-    <description>${DESCRIPTION}</description>
+    <description>${escapeXml(DESCRIPTION)}</description>
     <ttl>${60 * 24}</ttl>
     ${items}
   </channel>
