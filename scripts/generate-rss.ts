@@ -26,7 +26,7 @@ async function main() {
   const xml = `<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
   <channel>
-    <title>${TITLE}</title>
+    <title>${escapeXml(TITLE)}</title>
     <link>${baseUrl}</link>
     <description>${escapeXml(DESCRIPTION)}</description>
     <ttl>${60 * 24}</ttl>
