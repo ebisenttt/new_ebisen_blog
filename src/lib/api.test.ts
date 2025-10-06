@@ -145,6 +145,23 @@ describe('getAllPosts', () => {
     expect(posts[0].title).toBe('B')
   })
 
+  it('should keep original order when dates are equal', async () => {
+    const files = ['a.md', 'b.md']
+    mockReadFile.mockImplementation((path) =>
+      path.endsWith('a.md')
+        ? validMarkdown('A', '2024-06-20')
+        : validMarkdown('B', '2024-06-20'),
+    )
+    jest
+      .spyOn(fs, 'readdirSync')
+      .mockReturnValue(files as unknown as ReturnType<typeof fs.readdirSync>)
+    const posts = await getAllPosts({
+      readFileFn: mockReadFile,
+      postsDirectory: '',
+    })
+    expect(posts.map((p) => p.title)).toEqual(['A', 'B'])
+  })
+
   it('should return empty array if no files', async () => {
     jest
       .spyOn(fs, 'readdirSync')
