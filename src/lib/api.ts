@@ -6,6 +6,7 @@ import { readFile as defaultReadFile } from '@/utils/readFile'
 import type { Post } from '@/types/post'
 
 import markdownToHtml from './markdownToHtml'
+import { fetchNotePosts } from './note'
 
 export async function convertMarkdownToPost({
   markdown,
@@ -82,4 +83,24 @@ export async function getAllPosts(
       if (post1.date < post2.date) return 1
       return 0
     })
+}
+
+export async function getAllPostsMerged(
+  options: GetPostOptions = {},
+): Promise<Post[]> {
+  const local = await getAllPosts(options)
+  try {
+    const external = await fetchNotePosts()
+    // URL重複排除のため、filename(外部はエンコードURL)をキーにユニーク化
+    const map = new Map(local.map((p) => [p.filename, p]))
+    for (const p of external) {
+      if (!map.has(p.filename)) map.set(p.filename, p)
+    }
+    return Array.from(map.values()).sort((a, b) =>
+      a.date > b.date ? -1 : a.date < b.date ? 1 : 0,
+    )
+  } catch {
+    // フォールバック: ローカルのみ
+    return local
+  }
 }
