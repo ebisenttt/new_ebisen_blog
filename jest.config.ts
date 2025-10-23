@@ -24,14 +24,22 @@ const configBase: Config = {
   testMatch: ['<rootDir>/src/**/*.test.{ts,tsx}'],
 }
 
-const config = async () => ({
-  ...(await createJestConfig(configBase)()),
-  moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/src/$1',
-  },
-  transformIgnorePatterns: [
-    '/node_modules/(?!.pnpm|unified|bail|devlop|is-plain-obj|trough|vfile|unist-.*|remark-.*|mdast-.*|hast-util-.*|property-information|html-void-element|zwitch|stringify-entities|character-entities-.*|ccount|comma-separated-token|space-separated-token|micromark-.*|trim-lines|)',
-  ],
-})
+const config = async () => {
+  const nextConfig = await createJestConfig(configBase)()
+
+  return {
+    ...nextConfig,
+    moduleNameMapper: {
+      ...configBase.moduleNameMapper,
+      ...nextConfig.moduleNameMapper,
+      '^@/(.*)$': '<rootDir>/src/$1',
+      '\\.(css|less|sass|scss)$': '<rootDir>/tests/__mocks__/styleMock.js',
+      '^devicon$': '<rootDir>/tests/__mocks__/styleMock.js',
+    },
+    transformIgnorePatterns: [
+      '/node_modules/(?!.pnpm|unified|bail|devlop|is-plain-obj|trough|vfile|unist-.*|remark-.*|mdast-.*|hast-util-.*|property-information|html-void-element|zwitch|stringify-entities|character-entities-.*|ccount|comma-separated-token|space-separated-token|micromark-.*|trim-lines|)',
+    ],
+  }
+}
 
 export default config
