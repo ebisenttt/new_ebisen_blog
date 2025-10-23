@@ -7,13 +7,13 @@ import {
   Layout,
   TabLayout,
 } from '@/components'
-import { getAllPosts } from '@/lib/api'
+import { getAllPostsMerged } from '@/lib/api'
 
 const MENU_TITLES = ['Posts', 'Tags', 'Me']
 
 export default async function Page() {
   const tagCount: Record<string, number> = {}
-  const allPosts = await getAllPosts()
+  const allPosts = await getAllPostsMerged()
   allPosts.forEach((post) => {
     if (post === null) return
     post.tags?.forEach((tag) => {

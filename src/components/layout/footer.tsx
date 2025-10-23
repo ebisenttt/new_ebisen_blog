@@ -13,6 +13,8 @@ export const Footer = () => {
           <div className="flex lg:flex-row justify-center items-center lg:pl-4 lg:w-1/2">
             <a
               href="https://github.com/ebisenttt/new_ebisen_blog"
+              target="_blank"
+              rel="noopener noreferrer"
               className="mx-3 font-bold hover:underline"
             >
               <Image
@@ -23,12 +25,31 @@ export const Footer = () => {
                 className="invert"
               />
             </a>
-            <a href="https://twitter.com/ebisenttt">
+            <a
+              href="https://twitter.com/ebisenttt"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Image
                 src="https://cdn.qiita.com/assets/brand_icons/icon-x_white-a2cf94da373d24e4cf6e4848a3a1c4a8.svg"
                 alt="x-twitter"
                 width={40}
                 height={40}
+              />
+            </a>
+            <a
+              href="https://note.com/ebisen_ttt"
+              className="mx-3"
+              aria-label="note"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/assets/brands/note-logo.svg"
+                alt="note"
+                width={96}
+                height={24}
+                priority={false}
               />
             </a>
           </div>
