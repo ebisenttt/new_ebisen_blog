@@ -12,6 +12,13 @@ const configBase: Config = {
   coverageProvider: 'v8',
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
+    '^@shared/(.*)$': '<rootDir>/src/shared/$1',
+    '^@entities/(.*)$': '<rootDir>/src/entities/$1',
+    '^@features/(.*)$': '<rootDir>/src/features/$1',
+    '^@widgets/(.*)$': '<rootDir>/src/widgets/$1',
+    '^@processes/(.*)$': '<rootDir>/src/processes/$1',
+    '^@pages/(.*)$': '<rootDir>/src/pages/$1',
+    '^@app-providers/(.*)$': '<rootDir>/src/app-providers/$1',
   },
   testEnvironment: 'jsdom',
   testMatch: ['<rootDir>/src/**/*.test.{ts,tsx}'],

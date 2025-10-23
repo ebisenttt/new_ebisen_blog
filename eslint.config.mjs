@@ -86,23 +86,47 @@ export default defineConfig([
               group: 'external',
               position: 'before',
             },
+            {
+              pattern: '@shared/**',
+              group: 'internal',
+              position: 'after',
+            },
+            {
+              pattern: '@entities/**',
+              group: 'internal',
+              position: 'after',
+            },
+            {
+              pattern: '@features/**',
+              group: 'internal',
+              position: 'after',
+            },
+            {
+              pattern: '@widgets/**',
+              group: 'internal',
+              position: 'after',
+            },
+            {
+              pattern: '@processes/**',
+              group: 'internal',
+              position: 'after',
+            },
+            {
+              pattern: '@pages/**',
+              group: 'internal',
+              position: 'after',
+            },
+            {
+              pattern: '@app-providers/**',
+              group: 'internal',
+              position: 'after',
+            },
           ],
           pathGroupsExcludedImportTypes: ['react', 'next'],
           alphabetize: {
             orderImportKind: 'asc',
             caseInsensitive: true,
           },
-        },
-      ],
-      'no-restricted-imports': [
-        'error',
-        {
-          patterns: [
-            {
-              group: ['../', './'],
-              message: '絶対パスを使用してください',
-            },
-          ],
         },
       ],
     },
@@ -117,22 +141,6 @@ export default defineConfig([
             {
               group: ['date-fns*', '@date-fns*'],
               message: '@lib/dateからimportしてください',
-            },
-          ],
-        },
-      ],
-    },
-  },
-  {
-    ignores: ['src/components/*'],
-    rules: {
-      'no-restricted-imports': [
-        'error',
-        {
-          patterns: [
-            {
-              group: ['@/components/*'],
-              message: '@/componentsからimportしてください',
             },
           ],
         },
