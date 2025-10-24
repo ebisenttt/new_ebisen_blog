@@ -1,2 +1,1 @@
-export * from './metadata'
-export * from './path'
+export * from '@shared/config'

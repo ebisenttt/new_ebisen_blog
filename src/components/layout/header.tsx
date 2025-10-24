@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { TITLE } from '@/constants'
+import { TITLE } from '@shared/config'
 
 export const Header = () => {
   return (

@@ -1,1 +1,1 @@
-export const POSTS_DIRECTORY_NAME = '_posts'
+export { POSTS_DIRECTORY_NAME } from '@shared/config/path'

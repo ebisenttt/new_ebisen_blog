@@ -2,11 +2,13 @@ import { notFound } from 'next/navigation'
 
 import { Metadata } from 'next'
 
-import { TITLE } from '@/constants'
-import { getAllPosts, getPostByFilename } from '@/lib/api'
-import { Header, PostHeader, PostBody, Container, Layout } from '@/components'
-import markdownToHtml from '@/lib/markdownToHtml'
 import 'prismjs/themes/prism-tomorrow.css'
+
+import { Header, PostHeader, PostBody, Container, Layout } from '@/components'
+import { getAllPosts, getPostByFilename } from '@/lib/api'
+import markdownToHtml from '@/lib/markdownToHtml'
+
+import { TITLE } from '@shared/config'
 
 import { PageClient } from './page-client'
 

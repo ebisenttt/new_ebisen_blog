@@ -1,4 +1,4 @@
-import type { Post } from '@/types/post'
+import type { Post } from '@shared/types/post'
 
 import { PostPreview } from './post-preview'
 

@@ -1,9 +1,9 @@
 import { GoogleTagManager } from '@next/third-parties/google'
 import { Analytics } from '@vercel/analytics/next'
-import '@/styles/index.css'
+import '@shared/styles/index.css'
 import { Metadata } from 'next'
 
-import { DESCRIPTION, KEYWORDS, TITLE } from '@/constants'
+import { DESCRIPTION, KEYWORDS, TITLE } from '@shared/config'
 
 export const metadata: Metadata = {
   title: TITLE,

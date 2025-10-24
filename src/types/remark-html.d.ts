@@ -1,1 +1,1 @@
-declare module 'remark-html'
+export * from '@shared/types/remark-html'

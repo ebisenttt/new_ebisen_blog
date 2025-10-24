@@ -1,9 +1,9 @@
 import Link from 'next/link'
 
 import { decodeExternalUrl } from '@/lib/note'
-import { backQuoteToCodeElement } from '@/utils/backQuoteToCodeElement'
-import { Post } from '@/types/post'
 
+import { backQuoteToCodeElement } from '@shared/lib/backQuoteToCodeElement'
+import { Post } from '@shared/types/post'
 import { Badge, Card, ExternalLinkIcon } from '@shared/ui'
 
 import { DateFormatter } from './date-formatter'

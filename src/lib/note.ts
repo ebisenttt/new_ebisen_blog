@@ -1,6 +1,6 @@
 /* note.com API からコンテンツ一覧を取得し、既存の Post 型へマッピングする */
 
-import type { Post } from '@/types/post'
+import type { Post } from '@shared/types/post'
 
 const NOTE_ENDPOINT =
   'https://note.com/api/v2/creators/ebisen_ttt/contents?kind=note&page='

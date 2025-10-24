@@ -1,9 +1,8 @@
 import matter from 'gray-matter'
 
-import { getPostFiles, postsDirectory } from '@/utils/file'
-import { readFile as defaultReadFile } from '@/utils/readFile'
-
-import type { Post } from '@/types/post'
+import { getPostFiles, postsDirectory } from '@shared/lib/file'
+import { readFile as defaultReadFile } from '@shared/lib/readFile'
+import type { Post } from '@shared/types/post'
 
 import markdownToHtml from './markdownToHtml'
 import { fetchNotePosts } from './note'

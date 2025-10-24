@@ -1,4 +1,4 @@
-import { TITLE } from '@/constants'
+import { TITLE } from '@shared/config'
 
 import { Wrapper } from './wrapper'
 
