@@ -1,4 +1,5 @@
-export * from './common'
+export * from '@shared/ui'
+export { Tags } from './common/tags'
 export * from './layout'
 export * from './post'
 export * from './profile'

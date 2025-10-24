@@ -4,7 +4,8 @@ import { decodeExternalUrl } from '@/lib/note'
 import { backQuoteToCodeElement } from '@/utils/backQuoteToCodeElement'
 import { Post } from '@/types/post'
 
-import { Badge, Card, ExternalLinkIcon } from '../common'
+import { Badge, Card, ExternalLinkIcon } from '@shared/ui'
+
 import { DateFormatter } from './date-formatter'
 
 type Props = Pick<Post, 'title' | 'date' | 'filename' | 'tags'>

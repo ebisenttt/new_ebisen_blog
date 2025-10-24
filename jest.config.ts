@@ -12,6 +12,8 @@ const configBase: Config = {
   coverageProvider: 'v8',
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
+    '^@shared/ui$': '<rootDir>/src/shared/ui/index.ts',
+    '^@shared/ui/(.*)$': '<rootDir>/src/shared/ui/$1',
     '^@shared/(.*)$': '<rootDir>/src/shared/$1',
     '^@entities/(.*)$': '<rootDir>/src/entities/$1',
     '^@features/(.*)$': '<rootDir>/src/features/$1',
@@ -33,6 +35,8 @@ const config = async () => {
       ...configBase.moduleNameMapper,
       ...nextConfig.moduleNameMapper,
       '^@/(.*)$': '<rootDir>/src/$1',
+      '^@shared/ui$': '<rootDir>/src/shared/ui/index.ts',
+      '^@shared/ui/(.*)$': '<rootDir>/src/shared/ui/$1',
       '\\.(css|less|sass|scss)$': '<rootDir>/tests/__mocks__/styleMock.js',
       '^devicon$': '<rootDir>/tests/__mocks__/styleMock.js',
     },

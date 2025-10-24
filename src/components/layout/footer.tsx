@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import { Container } from '../common/container'
+import { Container } from '@shared/ui'
 
 export const Footer = () => {
   return (

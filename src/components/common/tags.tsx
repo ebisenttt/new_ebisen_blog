@@ -2,9 +2,10 @@
 
 import { useState } from 'react'
 
+import { Badge } from '@shared/ui'
+
 import type { Post } from '@/types/post'
 
-import { Badge } from './badge'
 import { Posts } from '../post/posts'
 
 type TagsProps = {
