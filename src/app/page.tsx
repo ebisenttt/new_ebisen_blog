@@ -1,13 +1,11 @@
-import {
-  Profile,
-  Tags,
-  Container,
-  Posts,
-  Intro,
-  Layout,
-  TabLayout,
-} from '@/components'
+import { Intro, Layout, TabLayout } from '@/components/layout'
+import { Profile } from '@/components/profile'
+import { Tags } from '@/components/common/tags'
 import { getAllPostsMerged } from '@/lib/api'
+
+import { Container } from '@shared/ui'
+
+import { Posts } from '@entities/post'
 
 const MENU_TITLES = ['Posts', 'Tags', 'Me']
 

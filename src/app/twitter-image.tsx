@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og'
 
-import { Basic as BasicOpenGraph } from '@/components'
+import { Basic as BasicOpenGraph } from '@/components/open-graph'
 
 import { TITLE } from '@shared/config'
 

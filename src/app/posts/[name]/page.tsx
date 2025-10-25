@@ -4,11 +4,15 @@ import { Metadata } from 'next'
 
 import 'prismjs/themes/prism-tomorrow.css'
 
-import { Header, PostHeader, PostBody, Container, Layout } from '@/components'
+import { Header } from '@/components/layout/header'
+import { Layout } from '@/components/layout'
 import { getAllPosts, getPostByFilename } from '@/lib/api'
 import markdownToHtml from '@/lib/markdownToHtml'
 
+import { Container } from '@shared/ui'
 import { TITLE } from '@shared/config'
+
+import { PostHeader, PostBody } from '@entities/post'
 
 import { PageClient } from './page-client'
 
