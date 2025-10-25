@@ -1,7 +1,7 @@
 export * from '@shared/ui'
 export { Tags } from './common/tags'
 export * from './layout'
-export * from './post'
+export * from '@entities/post'
 export * from './profile'
 export * from './open-graph'
 export * from './image'
