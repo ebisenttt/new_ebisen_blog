@@ -235,9 +235,10 @@ src/
 
 4. **Phase 3: features の定義**
 
-   - Tag 集計・ソート・Tab 切替など、ユーザー操作を伴うロジックを features に移す。
-   - `posts/page.tsx` で行っているタグ集計を `features/posts/filter-by-tag` の model に移す。
-   - 外部リンク判定 (`decodeExternalUrl`) を `features/posts/open-external` に移し、UI には props 経由で渡す。
+- Tag 集計・ソート・Tab 切替など、ユーザー操作を伴うロジックを features に移す。
+- `src/components/common/tags.tsx` は `features/posts/filter-by-tag/ui/TagFilter/TagFilter.tsx` へ移し、仕様は `docs/features/posts-filter-by-tag.md` を参照。投稿一覧 (`Posts`) の表示は entity を再利用するが、タグの収集・並び替え・選択状態の管理は feature の model で担保する。
+- `src/app/page.tsx` で行っているタグ集計を `features/posts/filter-by-tag/model` の関数 (`collectTags` / `filterPostsByTag` など) に置き換え、ページ側は feature の公開 API から計算済みデータを受け取るだけにする。
+- 外部リンク判定 (`decodeExternalUrl`) とリンク生成の責務は `features/posts/open-external` に移す。仕様は `docs/features/posts-open-external.md` を参照し、feature から `href` / `externalUrl` を渡して entity の UI (`PostPreview`) がリンク種別を切り替える構成にする。
 
 5. **Phase 4: widgets と processes**
 

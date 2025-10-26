@@ -2,8 +2,13 @@ import type { Post } from '@entities/post/model'
 
 import { PostPreview } from './ui'
 
+type PostWithLink = Post & {
+  href?: string
+  externalUrl?: string | null
+}
+
 type Props = {
-  posts: Post[]
+  posts: PostWithLink[]
 }
 
 export const Posts = ({ posts }: Props) => {
@@ -14,8 +19,11 @@ export const Posts = ({ posts }: Props) => {
           key={post.filename}
           title={post.title}
           date={post.date}
-          filename={post.filename}
           tags={post.tags}
+          href={post.href ?? post.externalUrl ?? `/posts/${post.filename}`}
+          externalUrl={
+            post.externalUrl === undefined ? undefined : post.externalUrl
+          }
         />
       ))}
     </div>

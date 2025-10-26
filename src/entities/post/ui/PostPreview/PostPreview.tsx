@@ -3,14 +3,23 @@ import Link from 'next/link'
 import { backQuoteToCodeElement } from '@shared/lib/backQuoteToCodeElement'
 import { Badge, Card, ExternalLinkIcon } from '@shared/ui'
 
-import { decodeExternalUrl, type Post } from '@entities/post/model'
+import type { Post } from '@entities/post/model'
 
 import { DateFormatter } from '../DateFormatter'
 
-type Props = Pick<Post, 'title' | 'date' | 'filename' | 'tags'>
+type Props = Pick<Post, 'title' | 'date' | 'tags'> & {
+  href: string
+  externalUrl?: string | null
+}
 
-export const PostPreview = ({ title, date, filename, tags = [] }: Props) => {
-  const externalUrl = decodeExternalUrl(filename)
+export const PostPreview = ({
+  title,
+  date,
+  tags = [],
+  href,
+  externalUrl,
+}: Props) => {
+  const isExternal = Boolean(externalUrl)
   const content = (
     <Card>
       <div className="mb-3 flex items-start">
@@ -18,7 +27,7 @@ export const PostPreview = ({ title, date, filename, tags = [] }: Props) => {
           className="text-xl leading-snug flex-1"
           dangerouslySetInnerHTML={{ __html: backQuoteToCodeElement(title) }}
         />
-        {externalUrl && (
+        {isExternal && (
           <span className="ml-2 text-gray-500">
             <ExternalLinkIcon title="外部リンク" />
           </span>
@@ -35,10 +44,10 @@ export const PostPreview = ({ title, date, filename, tags = [] }: Props) => {
     </Card>
   )
 
-  if (externalUrl) {
+  if (isExternal) {
     return (
       <a
-        href={externalUrl}
+        href={href}
         target="_blank"
         rel="noopener noreferrer"
         className="hover:underline"
@@ -49,7 +58,7 @@ export const PostPreview = ({ title, date, filename, tags = [] }: Props) => {
   }
 
   return (
-    <Link href={`/posts/${filename}`} className="hover:underline">
+    <Link href={href} className="hover:underline">
       {content}
     </Link>
   )

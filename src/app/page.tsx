@@ -1,32 +1,30 @@
 import { Intro, Layout, TabLayout } from '@/components/layout'
 import { Profile } from '@/components/profile'
-import { Tags } from '@/components/common/tags'
 import { getAllPostsMerged } from '@/lib/api'
 
 import { Container } from '@shared/ui'
 
 import { Posts } from '@entities/post'
 
+import {
+  TagFilter,
+  collectTagStats,
+  sortTagsByCount,
+  selectInitialTag,
+} from '@features/posts/filter-by-tag'
+import { createPostLinkProps } from '@features/posts/open-external'
+
 const MENU_TITLES = ['Posts', 'Tags', 'Me']
 
 export default async function Page() {
-  const tagCount: Record<string, number> = {}
   const allPosts = await getAllPostsMerged()
-  allPosts.forEach((post) => {
-    if (post === null) return
-    post.tags?.forEach((tag) => {
-      if (tagCount[tag] === undefined) {
-        tagCount[tag] = 1
-      } else {
-        tagCount[tag] += 1
-      }
-    })
-  })
-  const allTags = Array.from(
-    new Set(allPosts.flatMap((post) => post.tags ?? [])),
-  )
-    .filter((tag): tag is string => typeof tag === 'string')
-    .sort((a, b) => -(tagCount[a] - tagCount[b]))
+  const tagStats = collectTagStats(allPosts)
+  const sortedTags = sortTagsByCount(tagStats)
+  const initialTag = selectInitialTag(sortedTags)
+  const postsWithLinks = allPosts.map((post) => ({
+    ...post,
+    ...createPostLinkProps(post),
+  }))
 
   return (
     <>
@@ -36,8 +34,14 @@ export default async function Page() {
           <TabLayout
             menuTitles={MENU_TITLES}
             bodies={[
-              <Posts key="posts" posts={allPosts} />,
-              <Tags key="tags" allTags={allTags} allPosts={allPosts} />,
+              <Posts key="posts" posts={postsWithLinks} />,
+              <TagFilter
+                key="tags"
+                posts={allPosts}
+                tags={sortedTags}
+                initialTag={initialTag}
+                tagStats={tagStats}
+              />,
               <Profile key="profile" />,
             ]}
           />

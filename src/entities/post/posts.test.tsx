@@ -5,14 +5,22 @@ import type { Post } from '@entities/post/model'
 
 import { Posts } from './posts'
 
-const sample: Post[] = [
-  { title: 'A', date: '2020-01-01', filename: 'a.md', tags: [], content: '' },
+const sample: Array<Post & { href: string }> = [
+  {
+    title: 'A',
+    date: '2020-01-01',
+    filename: 'a',
+    tags: [],
+    content: '',
+    href: '/posts/a',
+  },
   {
     title: 'B',
     date: '2020-02-02',
-    filename: 'b.md',
+    filename: 'b',
     tags: ['t'],
     content: '',
+    href: '/posts/b',
   },
 ]
 
