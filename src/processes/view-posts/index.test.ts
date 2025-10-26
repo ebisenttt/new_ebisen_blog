@@ -9,8 +9,9 @@ jest.mock('@/lib/api', () => ({
 }))
 
 describe('processes/view-posts', () => {
-  const getAllPostsMergedMock =
-    getAllPostsMerged as jest.MockedFunction<typeof getAllPostsMerged>
+  const getAllPostsMergedMock = getAllPostsMerged as jest.MockedFunction<
+    typeof getAllPostsMerged
+  >
 
   beforeEach(() => {
     getAllPostsMergedMock.mockReset()

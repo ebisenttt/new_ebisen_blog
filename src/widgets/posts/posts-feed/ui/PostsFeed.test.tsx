@@ -5,16 +5,19 @@ import type { HomePostsViewModel } from '@processes/view-posts'
 
 import { PostsFeed } from './PostsFeed'
 
-const createPost = (overrides: Partial<HomePostsViewModel['posts'][number]> = {}) => ({
-  title: 'Sample',
-  date: '2024-01-01',
-  content: '',
-  filename: 'sample',
-  tags: [],
-  href: '/posts/sample',
-  externalUrl: null,
-  ...overrides,
-}) as HomePostsViewModel['posts'][number]
+const createPost = (
+  overrides: Partial<HomePostsViewModel['posts'][number]> = {},
+) =>
+  ({
+    title: 'Sample',
+    date: '2024-01-01',
+    content: '',
+    filename: 'sample',
+    tags: [],
+    href: '/posts/sample',
+    externalUrl: null,
+    ...overrides,
+  }) as HomePostsViewModel['posts'][number]
 
 describe('PostsFeed', () => {
   test('投稿一覧を描画する', () => {

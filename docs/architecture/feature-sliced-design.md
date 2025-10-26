@@ -151,7 +151,7 @@ src/
 | `src/components/common/*`              | `shared/ui`                                                                   | `shared/ui/card/Card.tsx` など                                  | index.ts を `shared/ui/index.ts` で再エクスポート。 |
 | `src/components/layout/layout.tsx`     | `widgets/layout/site-layout/ui/Layout.tsx`                                    | Header/Footer と同じ widget に集約。                            |
 | `src/components/layout/footer.tsx`     | `widgets/layout/site-layout/ui/Footer.tsx`                                    | note ロゴなど widget に含める。                                 |
-| `src/components/layout/tabLayout.tsx`  | `features/layout/switch-tab/ui/TabLayout.tsx`                                 | タブ切替という feature として分離。                             |
+| `src/components/layout/tabLayout.tsx`  | `features/layout/switch-tab/ui/TabLayout/TabLayout.tsx`                       | タブ切替という feature として分離。                             |
 | `src/components/post/post-preview.tsx` | `entities/post/ui/PostPreview/PostPreview.tsx`                                | decodeExternalUrl は entity のヘルパ経由で注入。                |
 | `src/components/post/posts.tsx`        | `widgets/posts/posts-feed/ui/PostsFeed.tsx`                                   | PostPreview を使う widget。                                     |
 | `src/components/profile/profile.tsx`   | `widgets/profile/about-card/ui/ProfileAbout.tsx`                              | 作者情報 widget。                                               |
@@ -239,10 +239,11 @@ src/
 - `src/components/common/tags.tsx` は `features/posts/filter-by-tag/ui/TagFilter/TagFilter.tsx` へ移し、仕様は `docs/features/posts-filter-by-tag.md` を参照。投稿一覧 (`Posts`) の表示は entity を再利用するが、タグの収集・並び替え・選択状態の管理は feature の model で担保する。
 - `src/app/page.tsx` で行っているタグ集計を `features/posts/filter-by-tag/model` の関数 (`collectTags` / `filterPostsByTag` など) に置き換え、ページ側は feature の公開 API から計算済みデータを受け取るだけにする。
 - 外部リンク判定 (`decodeExternalUrl`) とリンク生成の責務は `features/posts/open-external` に移す。仕様は `docs/features/posts-open-external.md` を参照し、feature から `href` / `externalUrl` を渡して entity の UI (`PostPreview`) がリンク種別を切り替える構成にする。
+- タブ切替 UI (`src/components/layout/tabLayout.tsx`) は `features/layout/switch-tab` に移し、仕様は `docs/features/layout-switch-tab.md` を参照。タブの状態管理は feature 内で完結させ、widget からは props を渡すだけにする。
 
 5. **Phase 4: widgets と processes**
 
-- `src/components/layout` のレイアウト群 (`Layout`, `Intro`, `Header`, `Footer`, `TabLayout`) を `widgets/layout/site-layout` 配下に移設する。`TabLayout` は widget 層から `features/layout/switch-tab`（後続フェーズで抽出予定）を利用できるよう props 設計を見直す。
+- `src/components/layout` のレイアウト群 (`Layout`, `Intro`, `Header`, `Footer`) を `widgets/layout/site-layout` 配下に移設し、タブ切替は `features/layout/switch-tab` を利用して組み立てる。
 - 投稿一覧タブで利用しているセクションを `widgets/posts/posts-feed` として切り出し、`TagFilter` や `Posts` など feature/entity を注入する UI を提供する（仕様は `docs/widgets/posts-feed.md` を参照）。クライアント状態（選択中タブ）を内部で保持し、ページ層からは初期化済みデータを受け取るだけにする。
 - プロフィールセクションを `widgets/profile/about-card` として再配置し、widget 側では UI のみに専念する。
 - `src/app/page.tsx` からは直接 feature / entity を扱わず、`@pages/home` へ委譲する。`src/pages/home/index.tsx` は Server Component として widgets を組み合わせる。

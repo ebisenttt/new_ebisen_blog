@@ -1,9 +1,10 @@
-import { Intro, Layout, TabLayout } from '@/components/layout'
+import { Intro, Layout } from '@/components/layout'
 import { Profile } from '@/components/profile'
 
 import { Container } from '@shared/ui'
 
 import { TagFilter } from '@features/posts/filter-by-tag'
+import { TabLayout } from '@features/layout/switch-tab'
 
 import { PostsFeed } from '@widgets/posts/posts-feed'
 
