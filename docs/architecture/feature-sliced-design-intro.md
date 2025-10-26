@@ -40,7 +40,7 @@ FSD: 以下のように分割できます。
 
 ```
 entities/post/model/api/markdown.ts   # Markdown を HTML に変換
-entities/post/ui/PostPreview.tsx      # 記事カードの UI
+entities/post/ui/PostPreview/PostPreview.tsx      # 記事カードの UI
 features/posts/filter-by-tag/model.ts # タグでのフィルタ条件とテスト
 widgets/posts/posts-feed/ui.tsx       # 一覧 UI。feature と entity を組み立て
 pages/home/index.tsx                  # ページ全体。widgets を並べる

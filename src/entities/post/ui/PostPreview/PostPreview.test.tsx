@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom'
 import { render } from '@testing-library/react'
 
-import { PostPreview } from './post-preview'
+import { PostPreview } from './PostPreview'
 
 describe('PostPreview', () => {
   test('renders title and tags', () => {

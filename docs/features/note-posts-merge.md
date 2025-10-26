@@ -25,25 +25,25 @@
 
 ## 実装ガイド
 
-1. `src/lib/note.ts` を新規作成し、note API から一覧を取得する `fetchNotePosts()` を実装する。
+1. `src/features/posts/fetch-note/api/fetchNote.ts` に note API から一覧を取得する `fetchNotePosts()` を実装する。
    - ユーザー ID: `ebisen_ttt`
    - エンドポイント（例）: `https://note.com/api/v2/creators/ebisen_ttt/contents?kind=note&page=1`
    - 公開記事のみ。
    - タイムアウトや失敗時はエラーを投げずに空配列を返す。
    - 1 日のキャッシュを付与（Next.js の fetch 再検証を使用）。
-2. 取得データを `Post` 型へマッピングする。
+2. 取得データを `Post` 型へマッピングする（実装は `fetchNotePosts()` 内で完結させる）。
    - title: 記事タイトル
    - date: 公開日時（ISO 文字列）
    - content: 空文字（note本文を取り込まないため）
    - filename: `note__<base64url(url)>`
    - tags: `hashtags[].hashtag.name` から `#` を外して配列化（なければ `[]`）
-3. `src/lib/api.ts` に `getAllPostsMerged()` を追加。
+3. `src/entities/post/model/api/queries.ts` に `getAllPostsMerged()` を実装する。
    - 既存の `getAllPosts()` と `fetchNotePosts()` を呼び、結合 → 重複除去（URL基準） → `date` 降順ソート。
    - 取得失敗時はローカルのみで返す。
-4. UI 側（`src/components/post/post-preview.tsx`）で note の外部記事を外部リンクで開く必要があるため、`Post` 型拡張無しの範囲で外部リンク判別が必要。
+4. UI 側（`src/entities/post/ui/PostPreview/PostPreview.tsx`）で note の外部記事を外部リンクで開く必要があるため、`Post` 型拡張無しの範囲で外部リンク判別が必要。
    - 判別には `filename` の接頭辞 `note__` を利用。
    - 外部リンクの場合は `<a href target="_blank" rel="noopener noreferrer">` を用いる。
-   - 外部リンクであることを示すアイコン（`ExternalLinkIcon`）をタイトル横に表示する（共通コンポーネント: `src/components/common/icons.tsx`）。
+   - 外部リンクであることを示すアイコン（`ExternalLinkIcon`）をタイトル横に表示する（共通コンポーネント: `src/shared/ui/external-link-icon`）。
 
 ## テスト
 

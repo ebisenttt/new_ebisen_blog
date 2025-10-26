@@ -1,12 +1,11 @@
 import Link from 'next/link'
 
-import { decodeExternalUrl } from '@/lib/note'
-
 import { backQuoteToCodeElement } from '@shared/lib/backQuoteToCodeElement'
-import { Post } from '@shared/types/post'
 import { Badge, Card, ExternalLinkIcon } from '@shared/ui'
 
-import { DateFormatter } from './date-formatter'
+import { decodeExternalUrl, type Post } from '@entities/post/model'
+
+import { DateFormatter } from '../DateFormatter'
 
 type Props = Pick<Post, 'title' | 'date' | 'filename' | 'tags'>
 

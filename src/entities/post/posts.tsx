@@ -1,6 +1,6 @@
-import type { Post } from '@shared/types/post'
+import type { Post } from '@entities/post/model'
 
-import { PostPreview } from './post-preview'
+import { PostPreview } from './ui'
 
 type Props = {
   posts: Post[]

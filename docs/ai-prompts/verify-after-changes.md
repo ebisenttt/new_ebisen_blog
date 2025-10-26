@@ -10,9 +10,10 @@
 
 ## 実行するコマンド
 
-- pnpm typecheck
-- pnpm lint
-- pnpm test
+- `pnpm typecheck`
+- `pnpm test`
+- `pnpm lint`
+- `pnpm prettier -c .`
 
 （上記を順番に実行してください。すべて正常終了することを「作業完了」と見なします。）
 
