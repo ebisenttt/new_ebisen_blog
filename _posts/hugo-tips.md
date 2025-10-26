@@ -1,14 +1,17 @@
 ---
-title: "Hugoで作ったブログ記事をGithubにdeployする"
+title: 'Hugoで作ったブログ記事をGithubにdeployする'
 date: '2020-08-30T17:01:12+09:00'
 draft: false
 
-tags: ["hugo", "github"]
+tags: ['hugo', 'github']
 ---
+
 ## はじめに
+
 このブログの記事作成の際は，Hugoで書いた記事をGithubPagesにデプロイしています。書いてからデプロイする作業が多少面倒だったので，これを簡単にする手順をまとめてみます。
 
 ## これまでの手順
+
 hugoで記事作成ができたら，下の手順を踏んでいました。
 
 ```
@@ -38,6 +41,7 @@ git push origin master
 こんな感じです。毎回タイプするのが以外と面倒。最初の`hugo`を忘れてしまうことがあります。また，ちょっとした修正をしたいだけのときは特に面倒です。
 
 ## 簡単にした手順
+
 `deploy.sh`というファイルを作業ディレクトリ直下に作っておいて，上の4つの手順をこのファイルに予め書いておきます。ファイルの中身は下の通りです。
 
 今回は，`hugo`で生成された`html`ファイルのみを`push`したいので，`cd docs`としています。
@@ -68,7 +72,9 @@ git push origin master
 # Come Back up to the Project Root
 cd ..
 ```
+
 ### 権限設定が必要
+
 あとはコマンドラインで
 
 ```
@@ -98,6 +104,7 @@ chmod +x deploy.sh
 を実行すれば，記事の生成からリモートリポジトリへの`push`まで行ってくれます。
 
 ## 参考サイト
+
 [Git初心者に捧ぐ！Gitの「これなんで？」を解説します|KRAY](https://kray.jp/blog/git-why-explanation/)
 
 Gitについてイラスト付きで解説されています。
