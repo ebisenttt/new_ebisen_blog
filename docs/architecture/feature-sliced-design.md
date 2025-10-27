@@ -1,6 +1,6 @@
 # Feature-Sliced Design 移行計画
 
-最終更新: 2025-10-24
+最終更新: 2025-10-27
 
 ## 1. ゴールと制約
 
@@ -241,14 +241,20 @@ src/
 - 外部リンク判定 (`decodeExternalUrl`) とリンク生成の責務は `features/posts/open-external` に移す。仕様は `docs/features/posts-open-external.md` を参照し、feature から `href` / `externalUrl` を渡して entity の UI (`PostPreview`) がリンク種別を切り替える構成にする。
 - タブ切替 UI (`src/components/layout/tabLayout.tsx`) は `features/layout/switch-tab` に移し、仕様は `docs/features/layout-switch-tab.md` を参照。タブの状態管理は feature 内で完結させ、widget からは props を渡すだけにする。
 
-5. **Phase 4: widgets と processes**
+5. **Phase 4: widgets と processes** _(完了)_
 
 - `src/components/layout` のレイアウト群 (`Layout`, `Intro`, `Header`, `Footer`) を `widgets/layout/site-layout` 配下に移設し、仕様は `docs/widgets/site-layout.md` を参照。タブ切替は `features/layout/switch-tab` を利用して組み立てる。
 - 投稿一覧タブで利用しているセクションを `widgets/posts/posts-feed` として切り出し、`TagFilter` や `Posts` など feature/entity を注入する UI を提供する（仕様は `docs/widgets/posts-feed.md` を参照）。クライアント状態（選択中タブ）を内部で保持し、ページ層からは初期化済みデータを受け取るだけにする。
 - プロフィールセクションを `widgets/profile/about-card` として再配置し、widget 側では UI のみに専念する。
-- `src/app/page.tsx` からは直接 feature / entity を扱わず、`@pages/home` へ委譲する。`src/pages/home/index.tsx` は Server Component として widgets を組み合わせる。
-- データ取得と feature 呼び出しを担う `processes/view-posts` を新設し、`getHomePostsViewModel()`（仮）で以下をまとめて返す: 投稿一覧（リンク props 付与済み）、タグ並び順、初期選択タグ、タグ統計（仕様は `docs/processes/view-posts.md` を参照）。
-- 投稿詳細ページ向けに `processes/view-post-detail` を定義し、記事本文・関連リンク・note API などのドメイン呼び出しをここで集約する。
+- `processes/view-posts` を新設し、`getHomePostsViewModel()` で投稿一覧・タグ統計をまとめて返す（仕様は `docs/processes/view-posts.md`）。
+- 投稿詳細ページ向けに `processes/view-post-detail` を定義し、記事本文・静的パス・メタデータを pages/app 層へ提供する（仕様は `docs/processes/view-post-detail.md`）。
+
+6. **Phase 5: pages / app の仕上げ**
+
+- `src/app/page.tsx` は `export { HomePage as default } from '@pages/home'` とし、引き続き pages レイヤへ委譲する。
+- `src/app/posts/[name]/page.tsx` の `generateStaticParams` / `generateMetadata` は `@processes/view-post-detail` の公開 API を利用する。
+- 投稿詳細ページは `src/pages/post-details/index.tsx` の Server Component に集約し、App Router からは `PostDetailsPage` を呼び出す。仕様を `docs/pages/post-details.md` に記載する。
+- App ルートは pages 層をラップするのみとし、テスト・lint・typecheck を実行して最終確認する。
 
 6. **Phase 5: pages / app の仕上げ**
    - `src/app/page.tsx` は `export { HomePage as default } from '@/pages/home'` のように委譲。
