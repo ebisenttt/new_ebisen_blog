@@ -4,14 +4,15 @@ import {
 } from '@shared/config'
 
 import { Posts } from '@entities/post'
+import type { Post } from '@entities/post/model'
 
-import type { HomePostsViewModel } from '@processes/view-posts'
-
-type PostsFeedProps = {
-  posts: HomePostsViewModel['posts']
+export type PostsFeedProps = {
+  posts: PostsFeedPost[]
 }
 
 const POSTS_FEED_HEADING_ID = 'home-posts-heading'
+
+export type PostsFeedPost = Post & { href: string; externalUrl: string | null }
 
 export const PostsFeed = ({ posts }: PostsFeedProps) => {
   return (

@@ -1,4 +1,7 @@
-export { fetchNotePosts, __fetchNoteInternal } from '@features/posts/fetch-note'
+export {
+  fetchNotePosts,
+  __fetchNoteInternal,
+} from '@entities/post/model/api/note'
 
 export {
   decodeExternalUrl,

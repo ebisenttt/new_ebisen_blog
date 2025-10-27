@@ -1,7 +1,6 @@
 import { ImageResponse } from 'next/og'
 
-import { Basic as BasicOpenGraph } from '@/components/open-graph'
-
+import { Basic as BasicOpenGraph } from '@shared/ui/open-graph'
 import { TITLE } from '@shared/config'
 
 export const alt = TITLE

@@ -1,11 +1,10 @@
 import fs from 'fs'
 
-jest.mock('@features/posts/fetch-note', () => ({
+jest.mock('./note', () => ({
   fetchNotePosts: jest.fn(),
 }))
 
-import { fetchNotePosts } from '@features/posts/fetch-note'
-
+import { fetchNotePosts } from './note'
 import { getAllPosts, getAllPostsMerged } from './queries'
 
 describe('getAllPosts', () => {

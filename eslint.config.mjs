@@ -148,15 +148,117 @@ export default defineConfig([
     },
   },
   {
-    files: ['src/components/**/*.{ts,tsx}'],
+    files: ['src/shared/**/*.{ts,tsx}'],
     rules: {
       'no-restricted-imports': [
         'error',
         {
           patterns: [
             {
-              group: ['@/components', '@/components/*'],
-              message: 'components内では相対パスを使用してください',
+              group: [
+                '@entities/**',
+                '@features/**',
+                '@widgets/**',
+                '@processes/**',
+                '@pages/**',
+                '@app-providers/**',
+              ],
+              message: 'shared層から上位レイヤーを参照できません。',
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    files: ['src/entities/**/*.{ts,tsx}'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: [
+                '@features/**',
+                '@widgets/**',
+                '@processes/**',
+                '@pages/**',
+                '@app-providers/**',
+              ],
+              message: 'entities層から上位レイヤーを参照できません。',
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    files: ['src/features/**/*.{ts,tsx}'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: [
+                '@widgets/**',
+                '@processes/**',
+                '@pages/**',
+                '@app-providers/**',
+              ],
+              message: 'features層から上位レイヤーを参照できません。',
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    files: ['src/widgets/**/*.{ts,tsx}'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: ['@processes/**', '@pages/**', '@app-providers/**'],
+              message: 'widgets層から上位レイヤーを参照できません。',
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    files: ['src/processes/**/*.{ts,tsx}'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: ['@pages/**', '@app-providers/**'],
+              message: 'processes層から上位レイヤーを参照できません。',
+            },
+            {
+              group: ['@widgets/**'],
+              message: 'processes層ではUIレイヤーを直接参照できません。',
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    files: ['src/pages/**/*.{ts,tsx}'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: ['@app-providers/**'],
+              message: 'pages層からapp-providersを直接参照できません。',
             },
           ],
         },

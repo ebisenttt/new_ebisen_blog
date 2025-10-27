@@ -6,13 +6,9 @@ import {
   HOME_POSTS_SECTION_TITLE,
 } from '@shared/config'
 
-import type { HomePostsViewModel } from '@processes/view-posts'
+import { PostsFeed, type PostsFeedPost } from './PostsFeed'
 
-import { PostsFeed } from './PostsFeed'
-
-const createPost = (
-  overrides: Partial<HomePostsViewModel['posts'][number]> = {},
-) =>
+const createPost = (overrides: Partial<PostsFeedPost> = {}) =>
   ({
     title: 'Sample',
     date: '2024-01-01',
@@ -22,11 +18,11 @@ const createPost = (
     href: '/posts/sample',
     externalUrl: null,
     ...overrides,
-  }) as HomePostsViewModel['posts'][number]
+  }) as PostsFeedPost
 
 describe('PostsFeed', () => {
   test('投稿一覧を描画する', () => {
-    const posts: HomePostsViewModel['posts'] = [
+    const posts: PostsFeedPost[] = [
       createPost({ title: 'First', filename: 'first', href: '/posts/first' }),
       createPost({
         title: 'Second',

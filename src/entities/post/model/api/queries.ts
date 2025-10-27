@@ -2,8 +2,7 @@ import { getPostFiles, postsDirectory } from '@shared/lib/file'
 
 import type { Post } from '@entities/post/model'
 
-import { fetchNotePosts } from '@features/posts/fetch-note'
-
+import { fetchNotePosts } from './note'
 import { getPostByFilename, type GetPostOptions } from './markdown'
 
 export async function getAllPosts(
