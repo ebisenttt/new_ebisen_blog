@@ -2,14 +2,9 @@ import type { ReactNode } from 'react'
 
 import Image from 'next/image'
 
-import { Logo as LogoImage } from '../image'
+import { Logo } from '@shared/ui'
 
-type IconType = {
-  name: string
-  src: string
-}
-
-const WEB_ICONS: IconType[] = [
+const WEB_ICONS = [
   {
     name: 'html',
     src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
@@ -34,9 +29,9 @@ const WEB_ICONS: IconType[] = [
     name: 'nextjs',
     src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg',
   },
-]
+] as const
 
-const COMP_PROG_ICONS: IconType[] = [
+const COMPETITIVE_PROGRAMMING_ICONS = [
   {
     name: 'cplusplus',
     src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg',
@@ -45,20 +40,20 @@ const COMP_PROG_ICONS: IconType[] = [
     name: 'python',
     src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
   },
-]
+] as const
 
-const CERTIFICAITON_ICONS: IconType[] = [
+const CERTIFICATION_ICONS = [
   { name: 'html5level1', src: '/assets/me/html5_lv1.jpg' },
   { name: 'html5level2', src: '/assets/me/html5_lv2.jpg' },
   { name: 'javasebronze', src: '/assets/me/java_se_bronze.jpg' },
-]
+] as const
 
-export const Profile = () => {
+export const ProfileAboutCard = () => {
   return (
-    <article className="flex flex-col mx-auto max-w-prose gap-8 mb-16">
+    <article className="mx-auto mb-16 flex max-w-prose flex-col gap-8">
       <Section>
-        <div className="flex flex-col items-center gap-4 mb-8">
-          <Logo />
+        <div className="mb-8 flex flex-col items-center gap-4">
+          <ProfileLogo />
           <h3 className="text-2xl">ebisen</h3>
         </div>
         <p>
@@ -72,7 +67,7 @@ export const Profile = () => {
       <Section title="使用技術">
         <h4 className="text-xl">Web系</h4>
         <p>フロントエンドエンジニアなのでWeb系の技術がメインです．</p>
-        <IconsGallary icons={WEB_ICONS} />
+        <IconGallery icons={WEB_ICONS} />
         <h4 className="text-xl">競プロ</h4>
         <p>
           競技プログラミングもかじってます．
@@ -81,7 +76,7 @@ export const Profile = () => {
             text="AtCoderのレートは茶色"
           />
         </p>
-        <IconsGallary icons={COMP_PROG_ICONS} />
+        <IconGallery icons={COMPETITIVE_PROGRAMMING_ICONS} />
       </Section>
       <Section title="資格">
         <ol className="list-inside list-disc">
@@ -121,10 +116,10 @@ export const Profile = () => {
             &nbsp;(2024-08)
           </li>
         </ol>
-        <IconsGallary icons={CERTIFICAITON_ICONS} />
+        <IconGallery icons={CERTIFICATION_ICONS} />
       </Section>
       <Section title="これまで">
-        <ol className="">
+        <ol>
           <li>📝 大学・大学院で教育学を勉強</li>
           <li>→ 🏫 公立高校で数学科の教員</li>
           <li>→ 💻 プログラミングに触れ始める</li>
@@ -136,10 +131,10 @@ export const Profile = () => {
   )
 }
 
-const Logo = () => {
+const ProfileLogo = () => {
   return (
-    <div className="bg-white w-48 h-48 flex justify-center items-center rounded-full">
-      <LogoImage height={128} width={128} />
+    <div className="flex h-48 w-48 items-center justify-center rounded-full bg-white">
+      <Logo height={128} width={128} />
     </div>
   )
 }
@@ -148,9 +143,10 @@ type SectionProps = {
   title?: string
   children: ReactNode
 }
+
 const Section = ({ title, children }: SectionProps) => {
   return (
-    <section className="flex flex-col max-w-2xl gap-2">
+    <section className="flex max-w-2xl flex-col gap-2">
       {title !== undefined && (
         <span className="w-full">
           <h3 className="text-2xl font-bold">{title}</h3>
@@ -161,13 +157,14 @@ const Section = ({ title, children }: SectionProps) => {
   )
 }
 
-type IconsGallaryProps = {
-  icons: IconType[]
+type IconGalleryProps = {
+  icons: ReadonlyArray<{ name: string; src: string }>
 }
-const IconsGallary = ({ icons }: IconsGallaryProps) => {
+
+const IconGallery = ({ icons }: IconGalleryProps) => {
   return (
     <div className="flex justify-center p-4">
-      <ul className="list-none inline-flex gap-2">
+      <ul className="inline-flex list-none gap-2">
         {icons.map((icon) => (
           <li key={icon.name}>
             <Image
@@ -175,7 +172,7 @@ const IconsGallary = ({ icons }: IconsGallaryProps) => {
               alt={icon.name}
               width={200}
               height={200}
-              className="w-auto h-16"
+              className="h-16 w-auto"
             />
           </li>
         ))}
@@ -193,7 +190,7 @@ const OutsideLink = ({ href, text }: OutsideLinkProps) => (
   <a
     href={href}
     target="_blank"
-    className="text-rose-300 decoration-solid underline"
+    className="text-rose-300 underline decoration-solid"
     rel="noreferrer"
   >
     {text}

@@ -243,12 +243,12 @@ src/
 
 5. **Phase 4: widgets と processes**
 
-- `src/components/layout` のレイアウト群 (`Layout`, `Intro`, `Header`, `Footer`) を `widgets/layout/site-layout` 配下に移設し、タブ切替は `features/layout/switch-tab` を利用して組み立てる。
+- `src/components/layout` のレイアウト群 (`Layout`, `Intro`, `Header`, `Footer`) を `widgets/layout/site-layout` 配下に移設し、仕様は `docs/widgets/site-layout.md` を参照。タブ切替は `features/layout/switch-tab` を利用して組み立てる。
 - 投稿一覧タブで利用しているセクションを `widgets/posts/posts-feed` として切り出し、`TagFilter` や `Posts` など feature/entity を注入する UI を提供する（仕様は `docs/widgets/posts-feed.md` を参照）。クライアント状態（選択中タブ）を内部で保持し、ページ層からは初期化済みデータを受け取るだけにする。
 - プロフィールセクションを `widgets/profile/about-card` として再配置し、widget 側では UI のみに専念する。
 - `src/app/page.tsx` からは直接 feature / entity を扱わず、`@pages/home` へ委譲する。`src/pages/home/index.tsx` は Server Component として widgets を組み合わせる。
 - データ取得と feature 呼び出しを担う `processes/view-posts` を新設し、`getHomePostsViewModel()`（仮）で以下をまとめて返す: 投稿一覧（リンク props 付与済み）、タグ並び順、初期選択タグ、タグ統計（仕様は `docs/processes/view-posts.md` を参照）。
-- 投稿詳細ページも `processes/view-post-detail` を定義し、`pages/post-details` から利用する（後続サブフェーズで対応）。
+- 投稿詳細ページ向けに `processes/view-post-detail` を定義し、記事本文・関連リンク・note API などのドメイン呼び出しをここで集約する。
 
 6. **Phase 5: pages / app の仕上げ**
    - `src/app/page.tsx` は `export { HomePage as default } from '@/pages/home'` のように委譲。

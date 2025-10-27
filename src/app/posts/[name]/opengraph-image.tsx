@@ -4,8 +4,8 @@ import {
   Basic as BasicOpenGraph,
   Wrapper as OpenGraphWrapper,
 } from '@/components/open-graph'
-import { Logo } from '@/components/image'
 
+import { Logo } from '@shared/ui'
 import { TITLE } from '@shared/config'
 
 export const size = {

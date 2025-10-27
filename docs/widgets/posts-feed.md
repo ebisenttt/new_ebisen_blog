@@ -21,15 +21,19 @@ export type PostsFeedProps = {
 
 ## UI 指針
 
-- セクションタイトルとして "Latest Posts"（暫定）を表示する。文言は `shared/config` に移管予定。
+- セクションタイトルは `HOME_POSTS_SECTION_TITLE`（`@shared/config`）から取得し、`h2` に `id="home-posts-heading"` を設定する。
+- `section` 要素には `aria-labelledby="home-posts-heading"` を付与し、スクリーンリーダーでもセクション名が伝わるようにする。
 - 内部では `@entities/post/Posts` を利用してカードリストを描画する。
-- 投稿が 0 件の場合は "記事がありません" といったプレースホルダーを表示する。
+- 投稿が 0 件の場合は `HOME_POSTS_EMPTY_MESSAGE` を表示する。
+- 将来的に並び替えやページネーションが入ることを想定し、セクション内で拡張できる余白 (`space-y-6` など) を確保する。
 
 ## テスト観点
 
 - 投稿が存在する場合に `PostPreview` が期待通りレンダリングされること。
-- 投稿が 0 件の場合にプレースホルダーテキストが表示されること。
+- 投稿が 0 件の場合に `HOME_POSTS_EMPTY_MESSAGE` が表示されること。
+- heading と `aria-labelledby` が破壊されないこと（スナップショットもしくは `getByRole('heading', { name: HOME_POSTS_SECTION_TITLE })` の形で担保）。
 
 ## 保守ルール
 
 - widget に新たな操作要素（例: ソートメニュー）を追加する際は、本ドキュメントに UI/props の仕様を追記する。
+- 見出し文言やプレースホルダーを変更する際は `@shared/config` の定数と本ドキュメントの UI 指針をセットで更新する。

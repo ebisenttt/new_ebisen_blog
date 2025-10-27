@@ -1,6 +1,3 @@
 export * from '@shared/ui'
-export * from './layout'
 export * from '@entities/post'
-export * from './profile'
 export * from './open-graph'
-export * from './image'

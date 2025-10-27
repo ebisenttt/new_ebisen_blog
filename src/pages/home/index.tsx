@@ -1,12 +1,11 @@
-import { Intro, Layout } from '@/components/layout'
-import { Profile } from '@/components/profile'
-
 import { Container } from '@shared/ui'
 
 import { TagFilter } from '@features/posts/filter-by-tag'
 import { TabLayout } from '@features/layout/switch-tab'
 
+import { Layout, Intro } from '@widgets/layout/site-layout'
 import { PostsFeed } from '@widgets/posts/posts-feed'
+import { ProfileAboutCard } from '@widgets/profile/about-card'
 
 import { getHomePostsViewModel } from '@processes/view-posts'
 
@@ -31,7 +30,7 @@ export const HomePage = async () => {
               initialTag={initialTag}
               tagStats={tagStats}
             />,
-            <Profile key="profile" />,
+            <ProfileAboutCard key="profile" />,
           ]}
         />
       </Container>

@@ -1,0 +1,1 @@
+export { ProfileAboutCard } from './ProfileAboutCard'

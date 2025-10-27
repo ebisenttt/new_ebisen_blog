@@ -1,10 +1,10 @@
-type Props = {
+type LogoProps = {
   height: number
   width: number
 }
 
 // 元データ https://www.silhouette-illust.com/illust/7545
-export const Logo = ({ height, width }: Props) => (
+export const Logo = ({ height, width }: LogoProps) => (
   <svg
     viewBox="0 0 1066.6667 1066.6667"
     height={height}

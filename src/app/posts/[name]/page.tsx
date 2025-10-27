@@ -4,15 +4,18 @@ import { Metadata } from 'next'
 
 import 'prismjs/themes/prism-tomorrow.css'
 
-import { Header } from '@/components/layout/header'
-import { Layout } from '@/components/layout'
-import { getAllPosts, getPostByFilename } from '@/lib/api'
-import markdownToHtml from '@/lib/markdownToHtml'
-
 import { Container } from '@shared/ui'
 import { TITLE } from '@shared/config'
 
 import { PostHeader, PostBody } from '@entities/post'
+
+import { Header, Layout } from '@widgets/layout/site-layout'
+
+import {
+  getPostDetailMetadata,
+  getPostDetailViewModel,
+  listPostFilenames,
+} from '@processes/view-post-detail'
 
 import { PageClient } from './page-client'
 
@@ -23,28 +26,29 @@ type Props = {
 }
 
 export async function generateStaticParams() {
-  return (await getAllPosts())
-    .flatMap((post) => post?.filename ?? [])
-    .map((filename) => ({
-      name: filename,
-    }))
+  return (await listPostFilenames()).map((filename) => ({
+    name: filename,
+  }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { name } = await params
-  const post = await getPostByFilename(name)
+  const metadata = await getPostDetailMetadata(name)
 
   return {
-    title: post?.title ? `${post.title} | ${TITLE}` : TITLE,
+    title: metadata?.title ? `${metadata.title} | ${TITLE}` : TITLE,
   }
 }
 
 export default async function Page({ params }: Props) {
   const { name } = await params
-  const post = await getPostByFilename(name)
-  if (post === null) {
+  const viewModel = await getPostDetailViewModel(name)
+
+  if (viewModel === null) {
     notFound()
   }
+
+  const { post, contentHtml } = viewModel
 
   return (
     <>
@@ -53,7 +57,7 @@ export default async function Page({ params }: Props) {
           <Header />
           <article className="mx-auto mb-32 prose dark:prose-invert">
             <PostHeader title={post.title} date={post.date} tag={post.tags} />
-            <PostBody content={await markdownToHtml(post.content)} />
+            <PostBody content={contentHtml} />
           </article>
         </Container>
       </Layout>

@@ -1,6 +1,11 @@
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 
+import {
+  HOME_POSTS_EMPTY_MESSAGE,
+  HOME_POSTS_SECTION_TITLE,
+} from '@shared/config'
+
 import type { HomePostsViewModel } from '@processes/view-posts'
 
 import { PostsFeed } from './PostsFeed'
@@ -33,7 +38,12 @@ describe('PostsFeed', () => {
 
     render(<PostsFeed posts={posts} />)
 
-    expect(screen.getByText('Latest Posts')).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: HOME_POSTS_SECTION_TITLE }),
+    ).toBeInTheDocument()
+    expect(
+      screen.getByRole('region', { name: HOME_POSTS_SECTION_TITLE }),
+    ).toBeInTheDocument()
     expect(screen.getByText('First')).toBeInTheDocument()
     expect(screen.getByText('Second')).toBeInTheDocument()
   })
@@ -41,7 +51,12 @@ describe('PostsFeed', () => {
   test('投稿が存在しない場合はプレースホルダーを表示する', () => {
     render(<PostsFeed posts={[]} />)
 
-    expect(screen.getByText('Latest Posts')).toBeInTheDocument()
-    expect(screen.getByText('記事がありません。')).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: HOME_POSTS_SECTION_TITLE }),
+    ).toBeInTheDocument()
+    expect(
+      screen.getByRole('region', { name: HOME_POSTS_SECTION_TITLE }),
+    ).toBeInTheDocument()
+    expect(screen.getByText(HOME_POSTS_EMPTY_MESSAGE)).toBeInTheDocument()
   })
 })
