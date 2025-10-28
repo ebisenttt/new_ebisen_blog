@@ -3,7 +3,7 @@ import { ImageResponse } from 'next/og'
 import {
   Basic as BasicOpenGraph,
   Wrapper as OpenGraphWrapper,
-} from '@shared/ui/open-graph'
+} from '@shared/ui/OpenGraph'
 import { Logo } from '@shared/ui'
 import { TITLE } from '@shared/config'
 

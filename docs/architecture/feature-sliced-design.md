@@ -199,6 +199,12 @@ src/
 2. **現状のテストを実行**
 
 - `pnpm test -- <対象パターン>` などで関連テストを先に実行し、グリーンであることを確認します。
+
+## 8. ファイル命名規則
+
+- Next.js が提供するルート専用ファイル（`page.tsx`、`layout.tsx`、`opengraph-image.tsx` など）は公式仕様に従ってケバブケースを使用します。
+- それ以外で React コンポーネントを定義する `.tsx` ファイルは **PascalCase**（例: `PostPreview.tsx`, `Wrapper.tsx`）で統一します。
+- コンポーネントを公開するディレクトリ名も PascalCase（例: `shared/ui/Badge`, `shared/ui/OpenGraph`）とし、`index.ts`/`index.tsx` で再エクスポートする場合は同一ディレクトリ内に配置してください。
 - 落ちる場合はディレクトリ変更に入る前に修正してください。
 
 3. **ファイル移動・リファクタリングを実施**

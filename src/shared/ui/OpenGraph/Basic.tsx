@@ -1,6 +1,6 @@
 import { TITLE } from '@shared/config'
 
-import { Wrapper } from './wrapper'
+import { Wrapper } from './Wrapper'
 
 export const Basic = () => (
   <Wrapper>
