@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom'
 import { render } from '@testing-library/react'
 
-import type { Post } from '@entities/post/model'
+import type { Post } from '@shared/types/post'
 
 import { Posts } from './posts'
 

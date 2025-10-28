@@ -1,4 +1,5 @@
-import type { Post } from '@entities/post/model'
+import type { Post } from '@shared/types/post'
+
 import { decodeExternalUrl } from '@entities/post/model'
 
 export function resolveExternalUrl(post: Post): string | null {

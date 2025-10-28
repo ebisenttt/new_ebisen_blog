@@ -8,7 +8,7 @@ import { PostHeader, PostBody } from '@entities/post'
 
 import { Header, Layout } from '@widgets/layout/site-layout'
 
-import { getPostDetailViewModel } from '@processes/view-post-detail'
+import { getPostDetailViewModel } from '@processes/server/view-post-detail'
 
 export type PostDetailsPageProps = {
   name: string
@@ -43,5 +43,3 @@ export async function PostDetailsPage({
     </>
   )
 }
-
-export default PostDetailsPage

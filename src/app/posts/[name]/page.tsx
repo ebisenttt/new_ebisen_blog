@@ -2,14 +2,13 @@ import { Metadata } from 'next'
 
 import 'prismjs/themes/prism-tomorrow.css'
 
-import { TITLE } from '@shared/config'
-
 import {
   getPostDetailMetadata,
   listPostFilenames,
-} from '@processes/view-post-detail'
+} from '@/processes/server/view-post-detail'
+import { PostDetailsPage } from '@/_pages/post-details'
 
-import { PostDetailsPage } from '@pages/post-details'
+import { TITLE } from '@shared/config'
 
 import { PageClient } from './page-client'
 

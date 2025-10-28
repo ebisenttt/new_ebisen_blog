@@ -1,4 +1,4 @@
-import type { Post } from '@entities/post/model'
+import type { Post } from '@shared/types/post'
 
 export type TagStats = Record<string, number>
 

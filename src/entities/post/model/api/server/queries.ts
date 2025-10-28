@@ -1,6 +1,6 @@
 import { getPostFiles, postsDirectory } from '@shared/lib/file'
 
-import type { Post } from '@entities/post/model'
+import type { Post } from '../../types'
 
 import { fetchNotePosts } from './note'
 import { getPostByFilename, type GetPostOptions } from './markdown'

@@ -1,5 +1,7 @@
-import { getAllPosts, getPostByFilename } from '@/lib/api'
 import markdownToHtml from '@/lib/markdownToHtml'
+
+import { getAllPosts } from '@entities/post/model/api/server/queries'
+import { getPostByFilename } from '@entities/post/model/api/server/markdown'
 
 import {
   getPostDetailMetadata,
@@ -7,8 +9,11 @@ import {
   listPostFilenames,
 } from './index'
 
-jest.mock('@/lib/api', () => ({
+jest.mock('@entities/post/model/api/server/queries', () => ({
   getAllPosts: jest.fn(),
+}))
+
+jest.mock('@entities/post/model/api/server/markdown', () => ({
   getPostByFilename: jest.fn(),
 }))
 

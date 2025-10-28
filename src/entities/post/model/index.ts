@@ -1,5 +1,3 @@
 export * from './types'
-export * from './api/markdown'
-export * from './api/queries'
-export * from './api/note'
+export * from './api/server/note'
 export * from './helpers'

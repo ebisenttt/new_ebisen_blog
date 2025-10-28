@@ -24,7 +24,7 @@
       "@features/*": ["src/features/*"],
       "@widgets/*": ["src/widgets/*"],
       "@processes/*": ["src/processes/*"],
-      "@pages/*": ["src/pages/*"],
+      "@pages/*": ["src/_pages/*"],
       "@app-providers/*": ["src/app-providers/*"]
     },
     "plugins": [

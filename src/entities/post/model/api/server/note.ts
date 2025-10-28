@@ -1,6 +1,6 @@
-import type { Post } from '../types'
+import type { Post } from '../../types'
 
-import { decodeExternalUrl, encodeExternalFilename } from '../helpers'
+import { decodeExternalUrl, encodeExternalFilename } from '../../helpers'
 
 const NOTE_ENDPOINT =
   'https://note.com/api/v2/creators/ebisen_ttt/contents?kind=note&page='

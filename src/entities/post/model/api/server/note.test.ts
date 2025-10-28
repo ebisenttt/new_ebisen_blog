@@ -1,5 +1,5 @@
 import { fetchNotePosts, __fetchNoteInternal } from './note'
-import { encodeExternalFilename } from '../helpers'
+import { encodeExternalFilename } from '../../helpers'
 
 describe('fetchNotePosts', () => {
   const originalFetch = global.fetch

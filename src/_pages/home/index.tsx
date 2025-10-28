@@ -7,7 +7,7 @@ import { Layout, Intro } from '@widgets/layout/site-layout'
 import { PostsFeed } from '@widgets/posts/posts-feed'
 import { ProfileAboutCard } from '@widgets/profile/about-card'
 
-import { getHomePostsViewModel } from '@processes/view-posts'
+import { getHomePostsViewModel } from '@processes/server/view-posts'
 
 const MENU_TITLES = ['Posts', 'Tags', 'Me']
 
@@ -37,5 +37,3 @@ export const HomePage = async () => {
     </Layout>
   )
 }
-
-export default HomePage
