@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 
-import { Footer } from './Footer'
+import { Footer } from '../Footer'
 
 type LayoutProps = {
   children: ReactNode
@@ -9,7 +9,7 @@ type LayoutProps = {
 export const Layout = ({ children }: LayoutProps) => {
   return (
     <>
-      <div className="min-h-screen">
+      <div className="min-h-screen mb-16">
         <main>{children}</main>
       </div>
       <Footer />

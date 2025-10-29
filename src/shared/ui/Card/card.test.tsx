@@ -2,7 +2,7 @@ import '@testing-library/jest-dom'
 
 import { render, screen } from '@testing-library/react'
 
-import { Card } from './index'
+import { Card } from './Card'
 
 describe('Card', () => {
   it('renders children inside styled container', () => {

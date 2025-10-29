@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 
-import { Badge } from './index'
+import { Badge } from './Badge'
 
 describe('Badge', () => {
   it('renders text with devicon when style is defined', () => {

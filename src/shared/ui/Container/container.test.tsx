@@ -2,7 +2,7 @@ import '@testing-library/jest-dom'
 
 import { render, screen } from '@testing-library/react'
 
-import { Container } from './index'
+import { Container } from './Container'
 
 describe('Container', () => {
   it('wraps children with layout classes', () => {

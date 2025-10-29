@@ -6,7 +6,8 @@
 
 1. グローバル方針・インデックス（このファイル）
 2. 変更後の検証チェックリスト（AI向け） `/docs/ai-prompts/verify-after-changes.md`
-3. 個別機能の仕様書 `/docs/features/*.md`
+3. コンポーネントのディレクトリ構成ガイド `/docs/ai-prompts/component-structure.md`
+4. 個別機能の仕様書 `/docs/features/*.md`
 
 ## 運用ルール
 

@@ -1,6 +1,6 @@
 import type { Post } from '@shared/types/post'
 
-import { PostPreview } from './ui'
+import { PostPreview } from '../PostPreview'
 
 type PostWithLink = Post & {
   href?: string

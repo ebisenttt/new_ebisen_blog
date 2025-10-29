@@ -3,7 +3,7 @@ import { render } from '@testing-library/react'
 
 import type { Post } from '@shared/types/post'
 
-import { Posts } from './posts'
+import { Posts } from './Posts'
 
 const sample: Array<Post & { href: string }> = [
   {
