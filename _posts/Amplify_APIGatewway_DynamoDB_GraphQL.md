@@ -21,7 +21,7 @@ AWS で Amplify を使った Web アプリを作成中です。DynamoDB とど�
 
 ```graphql
 type Todo @model {
-	content: String!
+  content: String!
 }
 ```
 
@@ -70,15 +70,15 @@ query QueryTodos($content: String) {
 - Query はアプリ側から API 経由で実行される(下記のコードを参照)
 
 ```js
-import { API } from 'aws-amplify';
-import { listTodos } from './graphql/queries';
+import { API } from 'aws-amplify'
+import { listTodos } from './graphql/queries'
 
-const allTodos = API.graphql(graphqlOperation(listAllTodos));
+const allTodos = API.graphql(graphqlOperation(listAllTodos))
 const hogeTodo = API.graphql(
-	graphqlOperation(getTodo, {
-		content: 'hoge',
-	})
-);
+  graphqlOperation(getTodo, {
+    content: 'hoge',
+  }),
+)
 ```
 
 ### Mutation の作成
@@ -99,15 +99,15 @@ mutation CreateTodo {
 - Mutation はアプリ側から API 経由で実行される(下記のコードを参照)
 
 ```js
-import { API } from 'aws-amplify';
-import { createTodo } from './graphql/mutations';
+import { API } from 'aws-amplify'
+import { createTodo } from './graphql/mutations'
 
-const todo = { content: 'fuga' };
+const todo = { content: 'fuga' }
 const result = API.graphql(
-	graphqlOperation(createTodo, {
-		input: todo,
-	})
-);
+  graphqlOperation(createTodo, {
+    input: todo,
+  }),
+)
 ```
 
 ## 自分の Web アプリ用にコーディング

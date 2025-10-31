@@ -14,13 +14,19 @@ tag:
 [Twitter API](https://developer.twitter.com/en/docs/twitter-api)
 
 ## TwitterAPI の設定
+
 設定に少し手間取ったので，注意事項を残しておきます。
 
 ### v1.1 ではなく v2 を使うこと
+
 v1.1 は Elavated access を有効にしないと使えません。v2 では Essential access を使えます（デフォルトで有効）。手間が多少増えるので，v2 を使っておくのが無難でしょう。
+
 ### 公式のドキュメントを読むこと
+
 v1.1 と v2 では使用が大きく異なります。ググって出てきた技術系のブログを参考にして OAuth の設定をすると，バージョンが違ってエラー吐かれまくります。改めてどんなサービスでも公式の docs を読んだ方がいいということを実感しました。
+
 ### Authentication の設定(任意)
+
 デフォルトでは`GET`メソッドしか許可されていません。Dash BoardでUser authentication settingsを変更することで`POST`メソッドが許可されます。
 
 ## HUGO の仕様
@@ -50,16 +56,20 @@ OGP とは，Open Graph Protcol の略で，SNS 上でリンクが共有され�
 <meta property="og:type" content="website">
 {{- end }}
 ```
+
 この`{{ }}`で囲まれたコードの部分にだいぶ苦しめられましたが，`themes/bilberry-hugo-theme/layouts/_default/baseof.html`と`config.toml`を編集してとりあえず正常に表示されるようになりました。
 
 ## APIを利用するpythonスクリプト
+
 文字列の操作とか組み込みのメソッドが多くて楽ができるpythonを選択しました。
+
 1. `git diff --name-only --cached --diff-filter=A`で新規のファイル名を取得
 2. 記事のHTMLファイルの保存先の`docs`内のフォルダのみに絞り込む
 3. ファイル名でファイルを指定し，プラグインBeautifulSoup4を使って`<title>`タグ内の文字列（記事のタイトル）を取得
 4. `tweepy`で記事名を投稿
 
 コードは次のとおりです
+
 ```python
 import subprocess
 from subprocess import PIPE
