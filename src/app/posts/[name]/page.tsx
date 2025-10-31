@@ -1,12 +1,13 @@
-import { notFound } from 'next/navigation'
-
 import { Metadata } from 'next'
 
-import { TITLE } from '@/constants'
-import { getAllPosts, getPostByFilename } from '@/lib/api'
-import { Header, PostHeader, PostBody, Container, Layout } from '@/components'
-import markdownToHtml from '@/lib/markdownToHtml'
 import 'prismjs/themes/prism-tomorrow.css'
+
+import {
+  getPostDetailMetadata,
+  listPostFilenames,
+} from '@/processes/server/view-post-detail'
+import { PostDetailsPage } from '@/_pages/post-details'
+import { TITLE } from '@/shared/config'
 
 import { PageClient } from './page-client'
 
@@ -17,41 +18,22 @@ type Props = {
 }
 
 export async function generateStaticParams() {
-  return (await getAllPosts())
-    .flatMap((post) => post?.filename ?? [])
-    .map((filename) => ({
-      name: filename,
-    }))
+  return (await listPostFilenames()).map((filename) => ({
+    name: filename,
+  }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { name } = await params
-  const post = await getPostByFilename(name)
+  const metadata = await getPostDetailMetadata(name)
 
   return {
-    title: post?.title ? `${post.title} | ${TITLE}` : TITLE,
+    title: metadata?.title ? `${metadata.title} | ${TITLE}` : TITLE,
   }
 }
 
 export default async function Page({ params }: Props) {
   const { name } = await params
-  const post = await getPostByFilename(name)
-  if (post === null) {
-    notFound()
-  }
 
-  return (
-    <>
-      <Layout>
-        <Container>
-          <Header />
-          <article className="mx-auto mb-32 prose dark:prose-invert">
-            <PostHeader title={post.title} date={post.date} tag={post.tags} />
-            <PostBody content={await markdownToHtml(post.content)} />
-          </article>
-        </Container>
-      </Layout>
-      <PageClient />
-    </>
-  )
+  return <PostDetailsPage name={name} clientSlot={<PageClient />} />
 }

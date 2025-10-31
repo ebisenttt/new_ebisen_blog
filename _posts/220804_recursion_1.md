@@ -1,10 +1,10 @@
 ---
-title: "Recursionの有料会員になってみた"
+title: 'Recursionの有料会員になってみた'
 date: '2022-08-04T16:20:47+09:00'
 draft: false
 
 tag:
-    - 'Recursion'
+  - 'Recursion'
 ---
 
 Recursion の有料会員になってみたので，継続的に感想を書いていこうと思います

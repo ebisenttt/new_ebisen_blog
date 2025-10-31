@@ -1,13 +1,16 @@
 ---
-title: "VSCODEのterminalの配色テーマをコピペできるサイト「Base16 Terminal Colors」が便利だった話"
+title: 'VSCODEのterminalの配色テーマをコピペできるサイト「Base16 Terminal Colors」が便利だった話'
 date: '2023-01-09T15:03:01+09:00'
 ---
 
 ## はじめに
+
 ショートカット`ctrl + l`で表示されるterminalのデフォルトカラーテーマがビビットすぎて気に入っていなかったので変えたかった。変える方法と便利なツールをメモしておく。
 
 ## Base16 Terminal Colors
+
 [Base16 Terminal Colors](https://glitchbone.github.io/vscode-base16-term/#/3024)が便利。
+
 1. 気に入ったテーマを選んで，「Copy to clipboard」をクリック
 2. VSCODEで`setting.json`を開いて`workbench.colorCustomizations`に貼り付ける（以下の例は「Chalk」というテーマです）。
 
@@ -35,9 +38,11 @@ date: '2023-01-09T15:03:01+09:00'
     "terminal.ansiYellow":"#DDB26F"
   }
 ```
+
 3. 綺麗になった
 
 ## おわりに
+
 こういうちょっとした便利ツール作って公開したい。
 
 ## 参考サイト
