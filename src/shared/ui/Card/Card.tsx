@@ -2,8 +2,13 @@ import type { ReactNode } from 'react'
 
 type Props = {
   children: ReactNode
+  className?: string
 }
 
-export const Card = ({ children }: Props) => {
-  return <div className="dark:bg-gray-800 rounded p-4">{children}</div>
+const BASE_CLASSES = 'dark:bg-gray-800 rounded p-4'
+
+export const Card = ({ children, className }: Props) => {
+  const mergedClassName = [BASE_CLASSES, className].filter(Boolean).join(' ')
+
+  return <div className={mergedClassName}>{children}</div>
 }

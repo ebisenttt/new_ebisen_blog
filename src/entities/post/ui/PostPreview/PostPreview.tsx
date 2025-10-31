@@ -21,7 +21,7 @@ export const PostPreview = ({
 }: Props) => {
   const isExternal = Boolean(externalUrl)
   const content = (
-    <Card>
+    <Card className="flex h-full flex-col">
       <div className="mb-3 flex items-start">
         <h3
           className="text-xl leading-snug flex-1"
@@ -38,7 +38,7 @@ export const PostPreview = ({
           <Badge key={`${i}_${t}`} text={t} />
         ))}
       </div>
-      <div className="text-base mb-4">
+      <div className="mt-auto pt-4 text-base">
         <DateFormatter dateString={date} />
       </div>
     </Card>
@@ -50,7 +50,7 @@ export const PostPreview = ({
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="hover:underline"
+        className="block h-full hover:underline"
       >
         {content}
       </a>
@@ -58,7 +58,7 @@ export const PostPreview = ({
   }
 
   return (
-    <Link href={href} className="hover:underline">
+    <Link href={href} className="block h-full hover:underline">
       {content}
     </Link>
   )
