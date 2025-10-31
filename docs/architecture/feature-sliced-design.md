@@ -162,7 +162,7 @@ src/
 | `src/utils/file.ts`, `readFile.ts`     | `shared/lib/file-system/`                                                     | Node サイドのユーティリティ。                                   |
 | `src/constants/*`                      | `shared/config/*`                                                             | メタデータやルーティング。                                      |
 | `src/types/post.ts`                    | `entities/post/model/types.ts`                                                | 他 entity に展開予定なら `.d.ts` を shared/types に分離。       |
-| `docs/ai-prompts/*`                    | 変更なし                                                                      | ただしアーキテクチャドキュメントは `docs/architecture` に集約。 |
+| `docs/ai/*`                            | 変更なし                                                                      | ただしアーキテクチャドキュメントは `docs/architecture` に集約。 |
 
 ## 6. エイリアス & Lint 更新
 

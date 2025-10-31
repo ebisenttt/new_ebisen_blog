@@ -1,3 +1,3 @@
 Read the instructions below:
 
-- `./docs/ai-prompts/README.md`
+- `./docs/ai/README.md`
