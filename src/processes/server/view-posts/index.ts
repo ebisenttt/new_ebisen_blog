@@ -1,14 +1,13 @@
-import type { Post } from '@shared/types/post'
-
-import { getAllPostsMerged } from '@entities/post/model/api/server/queries'
-
-import { createPostLinkProps } from '@features/posts/open-external'
+import { getAllPostsMerged } from '@/entities/post/model/api/server/queries'
+import { createPostLinkProps } from '@/features/posts/open-external'
 import {
   collectTagStats,
   sortTagsByCount,
   selectInitialTag,
   type TagStats,
-} from '@features/posts/filter-by-tag'
+} from '@/features/posts/filter-by-tag'
+
+import type { Post } from '@/shared/types/post'
 
 export type HomePostsViewModel = {
   posts: Array<Post & { href: string; externalUrl: string | null }>

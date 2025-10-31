@@ -2,13 +2,10 @@ import type { ReactNode } from 'react'
 
 import { notFound } from 'next/navigation'
 
-import { Container } from '@shared/ui'
-
-import { PostHeader, PostBody } from '@entities/post'
-
-import { Header, Layout } from '@widgets/layout/site-layout'
-
-import { getPostDetailViewModel } from '@processes/server/view-post-detail'
+import { Container } from '@/shared/ui'
+import { PostHeader, PostBody } from '@/entities/post'
+import { Header, Layout } from '@/widgets/layout/site-layout'
+import { getPostDetailViewModel } from '@/processes/server/view-post-detail'
 
 export type PostDetailsPageProps = {
   name: string

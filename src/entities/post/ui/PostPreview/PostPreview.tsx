@@ -1,8 +1,9 @@
 import Link from 'next/link'
 
-import { backQuoteToCodeElement } from '@shared/lib/backQuoteToCodeElement'
-import { Badge, Card, ExternalLinkIcon } from '@shared/ui'
-import type { Post } from '@shared/types/post'
+import { backQuoteToCodeElement } from '@/shared/lib/backQuoteToCodeElement'
+import { Badge, Card, ExternalLinkIcon } from '@/shared/ui'
+
+import type { Post } from '@/shared/types/post'
 
 import { DateFormatter } from '../DateFormatter'
 

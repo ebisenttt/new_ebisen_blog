@@ -1,9 +1,8 @@
 import matter from 'gray-matter'
 
 import markdownToHtml from '@/lib/markdownToHtml'
+import { postsDirectory } from '@/shared/lib/file'
 import { readFile as defaultReadFile } from '@/shared/lib/server/readFile'
-
-import { postsDirectory } from '@shared/lib/file'
 
 import type { Post } from '../../types'
 

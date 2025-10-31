@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom'
 import { fireEvent, render, screen } from '@testing-library/react'
 
-import type { Post } from '@shared/types/post'
+import type { Post } from '@/shared/types/post'
 
 import { TagFilter } from './TagFilter'
 

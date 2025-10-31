@@ -1,10 +1,10 @@
 import {
   HOME_POSTS_EMPTY_MESSAGE,
   HOME_POSTS_SECTION_TITLE,
-} from '@shared/config'
-import type { Post } from '@shared/types/post'
+} from '@/shared/config'
+import { Posts } from '@/entities/post'
 
-import { Posts } from '@entities/post'
+import type { Post } from '@/shared/types/post'
 
 export type PostsFeedProps = {
   posts: PostsFeedPost[]

@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 
 import Image from 'next/image'
 
-import { Logo } from '@shared/ui'
+import { Logo } from '@/shared/ui'
 
 const WEB_ICONS = [
   {

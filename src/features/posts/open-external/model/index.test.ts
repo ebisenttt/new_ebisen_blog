@@ -1,6 +1,6 @@
-import type { Post } from '@shared/types/post'
-
 import { createPostLinkProps, resolveExternalUrl } from './index'
+
+import type { Post } from '@/shared/types/post'
 
 describe('posts/open-external model', () => {
   const localPost: Post = {

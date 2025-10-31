@@ -1,4 +1,4 @@
-import { getPostFiles, postsDirectory } from '@shared/lib/file'
+import { getPostFiles, postsDirectory } from '@/shared/lib/file'
 
 import type { Post } from '../../types'
 

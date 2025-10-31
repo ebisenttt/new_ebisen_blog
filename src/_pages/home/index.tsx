@@ -1,13 +1,10 @@
-import { Container } from '@shared/ui'
-
-import { TagFilter } from '@features/posts/filter-by-tag'
-import { TabLayout } from '@features/layout/switch-tab'
-
-import { Layout, Intro } from '@widgets/layout/site-layout'
-import { PostsFeed } from '@widgets/posts/posts-feed'
-import { ProfileAboutCard } from '@widgets/profile/about-card'
-
-import { getHomePostsViewModel } from '@processes/server/view-posts'
+import { Container } from '@/shared/ui'
+import { TagFilter } from '@/features/posts/filter-by-tag'
+import { TabLayout } from '@/features/layout/switch-tab'
+import { Layout, Intro } from '@/widgets/layout/site-layout'
+import { PostsFeed } from '@/widgets/posts/posts-feed'
+import { ProfileAboutCard } from '@/widgets/profile/about-card'
+import { getHomePostsViewModel } from '@/processes/server/view-posts'
 
 const MENU_TITLES = ['Posts', 'Tags', 'Me']
 

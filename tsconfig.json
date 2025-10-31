@@ -17,15 +17,7 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@shared/ui/*": ["src/shared/ui/*"],
-      "@shared/*": ["src/shared/*"],
-      "@entities/*": ["src/entities/*"],
-      "@features/*": ["src/features/*"],
-      "@widgets/*": ["src/widgets/*"],
-      "@processes/*": ["src/processes/*"],
-      "@pages/*": ["src/_pages/*"],
-      "@app-providers/*": ["src/app-providers/*"]
+      "@/*": ["src/*"]
     },
     "plugins": [
       {

@@ -1,11 +1,11 @@
-import type { Post } from '@shared/types/post'
-
 import {
   collectTagStats,
   sortTagsByCount,
   filterPostsByTag,
   selectInitialTag,
 } from './index'
+
+import type { Post } from '@/shared/types/post'
 
 describe('posts/filter-by-tag model', () => {
   const posts: Post[] = [

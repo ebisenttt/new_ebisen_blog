@@ -2,12 +2,11 @@
 
 import { useEffect, useMemo, useState } from 'react'
 
-import type { Post } from '@shared/types/post'
-import { Badge } from '@shared/ui'
+import { Badge } from '@/shared/ui'
+import { Posts } from '@/entities/post'
+import { createPostLinkProps } from '@/features/posts/open-external'
 
-import { Posts } from '@entities/post'
-
-import { createPostLinkProps } from '@features/posts/open-external'
+import type { Post } from '@/shared/types/post'
 
 import { filterPostsByTag, type TagStats } from '../../model'
 

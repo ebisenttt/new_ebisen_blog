@@ -1,1 +1,1 @@
-export * from '@shared/types/remark-html'
+export * from '@/shared/types/remark-html'

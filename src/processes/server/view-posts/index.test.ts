@@ -1,10 +1,10 @@
-import type { Post } from '@shared/types/post'
-
-import { getAllPostsMerged } from '@entities/post/model/api/server/queries'
+import { getAllPostsMerged } from '@/entities/post/model/api/server/queries'
 
 import { getHomePostsViewModel } from './index'
 
-jest.mock('@entities/post/model/api/server/queries', () => ({
+import type { Post } from '@/shared/types/post'
+
+jest.mock('@/entities/post/model/api/server/queries', () => ({
   getAllPostsMerged: jest.fn(),
 }))
 

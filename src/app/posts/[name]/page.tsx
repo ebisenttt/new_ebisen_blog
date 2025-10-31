@@ -7,8 +7,7 @@ import {
   listPostFilenames,
 } from '@/processes/server/view-post-detail'
 import { PostDetailsPage } from '@/_pages/post-details'
-
-import { TITLE } from '@shared/config'
+import { TITLE } from '@/shared/config'
 
 import { PageClient } from './page-client'
 

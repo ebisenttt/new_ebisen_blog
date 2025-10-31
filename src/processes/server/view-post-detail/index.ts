@@ -1,8 +1,8 @@
+import { getAllPosts } from '@/entities/post/model/api/server/queries'
+import { getPostByFilename } from '@/entities/post/model/api/server/markdown'
 import markdownToHtml from '@/lib/markdownToHtml'
 
-import { getAllPosts } from '@entities/post/model/api/server/queries'
-import { getPostByFilename } from '@entities/post/model/api/server/markdown'
-import type { Post } from '@entities/post'
+import type { Post } from '@/entities/post'
 
 export type PostDetailViewModel = {
   post: Post

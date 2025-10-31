@@ -86,41 +86,6 @@ export default defineConfig([
               group: 'external',
               position: 'before',
             },
-            {
-              pattern: '@shared/**',
-              group: 'internal',
-              position: 'after',
-            },
-            {
-              pattern: '@entities/**',
-              group: 'internal',
-              position: 'after',
-            },
-            {
-              pattern: '@features/**',
-              group: 'internal',
-              position: 'after',
-            },
-            {
-              pattern: '@widgets/**',
-              group: 'internal',
-              position: 'after',
-            },
-            {
-              pattern: '@processes/**',
-              group: 'internal',
-              position: 'after',
-            },
-            {
-              pattern: '@pages/**',
-              group: 'internal',
-              position: 'after',
-            },
-            {
-              pattern: '@app-providers/**',
-              group: 'internal',
-              position: 'after',
-            },
           ],
           pathGroupsExcludedImportTypes: ['react', 'next'],
           alphabetize: {
@@ -156,12 +121,12 @@ export default defineConfig([
           patterns: [
             {
               group: [
-                '@entities/**',
-                '@features/**',
-                '@widgets/**',
-                '@processes/**',
-                '@pages/**',
-                '@app-providers/**',
+                '@/entities/**',
+                '@/features/**',
+                '@/widgets/**',
+                '@/processes/**',
+                '@/pages/**',
+                '@/app-providers/**',
               ],
               message: 'shared層から上位レイヤーを参照できません。',
             },
@@ -179,11 +144,11 @@ export default defineConfig([
           patterns: [
             {
               group: [
-                '@features/**',
-                '@widgets/**',
-                '@processes/**',
-                '@pages/**',
-                '@app-providers/**',
+                '@/features/**',
+                '@/widgets/**',
+                '@/processes/**',
+                '@/pages/**',
+                '@/app-providers/**',
               ],
               message: 'entities層から上位レイヤーを参照できません。',
             },
@@ -201,10 +166,10 @@ export default defineConfig([
           patterns: [
             {
               group: [
-                '@widgets/**',
-                '@processes/**',
-                '@pages/**',
-                '@app-providers/**',
+                '@/widgets/**',
+                '@/processes/**',
+                '@/pages/**',
+                '@/app-providers/**',
               ],
               message: 'features層から上位レイヤーを参照できません。',
             },
@@ -221,7 +186,7 @@ export default defineConfig([
         {
           patterns: [
             {
-              group: ['@processes/**', '@pages/**', '@app-providers/**'],
+              group: ['@/processes/**', '@/pages/**', '@/app-providers/**'],
               message: 'widgets層から上位レイヤーを参照できません。',
             },
           ],
@@ -237,11 +202,11 @@ export default defineConfig([
         {
           patterns: [
             {
-              group: ['@pages/**', '@app-providers/**'],
+              group: ['@/pages/**', '@/app-providers/**'],
               message: 'processes層から上位レイヤーを参照できません。',
             },
             {
-              group: ['@widgets/**'],
+              group: ['@/widgets/**'],
               message: 'processes層ではUIレイヤーを直接参照できません。',
             },
           ],
@@ -257,7 +222,7 @@ export default defineConfig([
         {
           patterns: [
             {
-              group: ['@app-providers/**'],
+              group: ['@/app-providers/**'],
               message: 'pages層からapp-providersを直接参照できません。',
             },
           ],

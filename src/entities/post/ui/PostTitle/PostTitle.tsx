@@ -1,4 +1,4 @@
-import { backQuoteToCodeElement } from '@shared/lib/backQuoteToCodeElement'
+import { backQuoteToCodeElement } from '@/shared/lib/backQuoteToCodeElement'
 
 type Props = {
   title: string

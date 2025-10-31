@@ -1,4 +1,4 @@
-import type { Post } from '@shared/types/post'
+import type { Post } from '@/shared/types/post'
 
 export type TagStats = Record<string, number>
 

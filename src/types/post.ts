@@ -1,1 +1,1 @@
-export type { Post } from '@entities/post/model'
+export type { Post } from '@/entities/post/model'

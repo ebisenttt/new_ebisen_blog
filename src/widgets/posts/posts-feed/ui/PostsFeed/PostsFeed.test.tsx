@@ -4,7 +4,7 @@ import { render, screen } from '@testing-library/react'
 import {
   HOME_POSTS_EMPTY_MESSAGE,
   HOME_POSTS_SECTION_TITLE,
-} from '@shared/config'
+} from '@/shared/config'
 
 import { PostsFeed, type PostsFeedPost } from './PostsFeed'
 

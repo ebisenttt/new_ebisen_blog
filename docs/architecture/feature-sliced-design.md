@@ -203,8 +203,7 @@ src/
 ## 8. ファイル命名規則
 
 - Next.js が提供するルート専用ファイル（`page.tsx`、`layout.tsx`、`opengraph-image.tsx` など）は公式仕様に従ってケバブケースを使用します。
-- それ以外で React コンポーネントを定義する `.tsx` ファイルは **PascalCase**（例: `PostPreview.tsx`, `Wrapper.tsx`）で統一します。
-- コンポーネントを公開するディレクトリ名も PascalCase（例: `shared/ui/Badge`, `shared/ui/OpenGraph`）とし、`index.ts`/`index.tsx` で再エクスポートする場合は同一ディレクトリ内に配置してください。
+- それ以外で React コンポーネントを定義する `.tsx` ファイルは **PascalCase**（例: `PostPreview.tsx`, `Wrapper.tsx`）で統一します。3. 依存先にある `import` 文を `@/...` 形式に更新し、ビルド／テストが通ることを確認する。
 - 落ちる場合はディレクトリ変更に入る前に修正してください。
 
 3. **ファイル移動・リファクタリングを実施**

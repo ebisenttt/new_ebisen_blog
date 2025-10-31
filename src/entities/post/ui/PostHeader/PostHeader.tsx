@@ -1,4 +1,4 @@
-import { Badge } from '@shared/ui'
+import { Badge } from '@/shared/ui'
 
 import { DateFormatter } from '../DateFormatter'
 import { PostTitle } from '../PostTitle'
