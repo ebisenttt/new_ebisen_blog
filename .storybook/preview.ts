@@ -1,3 +1,8 @@
+import 'devicon'
+import '../src/styles/index.css'
+
+import { withThemeByClassName } from '@storybook/addon-themes'
+
 import type { Preview } from '@storybook/nextjs-vite'
 
 const preview: Preview = {
@@ -9,6 +14,15 @@ const preview: Preview = {
       },
     },
   },
+  decorators: [
+    withThemeByClassName({
+      themes: {
+        light: 'light',
+        dark: 'dark',
+      },
+      defaultTheme: 'dark',
+    }),
+  ],
 }
 
 export default preview

@@ -22,7 +22,7 @@ export default function RootLayout({
         <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
       )}
       {process.env.ENV === 'production' && <Analytics />}
-      <body className="dark:bg-gray-900 dark:text-slate-50">{children}</body>
+      <body>{children}</body>
     </html>
   )
 }

@@ -48,7 +48,7 @@ const BADGE_STYLES: Record<string, BadgeStyle> = {
     color: 'dark:bg-blue-900 dark:text-blue-300',
   },
   eslint: {
-    icon: <i className="devicon-eslint-original colored"></i>,
+    icon: <i className="devicon-eslint-plain colored"></i>,
     color: 'dark:bg-violet-500 dark:text-violet-300',
   },
 }
