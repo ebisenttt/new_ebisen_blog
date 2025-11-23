@@ -8,6 +8,8 @@ import globals from 'globals'
 import js from '@eslint/js'
 import { FlatCompat } from '@eslint/eslintrc'
 
+import localRules from './eslint-local-rules/index.mjs'
+
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const compat = new FlatCompat({
@@ -37,6 +39,7 @@ export default defineConfig([
     plugins: {
       'unused-imports': unusedImports,
       import: _import,
+      'local-rules': localRules,
     },
     languageOptions: {
       globals: {
@@ -241,6 +244,12 @@ export default defineConfig([
             'interfaceの使用は禁止です。typeエイリアスを使ってください。',
         },
       ],
+    },
+  },
+  {
+    files: ['src/**/ui/**/*.tsx'],
+    rules: {
+      'local-rules/component-structure': 'error',
     },
   },
 ])
