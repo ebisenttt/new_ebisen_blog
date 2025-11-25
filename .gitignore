@@ -50,3 +50,5 @@ node_modules/
 
 # rss.xml
 /public/rss.xml
+*storybook.log
+storybook-static

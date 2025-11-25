@@ -1,11 +1,11 @@
 import { ImageResponse } from 'next/og'
 
-import { TITLE } from '@/constants'
+import { TITLE } from '@/shared/config'
+import { Logo } from '@/shared/ui'
 import {
   Basic as BasicOpenGraph,
   Wrapper as OpenGraphWrapper,
-  Logo,
-} from '@/components'
+} from '@/shared/ui/OpenGraph'
 
 export const size = {
   width: 1200,

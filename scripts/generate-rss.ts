@@ -2,8 +2,8 @@ import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
-import { getAllPosts } from '../src/lib/api'
-import { DESCRIPTION, TITLE } from '../src/constants'
+import { getAllPosts } from '../src/entities/post/model/api/server/queries'
+import { DESCRIPTION, TITLE } from '../src/shared/config'
 
 async function main() {
   const posts = await getAllPosts()
