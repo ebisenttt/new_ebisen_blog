@@ -21,7 +21,7 @@ importers:
     dependencies:
       '@next/third-parties':
         specifier: ^15.3.3
-        version: 15.3.3(next@15.5.7(@babel/core@7.28.5)(@playwright/test@1.53.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
+        version: 15.3.3(next@15.5.7(@babel/core@7.28.5)(@playwright/test@1.57.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       '@remark-embedder/core':
         specifier: ^3.0.3
         version: 3.0.3
@@ -30,7 +30,7 @@ importers:
         version: 0.5.16(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.12.0)(typescript@5.8.3)))
       '@vercel/analytics':
         specifier: ^1.5.0
-        version: 1.5.0(next@15.5.7(@babel/core@7.28.5)(@playwright/test@1.53.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
+        version: 1.5.0(next@15.5.7(@babel/core@7.28.5)(@playwright/test@1.57.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       '@vercel/node':
         specifier: ^3.2.29
         version: 3.2.29
@@ -51,7 +51,7 @@ importers:
         version: 4.0.3
       next:
         specifier: ^15.5.7
-        version: 15.5.7(@babel/core@7.28.5)(@playwright/test@1.53.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        version: 15.5.7(@babel/core@7.28.5)(@playwright/test@1.57.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       prismjs:
         specifier: ^1.30.0
         version: 1.30.0
@@ -96,8 +96,8 @@ importers:
         specifier: ^15.3.3
         version: 15.3.3
       '@playwright/test':
-        specifier: ^1.53.1
-        version: 1.53.1
+        specifier: ^1.57.0
+        version: 1.57.0
       '@storybook/addon-a11y':
         specifier: ^10.0.5
         version: 10.0.5(storybook@10.0.7(@testing-library/dom@10.4.0)(prettier@3.5.3)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0)))
@@ -112,10 +112,10 @@ importers:
         version: 10.0.5(@vitest/browser-playwright@4.0.7)(@vitest/browser@4.0.7(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0))(vitest@4.0.7))(@vitest/runner@4.0.7)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@10.0.7(@testing-library/dom@10.4.0)(prettier@3.5.3)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0)))(vitest@4.0.7)
       '@storybook/nextjs':
         specifier: ^10.0.5
-        version: 10.0.7(esbuild@0.25.5)(next@15.5.7(@babel/core@7.28.5)(@playwright/test@1.53.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@10.0.7(@testing-library/dom@10.4.0)(prettier@3.5.3)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0)))(type-fest@4.41.0)(typescript@5.8.3)(webpack-hot-middleware@2.26.1)(webpack@5.102.1(esbuild@0.25.5))
+        version: 10.0.7(esbuild@0.25.5)(next@15.5.7(@babel/core@7.28.5)(@playwright/test@1.57.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@10.0.7(@testing-library/dom@10.4.0)(prettier@3.5.3)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0)))(type-fest@4.41.0)(typescript@5.8.3)(webpack-hot-middleware@2.26.1)(webpack@5.102.1(esbuild@0.25.5))
       '@storybook/nextjs-vite':
         specifier: ^10.0.5
-        version: 10.0.5(@babel/core@7.28.5)(esbuild@0.25.5)(next@15.5.7(@babel/core@7.28.5)(@playwright/test@1.53.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(rollup@4.52.5)(storybook@10.0.7(@testing-library/dom@10.4.0)(prettier@3.5.3)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0)))(typescript@5.8.3)(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0))(webpack@5.102.1(esbuild@0.25.5))
+        version: 10.0.5(@babel/core@7.28.5)(esbuild@0.25.5)(next@15.5.7(@babel/core@7.28.5)(@playwright/test@1.57.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(rollup@4.52.5)(storybook@10.0.7(@testing-library/dom@10.4.0)(prettier@3.5.3)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0)))(typescript@5.8.3)(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0))(webpack@5.102.1(esbuild@0.25.5))
       '@testing-library/dom':
         specifier: ^10.4.0
         version: 10.4.0
@@ -151,7 +151,7 @@ importers:
         version: 8.34.0(eslint@9.29.0(jiti@2.6.1))(typescript@5.8.3)
       '@vitest/browser-playwright':
         specifier: ^4.0.7
-        version: 4.0.7(playwright@1.55.1)(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0))(vitest@4.0.7)
+        version: 4.0.7(playwright@1.57.0)(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0))(vitest@4.0.7)
       '@vitest/coverage-v8':
         specifier: ^4.0.7
         version: 4.0.7(@vitest/browser@4.0.7(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0))(vitest@4.0.7))(vitest@4.0.7)
@@ -210,8 +210,8 @@ importers:
         specifier: ^15.5.2
         version: 15.5.2
       playwright:
-        specifier: ^1.55.1
-        version: 1.55.1
+        specifier: ^1.57.0
+        version: 1.57.0
       postcss:
         specifier: ^8.5.5
         version: 8.5.6
@@ -1600,8 +1600,8 @@ packages:
     resolution: {integrity: sha512-fdDH1LSGfZdTH2sxdpVMw31BanV28K/Gry0cVFxaNP77neJSkd82mM8ErPNYs9e+0O7SdHBLTDzDgwUuy18RnQ==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
 
-  '@playwright/test@1.53.1':
-    resolution: {integrity: sha512-Z4c23LHV0muZ8hfv4jw6HngPJkbbtZxTkxPNIg7cJcTc9C28N/p2q7g3JZS2SiKBBHJ3uM1dgDye66bB7LEk5w==}
+  '@playwright/test@1.57.0':
+    resolution: {integrity: sha512-6TyEnHgd6SArQO8UO2OMTxshln3QMWBtPGrOCgs3wVEmQmwyuNtB10IZMfmYDE0riwNR1cu4q+pPcxMVtaG3TA==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -5740,23 +5740,13 @@ packages:
     resolution: {integrity: sha512-Ie9z/WINcxxLp27BKOCHGde4ITq9UklYKDzVo1nhk5sqGEXU3FpkwP5GM2voTGJkGd9B3Otl+Q4uwSOeSUtOBA==}
     engines: {node: '>=14.16'}
 
-  playwright-core@1.53.1:
-    resolution: {integrity: sha512-Z46Oq7tLAyT0lGoFx4DOuB1IA9D1TPj0QkYxpPVUnGDqHHvDpCftu1J2hM2PiWsNMoZh8+LQaarAWcDfPBc6zg==}
+  playwright-core@1.57.0:
+    resolution: {integrity: sha512-agTcKlMw/mjBWOnD6kFZttAAGHgi/Nw0CZ2o6JqWSbMlI219lAFLZZCyqByTsvVAJq5XA5H8cA6PrvBRpBWEuQ==}
     engines: {node: '>=18'}
     hasBin: true
 
-  playwright-core@1.55.1:
-    resolution: {integrity: sha512-Z6Mh9mkwX+zxSlHqdr5AOcJnfp+xUWLCt9uKV18fhzA8eyxUd8NUWzAjxUh55RZKSYwDGX0cfaySdhZJGMoJ+w==}
-    engines: {node: '>=18'}
-    hasBin: true
-
-  playwright@1.53.1:
-    resolution: {integrity: sha512-LJ13YLr/ocweuwxyGf1XNFWIU4M2zUSo149Qbp+A4cpwDjsxRPj7k6H25LBrEHiEwxvRbD8HdwvQmRMSvquhYw==}
-    engines: {node: '>=18'}
-    hasBin: true
-
-  playwright@1.55.1:
-    resolution: {integrity: sha512-cJW4Xd/G3v5ovXtJJ52MAOclqeac9S/aGGgRzLabuF8TnIb6xHvMzKIa6JmrRzUkeXJgfL1MhukP0NK6l39h3A==}
+  playwright@1.57.0:
+    resolution: {integrity: sha512-ilYQj1s8sr2ppEJ2YVadYBN0Mb3mdo9J0wQ+UuDhzYqURwSoW4n1Xs5vs7ORwgDGmyEh33tRMeS8KhdkMoLXQw==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -8873,9 +8863,9 @@ snapshots:
   '@next/swc-win32-x64-msvc@15.5.7':
     optional: true
 
-  '@next/third-parties@15.3.3(next@15.5.7(@babel/core@7.28.5)(@playwright/test@1.53.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)':
+  '@next/third-parties@15.3.3(next@15.5.7(@babel/core@7.28.5)(@playwright/test@1.57.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)':
     dependencies:
-      next: 15.5.7(@babel/core@7.28.5)(@playwright/test@1.53.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      next: 15.5.7(@babel/core@7.28.5)(@playwright/test@1.57.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react: 19.1.0
       third-party-capital: 1.0.20
 
@@ -8896,9 +8886,9 @@ snapshots:
 
   '@pkgr/core@0.1.2': {}
 
-  '@playwright/test@1.53.1':
+  '@playwright/test@1.57.0':
     dependencies:
-      playwright: 1.53.1
+      playwright: 1.57.0
 
   '@pmmmwh/react-refresh-webpack-plugin@0.5.17(react-refresh@0.14.2)(type-fest@4.41.0)(webpack-hot-middleware@2.26.1)(webpack@5.102.1(esbuild@0.25.5))':
     dependencies:
@@ -9072,7 +9062,7 @@ snapshots:
       ts-dedent: 2.2.0
     optionalDependencies:
       '@vitest/browser': 4.0.7(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0))(vitest@4.0.7)
-      '@vitest/browser-playwright': 4.0.7(playwright@1.55.1)(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0))(vitest@4.0.7)
+      '@vitest/browser-playwright': 4.0.7(playwright@1.57.0)(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0))(vitest@4.0.7)
       '@vitest/runner': 4.0.7
       vitest: 4.0.7(@edge-runtime/vm@3.2.0)(@types/debug@4.1.12)(@types/node@22.12.0)(@vitest/browser-playwright@4.0.7)(jiti@2.6.1)(jsdom@26.1.0)(terser@5.44.1)(yaml@2.8.0)
     transitivePeerDependencies:
@@ -9139,18 +9129,18 @@ snapshots:
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
 
-  '@storybook/nextjs-vite@10.0.5(@babel/core@7.28.5)(esbuild@0.25.5)(next@15.5.7(@babel/core@7.28.5)(@playwright/test@1.53.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(rollup@4.52.5)(storybook@10.0.7(@testing-library/dom@10.4.0)(prettier@3.5.3)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0)))(typescript@5.8.3)(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0))(webpack@5.102.1(esbuild@0.25.5))':
+  '@storybook/nextjs-vite@10.0.5(@babel/core@7.28.5)(esbuild@0.25.5)(next@15.5.7(@babel/core@7.28.5)(@playwright/test@1.57.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(rollup@4.52.5)(storybook@10.0.7(@testing-library/dom@10.4.0)(prettier@3.5.3)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0)))(typescript@5.8.3)(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0))(webpack@5.102.1(esbuild@0.25.5))':
     dependencies:
       '@storybook/builder-vite': 10.0.5(esbuild@0.25.5)(rollup@4.52.5)(storybook@10.0.7(@testing-library/dom@10.4.0)(prettier@3.5.3)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0)))(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0))(webpack@5.102.1(esbuild@0.25.5))
       '@storybook/react': 10.0.5(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@10.0.7(@testing-library/dom@10.4.0)(prettier@3.5.3)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0)))(typescript@5.8.3)
       '@storybook/react-vite': 10.0.5(esbuild@0.25.5)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(rollup@4.52.5)(storybook@10.0.7(@testing-library/dom@10.4.0)(prettier@3.5.3)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0)))(typescript@5.8.3)(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0))(webpack@5.102.1(esbuild@0.25.5))
-      next: 15.5.7(@babel/core@7.28.5)(@playwright/test@1.53.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      next: 15.5.7(@babel/core@7.28.5)(@playwright/test@1.57.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
       storybook: 10.0.7(@testing-library/dom@10.4.0)(prettier@3.5.3)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0))
       styled-jsx: 5.1.6(@babel/core@7.28.5)(react@19.1.0)
       vite: 7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0)
-      vite-plugin-storybook-nextjs: 3.1.1(next@15.5.7(@babel/core@7.28.5)(@playwright/test@1.53.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(storybook@10.0.7(@testing-library/dom@10.4.0)(prettier@3.5.3)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0)))(typescript@5.8.3)(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0))
+      vite-plugin-storybook-nextjs: 3.1.1(next@15.5.7(@babel/core@7.28.5)(@playwright/test@1.57.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(storybook@10.0.7(@testing-library/dom@10.4.0)(prettier@3.5.3)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0)))(typescript@5.8.3)(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0))
     optionalDependencies:
       typescript: 5.8.3
     transitivePeerDependencies:
@@ -9161,7 +9151,7 @@ snapshots:
       - supports-color
       - webpack
 
-  '@storybook/nextjs@10.0.7(esbuild@0.25.5)(next@15.5.7(@babel/core@7.28.5)(@playwright/test@1.53.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@10.0.7(@testing-library/dom@10.4.0)(prettier@3.5.3)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0)))(type-fest@4.41.0)(typescript@5.8.3)(webpack-hot-middleware@2.26.1)(webpack@5.102.1(esbuild@0.25.5))':
+  '@storybook/nextjs@10.0.7(esbuild@0.25.5)(next@15.5.7(@babel/core@7.28.5)(@playwright/test@1.57.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@10.0.7(@testing-library/dom@10.4.0)(prettier@3.5.3)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0)))(type-fest@4.41.0)(typescript@5.8.3)(webpack-hot-middleware@2.26.1)(webpack@5.102.1(esbuild@0.25.5))':
     dependencies:
       '@babel/core': 7.28.5
       '@babel/plugin-syntax-bigint': 7.8.3(@babel/core@7.28.5)
@@ -9185,7 +9175,7 @@ snapshots:
       css-loader: 6.11.0(webpack@5.102.1(esbuild@0.25.5))
       image-size: 2.0.2
       loader-utils: 3.3.1
-      next: 15.5.7(@babel/core@7.28.5)(@playwright/test@1.53.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      next: 15.5.7(@babel/core@7.28.5)(@playwright/test@1.57.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       node-polyfill-webpack-plugin: 2.0.1(webpack@5.102.1(esbuild@0.25.5))
       postcss: 8.5.6
       postcss-loader: 8.2.0(postcss@8.5.6)(typescript@5.8.3)(webpack@5.102.1(esbuild@0.25.5))
@@ -9763,9 +9753,9 @@ snapshots:
   '@unrs/resolver-binding-win32-x64-msvc@1.9.0':
     optional: true
 
-  '@vercel/analytics@1.5.0(next@15.5.7(@babel/core@7.28.5)(@playwright/test@1.53.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)':
+  '@vercel/analytics@1.5.0(next@15.5.7(@babel/core@7.28.5)(@playwright/test@1.57.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)':
     optionalDependencies:
-      next: 15.5.7(@babel/core@7.28.5)(@playwright/test@1.53.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      next: 15.5.7(@babel/core@7.28.5)(@playwright/test@1.57.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react: 19.1.0
 
   '@vercel/build-utils@7.3.0': {}
@@ -9966,11 +9956,11 @@ snapshots:
       json-schema-to-ts: 1.6.4
       ts-morph: 12.0.0
 
-  '@vitest/browser-playwright@4.0.7(playwright@1.55.1)(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0))(vitest@4.0.7)':
+  '@vitest/browser-playwright@4.0.7(playwright@1.57.0)(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0))(vitest@4.0.7)':
     dependencies:
       '@vitest/browser': 4.0.7(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0))(vitest@4.0.7)
       '@vitest/mocker': 4.0.7(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0))
-      playwright: 1.55.1
+      playwright: 1.57.0
       tinyrainbow: 3.0.3
       vitest: 4.0.7(@edge-runtime/vm@3.2.0)(@types/debug@4.1.12)(@types/node@22.12.0)(@vitest/browser-playwright@4.0.7)(jiti@2.6.1)(jsdom@26.1.0)(terser@5.44.1)(yaml@2.8.0)
     transitivePeerDependencies:
@@ -13758,7 +13748,7 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  next@15.5.7(@babel/core@7.28.5)(@playwright/test@1.53.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+  next@15.5.7(@babel/core@7.28.5)(@playwright/test@1.57.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
       '@next/env': 15.5.7
       '@swc/helpers': 0.5.15
@@ -13776,7 +13766,7 @@ snapshots:
       '@next/swc-linux-x64-musl': 15.5.7
       '@next/swc-win32-arm64-msvc': 15.5.7
       '@next/swc-win32-x64-msvc': 15.5.7
-      '@playwright/test': 1.53.1
+      '@playwright/test': 1.57.0
       sharp: 0.34.5
     transitivePeerDependencies:
       - '@babel/core'
@@ -14116,19 +14106,11 @@ snapshots:
     dependencies:
       find-up: 6.3.0
 
-  playwright-core@1.53.1: {}
+  playwright-core@1.57.0: {}
 
-  playwright-core@1.55.1: {}
-
-  playwright@1.53.1:
+  playwright@1.57.0:
     dependencies:
-      playwright-core: 1.53.1
-    optionalDependencies:
-      fsevents: 2.3.2
-
-  playwright@1.55.1:
-    dependencies:
-      playwright-core: 1.55.1
+      playwright-core: 1.57.0
     optionalDependencies:
       fsevents: 2.3.2
 
@@ -15645,13 +15627,13 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.2
 
-  vite-plugin-storybook-nextjs@3.1.1(next@15.5.7(@babel/core@7.28.5)(@playwright/test@1.53.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(storybook@10.0.7(@testing-library/dom@10.4.0)(prettier@3.5.3)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0)))(typescript@5.8.3)(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0)):
+  vite-plugin-storybook-nextjs@3.1.1(next@15.5.7(@babel/core@7.28.5)(@playwright/test@1.57.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(storybook@10.0.7(@testing-library/dom@10.4.0)(prettier@3.5.3)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0)))(typescript@5.8.3)(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0)):
     dependencies:
       '@next/env': 16.0.0
       image-size: 2.0.2
       magic-string: 0.30.21
       module-alias: 2.2.3
-      next: 15.5.7(@babel/core@7.28.5)(@playwright/test@1.53.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      next: 15.5.7(@babel/core@7.28.5)(@playwright/test@1.57.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       storybook: 10.0.7(@testing-library/dom@10.4.0)(prettier@3.5.3)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0))
       ts-dedent: 2.2.0
       vite: 7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0)
@@ -15712,7 +15694,7 @@ snapshots:
       '@edge-runtime/vm': 3.2.0
       '@types/debug': 4.1.12
       '@types/node': 22.12.0
-      '@vitest/browser-playwright': 4.0.7(playwright@1.55.1)(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0))(vitest@4.0.7)
+      '@vitest/browser-playwright': 4.0.7(playwright@1.57.0)(vite@7.2.1(@types/node@22.12.0)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.0))(vitest@4.0.7)
       jsdom: 26.1.0
     transitivePeerDependencies:
       - jiti
