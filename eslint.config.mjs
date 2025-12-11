@@ -28,6 +28,7 @@ export default defineConfig([
     '_posts',
     'tailwind.config.js',
     'coverage',
+    'next-env.d.ts',
   ]),
   {
     extends: compat.extends(
