@@ -1,5 +1,5 @@
 import 'devicon'
-import '../src/styles/index.css'
+import '../src/shared/styles/index.css'
 
 import { withThemeByClassName } from '@storybook/addon-themes'
 
