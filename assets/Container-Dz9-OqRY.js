@@ -1,1 +1,0 @@
-import{j as o}from"./jsx-runtime-xcAJRU58.js";const n=({children:e})=>o.jsx("div",{className:"container mx-auto px-5",children:e});n.__docgenInfo={description:"",methods:[],displayName:"Container",props:{children:{required:!1,tsType:{name:"ReactNode"},description:""}}};export{n as C};
