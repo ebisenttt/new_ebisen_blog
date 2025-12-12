@@ -13,5 +13,12 @@ const config: StorybookConfig = {
     options: {},
   },
   staticDirs: ['../public'],
+  viteFinal: async config => {
+    // GitHub Pages 用のベースパス設定
+    if (process.env.NODE_ENV === 'production') {
+      config.base = '/new_ebisen_blog/'
+    }
+    return config
+  },
 }
 export default config
