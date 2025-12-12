@@ -1,0 +1,1 @@
+import{j as o}from"./jsx-runtime-xcAJRU58.js";const e="_markdown_1e1i5_1",n={markdown:e},t=({content:s})=>o.jsx("div",{className:"max-w-2xl mx-auto",children:o.jsx("div",{className:n.markdown,dangerouslySetInnerHTML:{__html:s}})});t.__docgenInfo={description:"",methods:[],displayName:"PostBody",props:{content:{required:!0,tsType:{name:"string"},description:""}}};export{t as P};
