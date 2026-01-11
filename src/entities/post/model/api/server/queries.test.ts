@@ -3,8 +3,12 @@ import fs from 'fs'
 jest.mock('./note', () => ({
   fetchNotePosts: jest.fn(),
 }))
+jest.mock('./qiita', () => ({
+  fetchQiitaPosts: jest.fn(),
+}))
 
 import { fetchNotePosts } from './note'
+import { fetchQiitaPosts } from './qiita'
 import { getAllPosts, getAllPostsMerged } from './queries'
 
 describe('getAllPosts', () => {
@@ -98,19 +102,32 @@ describe('getAllPostsMerged', () => {
   const fetchNotePostsMock = fetchNotePosts as jest.MockedFunction<
     typeof fetchNotePosts
   >
+  const fetchQiitaPostsMock = fetchQiitaPosts as jest.MockedFunction<
+    typeof fetchQiitaPosts
+  >
 
   afterEach(() => {
     jest.restoreAllMocks()
     fetchNotePostsMock.mockReset()
+    fetchQiitaPostsMock.mockReset()
   })
 
   it('merges local and external posts, deduplicating by filename', async () => {
     fetchNotePostsMock.mockResolvedValueOnce([
       {
-        title: 'External',
+        title: 'Note External',
         date: '2024-06-23',
         content: '',
         filename: 'note__external',
+        tags: ['tag'],
+      },
+    ])
+    fetchQiitaPostsMock.mockResolvedValueOnce([
+      {
+        title: 'Qiita External',
+        date: '2024-06-24',
+        content: '',
+        filename: 'qiita__external',
         tags: ['tag'],
       },
       {
@@ -145,14 +162,16 @@ describe('getAllPostsMerged', () => {
     })
 
     expect(posts.map((p) => p.title)).toEqual([
-      'External',
+      'Qiita External',
+      'Note External',
       'Local',
       'Duplicate Local',
     ])
   })
 
-  it('falls back to local posts when fetchNotePosts throws', async () => {
+  it('falls back to local posts when both fetch functions throw', async () => {
     fetchNotePostsMock.mockRejectedValueOnce(new Error('network error'))
+    fetchQiitaPostsMock.mockRejectedValueOnce(new Error('network error'))
 
     const mockReadFile = jest.fn()
     const files = ['local.md']
@@ -172,5 +191,31 @@ describe('getAllPostsMerged', () => {
 
     expect(posts).toHaveLength(1)
     expect(posts[0].title).toBe('Only Local')
+  })
+
+  it('continues if one fetch function fails', async () => {
+    fetchNotePostsMock.mockRejectedValueOnce(new Error('network error'))
+    fetchQiitaPostsMock.mockResolvedValueOnce([
+      {
+        title: 'Qiita',
+        date: '2024-06-25',
+        content: '',
+        filename: 'qiita__1',
+        tags: [],
+      },
+    ])
+
+    const mockReadFile = jest.fn()
+    jest
+      .spyOn(fs, 'readdirSync')
+      .mockReturnValue([] as unknown as ReturnType<typeof fs.readdirSync>)
+
+    const posts = await getAllPostsMerged({
+      readFileFn: mockReadFile,
+      postsDirectory: '',
+    })
+
+    expect(posts).toHaveLength(1)
+    expect(posts[0].title).toBe('Qiita')
   })
 })
