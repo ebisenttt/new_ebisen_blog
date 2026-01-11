@@ -3,6 +3,7 @@ import { getPostFiles, postsDirectory } from '@/shared/lib/file'
 import type { Post } from '../../types'
 
 import { fetchNotePosts } from './note'
+import { fetchQiitaPosts } from './qiita'
 import { getPostByFilename, type GetPostOptions } from './markdown'
 
 export async function getAllPosts(
@@ -26,16 +27,17 @@ export async function getAllPostsMerged(
   options: GetPostOptions = {},
 ): Promise<Post[]> {
   const local = await getAllPosts(options)
-  try {
-    const external = await fetchNotePosts()
-    const map = new Map(local.map((p) => [p.filename, p]))
-    for (const p of external) {
-      if (!map.has(p.filename)) map.set(p.filename, p)
-    }
-    return Array.from(map.values()).sort((a, b) =>
-      a.date > b.date ? -1 : a.date < b.date ? 1 : 0,
-    )
-  } catch {
-    return local
+  const [note, qiita] = await Promise.all([
+    fetchNotePosts().catch(() => []),
+    fetchQiitaPosts().catch(() => []),
+  ])
+  const external = [...note, ...qiita]
+
+  const map = new Map(local.map((p) => [p.filename, p]))
+  for (const p of external) {
+    if (!map.has(p.filename)) map.set(p.filename, p)
   }
+  return Array.from(map.values()).sort((a, b) =>
+    a.date > b.date ? -1 : a.date < b.date ? 1 : 0,
+  )
 }

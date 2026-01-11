@@ -47,9 +47,61 @@ const BADGE_STYLES: Record<string, BadgeStyle> = {
     icon: <i className="devicon-typescript-plain colored"></i>,
     color: 'dark:bg-blue-900 dark:text-blue-300',
   },
+  TypeScript: {
+    icon: <i className="devicon-typescript-plain colored"></i>,
+    color: 'dark:bg-blue-900 dark:text-blue-300',
+  },
   eslint: {
     icon: <i className="devicon-eslint-plain colored"></i>,
     color: 'dark:bg-violet-500 dark:text-violet-300',
+  },
+  ESLint: {
+    icon: <i className="devicon-eslint-plain colored"></i>,
+    color: 'dark:bg-violet-500 dark:text-violet-300',
+  },
+  javascript: {
+    icon: <i className="devicon-javascript-plain colored"></i>,
+    color: 'dark:bg-yellow-900 dark:text-yellow-300',
+  },
+  JavaScript: {
+    icon: <i className="devicon-javascript-plain colored"></i>,
+    color: 'dark:bg-yellow-900 dark:text-yellow-300',
+  },
+  'next.js': {
+    icon: <i className="devicon-nextjs-plain"></i>,
+    color: 'dark:bg-gray-950 dark:text-gray-200',
+  },
+  'Next.js': {
+    icon: <i className="devicon-nextjs-plain"></i>,
+    color: 'dark:bg-gray-950 dark:text-gray-200',
+  },
+  react: {
+    icon: <i className="devicon-react-original colored"></i>,
+    color: 'dark:bg-sky-900 dark:text-sky-300',
+  },
+  React: {
+    icon: <i className="devicon-react-original colored"></i>,
+    color: 'dark:bg-sky-900 dark:text-sky-300',
+  },
+  pnpm: {
+    icon: <i className="devicon-pnpm-plain colored"></i>,
+    color: 'dark:bg-orange-800 dark:text-orange-200',
+  },
+  jest: {
+    icon: <i className="devicon-jest-plain colored"></i>,
+    color: 'dark:bg-rose-900 dark:text-rose-300',
+  },
+  Jest: {
+    icon: <i className="devicon-jest-plain colored"></i>,
+    color: 'dark:bg-rose-900 dark:text-rose-300',
+  },
+  java: {
+    icon: <i className="devicon-java-plain colored"></i>,
+    color: 'dark:bg-red-900 dark:text-red-300',
+  },
+  Java: {
+    icon: <i className="devicon-java-plain colored"></i>,
+    color: 'dark:bg-red-900 dark:text-red-300',
   },
 }
 
