@@ -1,19 +1,19 @@
 #!/usr/bin/env bash
-# scripts/benchmark-ts.sh
+# docs/ai/investigations/typescript-6-migration/benchmark-ts.sh
 #
 # TypeScript build performance benchmark
 # Measures baseline metrics before TypeScript version migration.
 #
-# Usage:
-#   bash scripts/benchmark-ts.sh               # All benchmarks (~22-27 min)
-#   bash scripts/benchmark-ts.sh --skip-build  # Skip next build (~10 min)
-#   bash scripts/benchmark-ts.sh --only-typecheck  # Typecheck only (~5 min)
+# Usage (run from project root):
+#   bash docs/ai/investigations/typescript-6-migration/benchmark-ts.sh               # All benchmarks (~22-27 min)
+#   bash docs/ai/investigations/typescript-6-migration/benchmark-ts.sh --skip-build  # Skip next build (~10 min)
+#   bash docs/ai/investigations/typescript-6-migration/benchmark-ts.sh --only-typecheck  # Typecheck only (~5 min)
 
 set -euo pipefail
 
 # ─── CONFIGURATION ────────────────────────────────────────────────────────────
-readonly PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-readonly RESULTS_DIR="${PROJECT_ROOT}/benchmark-results"
+readonly PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
+readonly RESULTS_DIR="$(dirname "${BASH_SOURCE[0]}")/results"
 readonly TSBUILDINFO="${PROJECT_ROOT}/tsconfig.tsbuildinfo"
 readonly NEXT_DIR="${PROJECT_ROOT}/.next"
 

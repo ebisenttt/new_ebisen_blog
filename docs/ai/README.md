@@ -9,6 +9,11 @@
 3. コンポーネントのディレクトリ構成ガイド `/docs/ai/guides/component-structure.md`
 4. 個別機能の仕様書 `/docs/features/*.md`
 
+## 調査成果物
+
+AI エージェントが行った調査・計測の成果物は `/docs/ai/investigations/` に蓄積する。
+詳細は `/docs/ai/investigations/README.md` を参照。
+
 ## 運用ルール
 
 - すべてのコミュニケーションを日本語で行うこと。
