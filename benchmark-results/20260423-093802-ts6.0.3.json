@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "timestamp": "20260423-093802",
+    "ts_version": "6.0.3",
+    "platform": "Darwin",
+    "node_version": "v22.21.1",
+    "runs": 10
+  },
+  "benchmarks": {
+    "typecheck_cold": {
+      "runs": 10,
+      "times_ms": [2641,2213,2212,2215,2269,2664,2540,2563,2553,2480],
+      "mean_ms": 2435,
+      "median_ms": 2510,
+      "stddev_ms": 187,
+      "min_ms": 2212,
+      "max_ms": 2664
+    },
+    "typecheck_warm": {
+      "runs": 10,
+      "times_ms": [1649,1628,1625,1644,1618,1621,1625,1599,1606,1612],
+      "mean_ms": 1623,
+      "median_ms": 1623,
+      "stddev_ms": 16,
+      "min_ms": 1599,
+      "max_ms": 1649
+    },
+    "jest": {
+      "runs": 10,
+      "times_ms": [7640,7366,7025,7157,7676,7226,7657,7310,7812,7788],
+      "mean_ms": 7466,
+      "median_ms": 7503,
+      "stddev_ms": 282,
+      "min_ms": 7025,
+      "max_ms": 7812
+    },
+    "next_build": {
+      "runs": 10,
+      "times_ms": [37394,35641,35092,36376,34949,31288,34171,35015,34948,38121],
+      "mean_ms": 35300,
+      "median_ms": 35054,
+      "stddev_ms": 1867,
+      "min_ms": 31288,
+      "max_ms": 38121
+    }
+  }
+}
