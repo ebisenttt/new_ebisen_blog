@@ -1,0 +1,1 @@
+import{j as s}from"./jsx-runtime-CqSLl3El.js";import{T as o}from"./metadata-BgGm_LXU.js";import{W as r}from"./Wrapper-WCxmmoNm.js";const i=()=>s.jsx(r,{children:s.jsx("p",{style:{fontSize:64},children:o})});i.__docgenInfo={description:"",methods:[],displayName:"Basic"};export{i as B};
