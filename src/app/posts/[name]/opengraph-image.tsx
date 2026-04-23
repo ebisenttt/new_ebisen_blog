@@ -35,29 +35,27 @@ export default async function Image({ params }: Props) {
   const modifiedTitle = title.replace(` | ${TITLE}`, '')
 
   return new ImageResponse(
-    (
-      <OpenGraphWrapper style={{ position: 'relative' }}>
-        <p style={{ fontSize: 36 }}>{modifiedTitle}</p>
-        <div
+    <OpenGraphWrapper style={{ position: 'relative' }}>
+      <p style={{ fontSize: 36 }}>{modifiedTitle}</p>
+      <div
+        style={{
+          position: 'absolute',
+          right: 48,
+          bottom: 24,
+          display: 'flex',
+          alignItems: 'center',
+          gap: 8,
+        }}
+      >
+        <Logo height={32} width={32} />
+        <p
           style={{
-            position: 'absolute',
-            right: 48,
-            bottom: 24,
-            display: 'flex',
-            alignItems: 'center',
-            gap: 8,
+            fontSize: 24,
           }}
         >
-          <Logo height={32} width={32} />
-          <p
-            style={{
-              fontSize: 24,
-            }}
-          >
-            {TITLE}
-          </p>
-        </div>
-      </OpenGraphWrapper>
-    ),
+          {TITLE}
+        </p>
+      </div>
+    </OpenGraphWrapper>,
   )
 }

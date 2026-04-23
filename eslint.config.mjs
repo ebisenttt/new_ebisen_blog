@@ -35,7 +35,7 @@ export default defineConfig([
       'plugin:react/recommended',
       'prettier',
       'plugin:@typescript-eslint/recommended',
-      'plugin:@next/next/recommended',
+      'plugin:@next/next/recommended-legacy',
     ),
     plugins: {
       'unused-imports': unusedImports,
