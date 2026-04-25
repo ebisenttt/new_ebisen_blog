@@ -7,6 +7,7 @@ import _import from 'eslint-plugin-import'
 import globals from 'globals'
 import js from '@eslint/js'
 import { FlatCompat } from '@eslint/eslintrc'
+import reactX from '@eslint-react/eslint-plugin'
 
 import localRules from './eslint-local-rules/index.mjs'
 
@@ -29,9 +30,9 @@ export default defineConfig([
     'coverage',
     'next-env.d.ts',
   ]),
+  reactX.configs['recommended-typescript'],
   {
     extends: compat.extends(
-      'plugin:react/recommended',
       'prettier',
       'plugin:@typescript-eslint/recommended',
       'plugin:@next/next/recommended-legacy',
@@ -49,9 +50,6 @@ export default defineConfig([
       sourceType: 'module',
     },
     settings: {
-      react: {
-        version: 'detect',
-      },
       'import/resolver': {
         typescript: {
           project: './tsconfig.json',
@@ -59,7 +57,6 @@ export default defineConfig([
       },
     },
     rules: {
-      'react/react-in-jsx-scope': 'off',
       '@typescript-eslint/no-unused-vars': 'error',
       '@typescript-eslint/explicit-function-return-type': 'off',
       'unused-imports/no-unused-imports': 'error',
