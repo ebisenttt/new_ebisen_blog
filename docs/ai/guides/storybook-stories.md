@@ -12,7 +12,7 @@
 
 ## TODO リスト（作業前チェック）
 
-1. `docs/guides/storybook-stories.md` を読み、対象レイヤに関する注意点を確認する。
+1. `docs/conventions/storybook-stories.md` を読み、対象レイヤに関する注意点を確認する。
 2. 対象コンポーネントのディレクトリ構成がガイドライン（`Component/Component.tsx`, `Component.test.tsx`, `index.ts`）に沿っているか確認する。
 3. Storybook の `title` に適切な FSD パス（例: `Shared/UI/Button`）を設定できるよう情報を整理する。
 4. テストデータとして扱う `args` の初期値を設計し、Story を追加する準備をする。
