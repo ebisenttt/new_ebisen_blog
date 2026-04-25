@@ -26,7 +26,6 @@ export default defineConfig([
     'public',
     '_drafts',
     '_posts',
-    'tailwind.config.js',
     'coverage',
     'next-env.d.ts',
   ]),
