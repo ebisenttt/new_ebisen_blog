@@ -16,6 +16,13 @@ export async function GET(req: NextRequest) {
     )
   }
 
+  if (!/^[a-zA-Z0-9][a-zA-Z0-9_-]*$/.test(name)) {
+    return NextResponse.json<ResponseBody>(
+      { error: 'invalid name' },
+      { status: 400 },
+    )
+  }
+
   // /posts/{name} のHTMLを取得
   const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
     ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
