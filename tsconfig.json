@@ -36,6 +36,7 @@
   "include": [
     "_drafts/**/*",
     "new-types.d.ts",
+    "vitest.d.ts",
     "next-env.d.ts",
     "postcss.config.js",
     "src/**/*.css",

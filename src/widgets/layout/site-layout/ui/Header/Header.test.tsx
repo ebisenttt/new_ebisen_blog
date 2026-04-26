@@ -1,4 +1,4 @@
-import '@testing-library/jest-dom'
+import '@testing-library/jest-dom/vitest'
 
 import type { AnchorHTMLAttributes, ReactNode } from 'react'
 
@@ -6,7 +6,7 @@ import { render, screen } from '@testing-library/react'
 
 import { TITLE } from '@/shared/config'
 
-jest.mock('next/link', () => ({
+vi.mock('next/link', () => ({
   __esModule: true,
   default: ({
     children,

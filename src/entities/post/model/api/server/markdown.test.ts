@@ -37,7 +37,7 @@ describe('convertMarkdownToPost', () => {
 })
 
 describe('getPostByFilename', () => {
-  const mockReadFile = jest.fn()
+  const mockReadFile = vi.fn()
   const baseMarkdown = `---\ntitle: 'タイトル'\ndate: '2024-06-20'\ntag:\n  - 'tag1'\n  - 'tag2'\n---\n本文`
 
   afterEach(() => {

@@ -1,10 +1,10 @@
-import '@testing-library/jest-dom'
+import '@testing-library/jest-dom/vitest'
 
 import type { ImgHTMLAttributes } from 'react'
 
 import { render, screen } from '@testing-library/react'
 
-jest.mock('next/image', () => ({
+vi.mock('next/image', () => ({
   __esModule: true,
   // eslint-disable-next-line @next/next/no-img-element
   default: (props: ImgHTMLAttributes<HTMLImageElement>) => <img {...props} />,

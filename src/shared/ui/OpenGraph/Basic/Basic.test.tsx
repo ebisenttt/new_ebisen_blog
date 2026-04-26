@@ -1,10 +1,10 @@
-import '@testing-library/jest-dom'
+import '@testing-library/jest-dom/vitest'
 
 import type { ReactNode } from 'react'
 
 import { render, screen } from '@testing-library/react'
 
-jest.mock('../Wrapper', () => ({
+vi.mock('../Wrapper', () => ({
   Wrapper: ({ children }: { children: ReactNode }) => (
     <div data-testid="wrapper">{children}</div>
   ),
