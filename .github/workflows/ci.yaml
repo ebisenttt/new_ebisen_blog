@@ -38,6 +38,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Check unused dependencies
+        run: pnpm knip --dependencies
+
       - name: Run ESLint
         run: pnpm lint
 
