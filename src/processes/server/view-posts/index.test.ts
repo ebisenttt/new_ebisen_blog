@@ -4,14 +4,12 @@ import { getHomePostsViewModel } from './index'
 
 import type { Post } from '@/shared/types/post'
 
-jest.mock('@/entities/post/model/api/server/queries', () => ({
-  getAllPostsMerged: jest.fn(),
+vi.mock('@/entities/post/model/api/server/queries', () => ({
+  getAllPostsMerged: vi.fn(),
 }))
 
 describe('processes/view-posts', () => {
-  const getAllPostsMergedMock = getAllPostsMerged as jest.MockedFunction<
-    typeof getAllPostsMerged
-  >
+  const getAllPostsMergedMock = vi.mocked(getAllPostsMerged)
 
   beforeEach(() => {
     getAllPostsMergedMock.mockReset()

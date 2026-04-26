@@ -1,8 +1,8 @@
-import '@testing-library/jest-dom'
+import '@testing-library/jest-dom/vitest'
 
 import { render, screen } from '@testing-library/react'
 
-jest.mock('../Footer', () => ({
+vi.mock('../Footer', () => ({
   Footer: () => <footer data-testid="footer" />,
 }))
 
