@@ -33,9 +33,9 @@ describe('getAllPosts', () => {
       return readFileMap[fname] ?? null
     })
 
-    vi
-      .spyOn(fs, 'readdirSync')
-      .mockReturnValue(files as unknown as ReturnType<typeof fs.readdirSync>)
+    vi.spyOn(fs, 'readdirSync').mockReturnValue(
+      files as unknown as ReturnType<typeof fs.readdirSync>,
+    )
 
     const posts = await getAllPosts({
       readFileFn: mockReadFile,
@@ -51,9 +51,9 @@ describe('getAllPosts', () => {
       path.endsWith('a.md') ? null : validMarkdown('B', '2024-06-22'),
     )
 
-    vi
-      .spyOn(fs, 'readdirSync')
-      .mockReturnValue(files as unknown as ReturnType<typeof fs.readdirSync>)
+    vi.spyOn(fs, 'readdirSync').mockReturnValue(
+      files as unknown as ReturnType<typeof fs.readdirSync>,
+    )
 
     const posts = await getAllPosts({
       readFileFn: mockReadFile,
@@ -72,9 +72,9 @@ describe('getAllPosts', () => {
         : validMarkdown('B', '2024-06-20'),
     )
 
-    vi
-      .spyOn(fs, 'readdirSync')
-      .mockReturnValue(files as unknown as ReturnType<typeof fs.readdirSync>)
+    vi.spyOn(fs, 'readdirSync').mockReturnValue(
+      files as unknown as ReturnType<typeof fs.readdirSync>,
+    )
 
     const posts = await getAllPosts({
       readFileFn: mockReadFile,
@@ -85,9 +85,9 @@ describe('getAllPosts', () => {
   })
 
   it('should return empty array if no files', async () => {
-    vi
-      .spyOn(fs, 'readdirSync')
-      .mockReturnValue([] as unknown as ReturnType<typeof fs.readdirSync>)
+    vi.spyOn(fs, 'readdirSync').mockReturnValue(
+      [] as unknown as ReturnType<typeof fs.readdirSync>,
+    )
 
     const posts = await getAllPosts({
       readFileFn: mockReadFile,
@@ -148,9 +148,9 @@ describe('getAllPostsMerged', () => {
       return null
     })
 
-    vi
-      .spyOn(fs, 'readdirSync')
-      .mockReturnValue(files as unknown as ReturnType<typeof fs.readdirSync>)
+    vi.spyOn(fs, 'readdirSync').mockReturnValue(
+      files as unknown as ReturnType<typeof fs.readdirSync>,
+    )
 
     const posts = await getAllPostsMerged({
       readFileFn: mockReadFile,
@@ -176,9 +176,9 @@ describe('getAllPostsMerged', () => {
       `---\ntitle: 'Only Local'\ndate: '2024-06-21'\n---\ncontent`,
     )
 
-    vi
-      .spyOn(fs, 'readdirSync')
-      .mockReturnValue(files as unknown as ReturnType<typeof fs.readdirSync>)
+    vi.spyOn(fs, 'readdirSync').mockReturnValue(
+      files as unknown as ReturnType<typeof fs.readdirSync>,
+    )
 
     const posts = await getAllPostsMerged({
       readFileFn: mockReadFile,
@@ -202,9 +202,9 @@ describe('getAllPostsMerged', () => {
     ])
 
     const mockReadFile = vi.fn()
-    vi
-      .spyOn(fs, 'readdirSync')
-      .mockReturnValue([] as unknown as ReturnType<typeof fs.readdirSync>)
+    vi.spyOn(fs, 'readdirSync').mockReturnValue(
+      [] as unknown as ReturnType<typeof fs.readdirSync>,
+    )
 
     const posts = await getAllPostsMerged({
       readFileFn: mockReadFile,

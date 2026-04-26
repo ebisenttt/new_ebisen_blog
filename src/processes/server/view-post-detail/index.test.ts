@@ -87,7 +87,9 @@ describe('getPostDetailMetadata', () => {
   })
 
   test('投稿が存在する場合はタイトルを返す', async () => {
-    mockGetPostByFilename.mockResolvedValueOnce({ title: 'title' } as unknown as Post)
+    mockGetPostByFilename.mockResolvedValueOnce({
+      title: 'title',
+    } as unknown as Post)
 
     const result = await getPostDetailMetadata('hello')
 
