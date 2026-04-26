@@ -2,13 +2,17 @@
   "compilerOptions": {
     "target": "ES6",
     "module": "esnext",
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "strict": true,
     "noImplicitReturns": false,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "noEmit": true,
     "moduleResolution": "bundler",
@@ -16,7 +20,9 @@
     "isolatedModules": true,
     "incremental": true,
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     },
     "plugins": [
       {
@@ -24,7 +30,9 @@
       }
     ]
   },
-  "exclude": ["node_modules"],
+  "exclude": [
+    "node_modules"
+  ],
   "include": [
     "_drafts/**/*",
     "new-types.d.ts",
@@ -34,6 +42,7 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "tailwind.config.js",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
   ]
 }

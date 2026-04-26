@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 
 import { Badge } from '@/shared/ui'
 import { Posts } from '@/entities/post'
@@ -26,10 +26,12 @@ export const TagFilter = ({
   tagStats,
 }: TagFilterProps) => {
   const [selectedTag, setSelectedTag] = useState(initialTag)
+  const [prevInitialTag, setPrevInitialTag] = useState(initialTag)
 
-  useEffect(() => {
+  if (prevInitialTag !== initialTag) {
+    setPrevInitialTag(initialTag)
     setSelectedTag(initialTag)
-  }, [initialTag])
+  }
 
   const filteredPosts = useMemo(() => {
     if (!selectedTag) return []

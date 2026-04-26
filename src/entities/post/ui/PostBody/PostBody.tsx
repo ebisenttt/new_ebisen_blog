@@ -9,6 +9,7 @@ export const PostBody = ({ content }: Props) => {
     <div className="max-w-2xl mx-auto">
       <div
         className={markdownStyles.markdown}
+        // eslint-disable-next-line @eslint-react/dom-no-dangerously-set-innerhtml
         dangerouslySetInnerHTML={{ __html: content }}
       />
     </div>
