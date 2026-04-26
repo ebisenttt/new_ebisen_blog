@@ -25,6 +25,7 @@ export const PostPreview = ({
       <div className="mb-3 flex items-start">
         <h3
           className="text-xl leading-snug flex-1"
+          // eslint-disable-next-line @eslint-react/dom-no-dangerously-set-innerhtml
           dangerouslySetInnerHTML={{ __html: backQuoteToCodeElement(title) }}
         />
         {isExternal && (
@@ -34,8 +35,8 @@ export const PostPreview = ({
         )}
       </div>
       <div className="flex flex-wrap gap-1 mb-4">
-        {tags.map((t, i) => (
-          <Badge key={`${i}_${t}`} text={t} />
+        {tags.map((t) => (
+          <Badge key={t} text={t} />
         ))}
       </div>
       <div className="mt-auto pt-4 text-base">
