@@ -1,6 +1,6 @@
 import { PostPreview } from '@/entities/post/ui/PostPreview'
 
-import type { Meta, StoryObj } from '@storybook/nextjs'
+import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 
 const meta = {
   title: 'Entities/Post/PostPreview',

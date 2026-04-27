@@ -1,6 +1,6 @@
 import { Wrapper } from '@/shared/ui/OpenGraph/Wrapper'
 
-import type { Meta, StoryObj } from '@storybook/nextjs'
+import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 
 const meta = {
   title: 'Shared/UI/OpenGraph/Wrapper',

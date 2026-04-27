@@ -1,6 +1,6 @@
 import { Logo } from '@/shared/ui/Logo'
 
-import type { Meta, StoryObj } from '@storybook/nextjs'
+import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 
 const meta = {
   title: 'Shared/UI/Logo',
