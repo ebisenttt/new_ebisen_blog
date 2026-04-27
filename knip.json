@@ -1,3 +1,6 @@
 {
-  "ignoreDependencies": ["babel-plugin-prismjs"]
+  "ignoreDependencies": [
+    "@eslint-react/eslint-plugin",
+    "eslint-plugin-unused-imports"
+  ]
 }
