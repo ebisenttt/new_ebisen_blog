@@ -1,6 +1,6 @@
 import { Basic } from '@/shared/ui/OpenGraph/Basic'
 
-import type { Meta, StoryObj } from '@storybook/nextjs'
+import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 
 const meta = {
   title: 'Shared/UI/OpenGraph/Basic',

@@ -1,6 +1,6 @@
 import { PostBody } from '@/entities/post/ui/PostBody'
 
-import type { Meta, StoryObj } from '@storybook/nextjs'
+import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 
 const meta = {
   title: 'Entities/Post/PostBody',
