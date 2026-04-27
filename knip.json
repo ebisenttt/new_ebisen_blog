@@ -1,0 +1,6 @@
+{
+  "ignoreDependencies": [
+    "@eslint-react/eslint-plugin",
+    "eslint-plugin-unused-imports"
+  ]
+}
