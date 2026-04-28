@@ -1,6 +1,8 @@
+import { expect } from 'storybook/test'
+
 import { Logo } from '@/shared/ui/Logo'
 
-import type { Meta, StoryObj } from '@storybook/nextjs'
+import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 
 const meta = {
   title: 'Shared/UI/Logo',
@@ -48,6 +50,12 @@ export const Small: Story = {
         story: 'OGイメージで使用されているサイズ。',
       },
     },
+  },
+  play: async ({ canvasElement }) => {
+    const svg = canvasElement.querySelector('svg')
+    expect(svg).toBeInstanceOf(SVGElement)
+    expect(svg).toHaveAttribute('width', '32')
+    expect(svg).toHaveAttribute('height', '32')
   },
 }
 

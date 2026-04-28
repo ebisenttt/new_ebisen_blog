@@ -1,10 +1,10 @@
 import fs from 'fs'
 
-jest.mock('./note', () => ({
-  fetchNotePosts: jest.fn(),
+vi.mock('./note', () => ({
+  fetchNotePosts: vi.fn(),
 }))
-jest.mock('./qiita', () => ({
-  fetchQiitaPosts: jest.fn(),
+vi.mock('./qiita', () => ({
+  fetchQiitaPosts: vi.fn(),
 }))
 
 import { fetchNotePosts } from './note'
@@ -12,13 +12,13 @@ import { fetchQiitaPosts } from './qiita'
 import { getAllPosts, getAllPostsMerged } from './queries'
 
 describe('getAllPosts', () => {
-  const mockReadFile = jest.fn()
+  const mockReadFile = vi.fn()
   const validMarkdown = (title: string, date: string) =>
     `---\ntitle: '${title}'\ndate: '${date}'\ntag:\n  - 'tag'\n---\ncontent`
 
   afterEach(() => {
     mockReadFile.mockReset()
-    jest.restoreAllMocks()
+    vi.restoreAllMocks()
   })
 
   it('should return sorted posts array (desc by date)', async () => {
@@ -33,9 +33,9 @@ describe('getAllPosts', () => {
       return readFileMap[fname] ?? null
     })
 
-    jest
-      .spyOn(fs, 'readdirSync')
-      .mockReturnValue(files as unknown as ReturnType<typeof fs.readdirSync>)
+    vi.spyOn(fs, 'readdirSync').mockReturnValue(
+      files as unknown as ReturnType<typeof fs.readdirSync>,
+    )
 
     const posts = await getAllPosts({
       readFileFn: mockReadFile,
@@ -51,9 +51,9 @@ describe('getAllPosts', () => {
       path.endsWith('a.md') ? null : validMarkdown('B', '2024-06-22'),
     )
 
-    jest
-      .spyOn(fs, 'readdirSync')
-      .mockReturnValue(files as unknown as ReturnType<typeof fs.readdirSync>)
+    vi.spyOn(fs, 'readdirSync').mockReturnValue(
+      files as unknown as ReturnType<typeof fs.readdirSync>,
+    )
 
     const posts = await getAllPosts({
       readFileFn: mockReadFile,
@@ -72,9 +72,9 @@ describe('getAllPosts', () => {
         : validMarkdown('B', '2024-06-20'),
     )
 
-    jest
-      .spyOn(fs, 'readdirSync')
-      .mockReturnValue(files as unknown as ReturnType<typeof fs.readdirSync>)
+    vi.spyOn(fs, 'readdirSync').mockReturnValue(
+      files as unknown as ReturnType<typeof fs.readdirSync>,
+    )
 
     const posts = await getAllPosts({
       readFileFn: mockReadFile,
@@ -85,9 +85,9 @@ describe('getAllPosts', () => {
   })
 
   it('should return empty array if no files', async () => {
-    jest
-      .spyOn(fs, 'readdirSync')
-      .mockReturnValue([] as unknown as ReturnType<typeof fs.readdirSync>)
+    vi.spyOn(fs, 'readdirSync').mockReturnValue(
+      [] as unknown as ReturnType<typeof fs.readdirSync>,
+    )
 
     const posts = await getAllPosts({
       readFileFn: mockReadFile,
@@ -99,15 +99,11 @@ describe('getAllPosts', () => {
 })
 
 describe('getAllPostsMerged', () => {
-  const fetchNotePostsMock = fetchNotePosts as jest.MockedFunction<
-    typeof fetchNotePosts
-  >
-  const fetchQiitaPostsMock = fetchQiitaPosts as jest.MockedFunction<
-    typeof fetchQiitaPosts
-  >
+  const fetchNotePostsMock = vi.mocked(fetchNotePosts)
+  const fetchQiitaPostsMock = vi.mocked(fetchQiitaPosts)
 
   afterEach(() => {
-    jest.restoreAllMocks()
+    vi.restoreAllMocks()
     fetchNotePostsMock.mockReset()
     fetchQiitaPostsMock.mockReset()
   })
@@ -139,7 +135,7 @@ describe('getAllPostsMerged', () => {
       },
     ])
 
-    const mockReadFile = jest.fn()
+    const mockReadFile = vi.fn()
     const files = ['local.md', 'dup.md']
 
     mockReadFile.mockImplementation((path: string) => {
@@ -152,9 +148,9 @@ describe('getAllPostsMerged', () => {
       return null
     })
 
-    jest
-      .spyOn(fs, 'readdirSync')
-      .mockReturnValue(files as unknown as ReturnType<typeof fs.readdirSync>)
+    vi.spyOn(fs, 'readdirSync').mockReturnValue(
+      files as unknown as ReturnType<typeof fs.readdirSync>,
+    )
 
     const posts = await getAllPostsMerged({
       readFileFn: mockReadFile,
@@ -173,16 +169,16 @@ describe('getAllPostsMerged', () => {
     fetchNotePostsMock.mockRejectedValueOnce(new Error('network error'))
     fetchQiitaPostsMock.mockRejectedValueOnce(new Error('network error'))
 
-    const mockReadFile = jest.fn()
+    const mockReadFile = vi.fn()
     const files = ['local.md']
 
     mockReadFile.mockReturnValue(
       `---\ntitle: 'Only Local'\ndate: '2024-06-21'\n---\ncontent`,
     )
 
-    jest
-      .spyOn(fs, 'readdirSync')
-      .mockReturnValue(files as unknown as ReturnType<typeof fs.readdirSync>)
+    vi.spyOn(fs, 'readdirSync').mockReturnValue(
+      files as unknown as ReturnType<typeof fs.readdirSync>,
+    )
 
     const posts = await getAllPostsMerged({
       readFileFn: mockReadFile,
@@ -205,10 +201,10 @@ describe('getAllPostsMerged', () => {
       },
     ])
 
-    const mockReadFile = jest.fn()
-    jest
-      .spyOn(fs, 'readdirSync')
-      .mockReturnValue([] as unknown as ReturnType<typeof fs.readdirSync>)
+    const mockReadFile = vi.fn()
+    vi.spyOn(fs, 'readdirSync').mockReturnValue(
+      [] as unknown as ReturnType<typeof fs.readdirSync>,
+    )
 
     const posts = await getAllPostsMerged({
       readFileFn: mockReadFile,

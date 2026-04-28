@@ -1,12 +1,14 @@
+import type { MockInstance } from 'vitest'
+
 import { fetchNotePosts, __fetchNoteInternal } from './note'
 import { encodeExternalFilename } from '../../helpers'
 
 describe('fetchNotePosts', () => {
   const originalFetch = global.fetch
-  let fetchMock: jest.Mock
+  let fetchMock: MockInstance
 
   beforeEach(() => {
-    fetchMock = jest.fn()
+    fetchMock = vi.fn()
     Object.defineProperty(global, 'fetch', {
       configurable: true,
       writable: true,

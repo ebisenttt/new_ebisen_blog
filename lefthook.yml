@@ -1,0 +1,13 @@
+pre-commit:
+  parallel: true
+  commands:
+    lint-staged:
+      run: pnpm lint-staged
+
+pre-push:
+  parallel: true
+  commands:
+    test:
+      run: pnpm test
+    typecheck:
+      run: pnpm typecheck

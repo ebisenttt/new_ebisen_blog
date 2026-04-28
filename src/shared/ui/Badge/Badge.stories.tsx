@@ -1,6 +1,8 @@
+import { expect, within } from 'storybook/test'
+
 import { Badge } from '@/shared/ui/Badge'
 
-import type { Meta, StoryObj } from '@storybook/nextjs'
+import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 
 const meta = {
   title: 'Shared/UI/Badge',
@@ -42,6 +44,11 @@ export const Ruby: Story = {
 export const TypeScript: Story = {
   args: {
     text: 'typescript',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    expect(canvas.getByText('typescript')).toBeInTheDocument()
+    expect(canvasElement.querySelector('.devicon-typescript-plain')).not.toBeNull()
   },
 }
 

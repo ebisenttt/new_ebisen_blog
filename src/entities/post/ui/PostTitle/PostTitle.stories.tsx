@@ -1,4 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/nextjs'
+import { expect, within } from 'storybook/test'
+
+import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 
 import { PostTitle } from './PostTitle'
 
@@ -17,6 +19,10 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     title: 'Next.jsを実務で使用した感想と反省',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    expect(canvas.getByText('Next.jsを実務で使用した感想と反省')).toBeInTheDocument()
   },
 }
 

@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState, type ReactElement } from 'react'
+import { useState, type ReactElement } from 'react'
 
 const NOT_SELECTED_CLASS = 'text-slate-500'
 
@@ -28,10 +28,12 @@ export const TabLayout = ({
   const [selectedIndex, setSelectedIndex] = useState(() =>
     clampIndex(initialIndex ?? 0, tabCount),
   )
+  const [prevInitialIndex, setPrevInitialIndex] = useState(initialIndex)
 
-  useEffect(() => {
+  if (prevInitialIndex !== initialIndex) {
+    setPrevInitialIndex(initialIndex)
     setSelectedIndex(clampIndex(initialIndex ?? 0, tabCount))
-  }, [initialIndex, tabCount])
+  }
 
   const titles = menuTitles.slice(0, tabCount)
   const activeBody = tabCount === 0 ? null : (bodies[selectedIndex] ?? null)

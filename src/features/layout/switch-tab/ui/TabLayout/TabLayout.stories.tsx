@@ -1,4 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/nextjs'
+import { expect, userEvent, within } from 'storybook/test'
+
+import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 
 import { TabLayout } from './TabLayout'
 
@@ -56,6 +58,16 @@ export const Default: Story = {
       },
     },
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    expect(canvas.getByText('記事一覧のコンテンツがここに表示されます。')).toBeInTheDocument()
+    expect(canvas.queryByText('タグ一覧のコンテンツがここに表示されます。')).not.toBeInTheDocument()
+
+    await userEvent.click(canvas.getByRole('tab', { name: 'Tags' }))
+
+    expect(canvas.getByText('タグ一覧のコンテンツがここに表示されます。')).toBeInTheDocument()
+    expect(canvas.queryByText('記事一覧のコンテンツがここに表示されます。')).not.toBeInTheDocument()
+  },
 }
 
 export const TwoTabs: Story = {
@@ -97,6 +109,11 @@ export const WithInitialIndex: Story = {
         story: '初期表示を3番目のタブに設定した例。',
       },
     },
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    expect(canvas.getByText('タブ3のコンテンツ')).toBeInTheDocument()
+    expect(canvas.queryByText('タブ1のコンテンツ')).not.toBeInTheDocument()
   },
 }
 

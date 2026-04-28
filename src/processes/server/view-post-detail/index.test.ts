@@ -8,26 +8,28 @@ import {
   listPostFilenames,
 } from './index'
 
-jest.mock('@/entities/post/model/api/server/queries', () => ({
-  getAllPosts: jest.fn(),
+import type { Post } from '@/shared/types/post'
+
+vi.mock('@/entities/post/model/api/server/queries', () => ({
+  getAllPosts: vi.fn(),
 }))
 
-jest.mock('@/entities/post/model/api/server/markdown', () => ({
-  getPostByFilename: jest.fn(),
+vi.mock('@/entities/post/model/api/server/markdown', () => ({
+  getPostByFilename: vi.fn(),
 }))
 
-jest.mock('@/lib/markdownToHtml', () => ({
+vi.mock('@/lib/markdownToHtml', () => ({
   __esModule: true,
-  default: jest.fn(),
+  default: vi.fn(),
 }))
 
-const mockGetAllPosts = getAllPosts as jest.Mock
-const mockGetPostByFilename = getPostByFilename as jest.Mock
-const mockMarkdownToHtml = markdownToHtml as jest.Mock
+const mockGetAllPosts = vi.mocked(getAllPosts)
+const mockGetPostByFilename = vi.mocked(getPostByFilename)
+const mockMarkdownToHtml = vi.mocked(markdownToHtml)
 
 describe('getPostDetailViewModel', () => {
   beforeEach(() => {
-    jest.clearAllMocks()
+    vi.clearAllMocks()
   })
 
   test('投稿が見つからない場合は null を返す', async () => {
@@ -66,7 +68,7 @@ describe('listPostFilenames', () => {
   >
 
   test('getAllPosts の結果から filename を抽出する', async () => {
-    mockGetAllPosts.mockResolvedValueOnce(posts)
+    mockGetAllPosts.mockResolvedValueOnce(posts as unknown as Post[])
 
     const result = await listPostFilenames()
 
@@ -85,7 +87,9 @@ describe('getPostDetailMetadata', () => {
   })
 
   test('投稿が存在する場合はタイトルを返す', async () => {
-    mockGetPostByFilename.mockResolvedValueOnce({ title: 'title' })
+    mockGetPostByFilename.mockResolvedValueOnce({
+      title: 'title',
+    } as unknown as Post)
 
     const result = await getPostDetailMetadata('hello')
 

@@ -3,8 +3,7 @@
  *
  * コンポーネントのディレクトリ構成を検証します:
  * - ComponentName.tsx
- * - ComponentName.test.tsx
- * - ComponentName.stories.tsx
+ * - ComponentName.stories.tsx (interaction tests via play functions)
  * - index.ts
  *
  * @see docs/ai/guides/component-structure.md
@@ -17,19 +16,15 @@ export default {
   meta: {
     type: 'problem',
     docs: {
-      description: 'Ensure UI components follow the required 4-file structure',
+      description: 'Ensure UI components follow the required 3-file structure',
       category: 'Best Practices',
       recommended: true,
     },
     messages: {
-      missingTestFile:
-        'Missing {{componentName}}.test.tsx file. All components must have a test file.',
       missingStoriesFile:
         'Missing {{componentName}}.stories.tsx file. All components must have a stories file.',
       missingIndexFile:
         'Missing index.ts file. Component directory must have an index.ts.',
-      invalidTestFileName:
-        'Test file name must be {{componentName}}.test.tsx, not {{actualName}}',
     },
     schema: [],
   },
@@ -72,18 +67,8 @@ export default {
           return
         }
 
-        const testFile = join(dir, `${componentName}.test.tsx`)
         const storiesFile = join(dir, `${componentName}.stories.tsx`)
         const indexFile = join(dir, 'index.ts')
-
-        // test.tsx の存在チェック
-        if (!existsSync(testFile)) {
-          context.report({
-            node,
-            messageId: 'missingTestFile',
-            data: { componentName },
-          })
-        }
 
         // stories.tsx の存在チェック
         if (!existsSync(storiesFile)) {

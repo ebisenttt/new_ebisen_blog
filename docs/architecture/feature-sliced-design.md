@@ -220,19 +220,16 @@ src/
 ## 8. 段階的移行ステップ
 
 1. **Phase 0: 基盤準備**
-
    - 新ディレクトリ (`shared`, `entities` など) を空で作成。
    - `tsconfig` と ESLint の alias/ルールを変更。
    - Storybook の `stories` パス・Tailwind `content` 設定を新パスに対応。
 
 2. **Phase 1: shared レイヤ移設**
-
    - `components/common` -> `shared/ui` へ移動し、再エクスポートを整理。
    - `utils/`, `constants/`, `styles/`, `types/remark-html.d.ts` を `shared/lib`, `shared/config`, `shared/styles`, `shared/types` へ移管。
    - ビルド・Storybook・テスト確認。
 
 3. **Phase 2: entities/post の切り出し**
-
    - `types/post.ts`, `lib/api.ts` (Markdown 変換含む) を `entities/post/model` に統合。
    - `lib/note.ts` の `encode/decode` を entity の helper へ、フェッチは `features/posts/fetch-note` に委譲。
    - `components/post` のうち純粋 UI (PostPreview, Header, Body, Title) を `entities/post/ui` へ移動。

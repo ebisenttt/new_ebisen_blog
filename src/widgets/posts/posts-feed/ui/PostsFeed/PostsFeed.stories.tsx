@@ -1,5 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/nextjs'
+import { expect, within } from 'storybook/test'
+
+import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import type { PostsFeedPost } from './PostsFeed'
+
+import {
+  HOME_POSTS_EMPTY_MESSAGE,
+  HOME_POSTS_SECTION_TITLE,
+} from '@/shared/config'
 
 import { PostsFeed } from './PostsFeed'
 
@@ -79,6 +86,12 @@ export const Default: Story = {
       },
     },
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    expect(canvas.getByRole('heading', { name: HOME_POSTS_SECTION_TITLE })).toBeInTheDocument()
+    expect(canvas.getByRole('region', { name: HOME_POSTS_SECTION_TITLE })).toBeInTheDocument()
+    expect(canvas.getByText('Next.jsで始めるブログ開発')).toBeInTheDocument()
+  },
 }
 
 export const Empty: Story = {
@@ -91,5 +104,10 @@ export const Empty: Story = {
         story: '記事が存在しない場合、空のメッセージが表示されます。',
       },
     },
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    expect(canvas.getByRole('heading', { name: HOME_POSTS_SECTION_TITLE })).toBeInTheDocument()
+    expect(canvas.getByText(HOME_POSTS_EMPTY_MESSAGE)).toBeInTheDocument()
   },
 }

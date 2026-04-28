@@ -1,6 +1,8 @@
+import { expect, within } from 'storybook/test'
+
 import { ExternalLinkIcon } from '@/shared/ui/ExternalLinkIcon'
 
-import type { Meta, StoryObj } from '@storybook/nextjs'
+import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 
 const meta = {
   title: 'Shared/UI/ExternalLinkIcon',
@@ -33,6 +35,10 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     title: '外部リンク',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    expect(canvas.getByRole('img', { name: '外部リンク' })).toBeInTheDocument()
   },
 }
 
