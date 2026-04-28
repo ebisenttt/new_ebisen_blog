@@ -3,13 +3,11 @@ pre-commit:
   commands:
     lint-staged:
       run: pnpm lint-staged
-    typecheck:
-      run: pnpm typecheck
 
 pre-push:
   parallel: true
   commands:
-    lint:
-      run: pnpm lint
+    test:
+      run: pnpm test
     typecheck:
       run: pnpm typecheck
