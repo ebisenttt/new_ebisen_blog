@@ -1,3 +1,5 @@
+import { expect, within } from 'storybook/test'
+
 import { Basic } from '@/shared/ui/OpenGraph/Basic'
 
 import type { Meta, StoryObj } from '@storybook/nextjs'
@@ -28,4 +30,9 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {}
+export const Default: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    expect(canvas.getByText('ebisen blog.')).toBeInTheDocument()
+  },
+}

@@ -1,3 +1,5 @@
+import { expect, within } from 'storybook/test'
+
 import type { Meta, StoryObj } from '@storybook/nextjs'
 import type { Post } from '@/shared/types/post'
 
@@ -62,6 +64,11 @@ export const Default: Story = {
         href: '/posts/no-tags',
       }),
     ],
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    expect(canvas.getByText('Next.jsで始めるブログ開発')).toBeInTheDocument()
+    expect(canvas.getByText('フルスタック開発の始め方')).toBeInTheDocument()
   },
 }
 

@@ -1,3 +1,5 @@
+import { expect, within } from 'storybook/test'
+
 import { PostBody } from '@/entities/post/ui/PostBody'
 
 import type { Meta, StoryObj } from '@storybook/nextjs'
@@ -29,6 +31,10 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     content: '<p>これは記事本文のサンプルテキストです。</p>',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    expect(canvas.getByText('これは記事本文のサンプルテキストです。')).toBeInTheDocument()
   },
 }
 

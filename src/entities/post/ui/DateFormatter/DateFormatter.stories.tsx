@@ -1,3 +1,5 @@
+import { expect, within } from 'storybook/test'
+
 import type { Meta, StoryObj } from '@storybook/nextjs'
 
 import { DateFormatter } from './DateFormatter'
@@ -17,6 +19,12 @@ type Story = StoryObj<typeof meta>
 export const DateOnly: Story = {
   args: {
     dateString: '2024-01-15',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const time = canvas.getByText('2024-01-15')
+    expect(time).toBeInTheDocument()
+    expect(time).toHaveAttribute('datetime', '2024-01-15')
   },
 }
 

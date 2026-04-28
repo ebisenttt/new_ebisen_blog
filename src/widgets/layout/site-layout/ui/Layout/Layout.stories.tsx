@@ -1,3 +1,5 @@
+import { expect } from 'storybook/test'
+
 import type { Meta, StoryObj } from '@storybook/nextjs'
 
 import { Layout } from './Layout'
@@ -40,6 +42,11 @@ export const Default: Story = {
         </p>
       </div>
     ),
+  },
+  play: async ({ canvasElement }) => {
+    const main = canvasElement.querySelector('main')
+    expect(main).not.toBeNull()
+    expect(main).toHaveTextContent('ページタイトル')
   },
 }
 
