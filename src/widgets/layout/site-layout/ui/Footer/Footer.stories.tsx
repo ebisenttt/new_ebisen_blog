@@ -1,3 +1,5 @@
+import { expect, within } from 'storybook/test'
+
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 
 import { Footer } from './Footer'
@@ -21,4 +23,12 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {}
+export const Default: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    expect(canvas.getByRole('heading', { name: 'ebisen blog.' })).toBeInTheDocument()
+    expect(canvas.getByAltText('github')).toBeInTheDocument()
+    expect(canvas.getByAltText('x-twitter')).toBeInTheDocument()
+    expect(canvas.getByAltText('note')).toBeInTheDocument()
+  },
+}

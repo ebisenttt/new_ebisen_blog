@@ -7,6 +7,7 @@ export default defineConfig({
     jsx: 'automatic',
   },
   test: {
+    name: 'unit',
     environment: 'jsdom',
     globals: true,
     include: ['src/**/*.test.{ts,tsx}'],

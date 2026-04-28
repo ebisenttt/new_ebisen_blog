@@ -1,3 +1,5 @@
+import { expect, within } from 'storybook/test'
+
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 
 import { ProfileAboutCard } from './ProfileAboutCard'
@@ -20,4 +22,13 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {}
+export const Default: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    expect(canvas.getByRole('heading', { name: 'ebisen' })).toBeInTheDocument()
+    expect(canvas.getByRole('heading', { name: '使用技術' })).toBeInTheDocument()
+    expect(canvas.getByRole('heading', { name: '資格' })).toBeInTheDocument()
+    expect(canvas.getByRole('img', { name: 'html' })).toBeInTheDocument()
+    expect(canvas.getByRole('img', { name: 'python' })).toBeInTheDocument()
+  },
+}

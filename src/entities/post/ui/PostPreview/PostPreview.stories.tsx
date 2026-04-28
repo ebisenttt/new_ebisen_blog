@@ -1,3 +1,5 @@
+import { expect, within } from 'storybook/test'
+
 import { PostPreview } from '@/entities/post/ui/PostPreview'
 
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
@@ -64,6 +66,13 @@ export const InternalLink: Story = {
       },
     },
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    expect(canvas.getByText('Next.js')).toBeInTheDocument()
+    const link = canvasElement.querySelector('a[href="/posts/nextjs-blog"]')
+    expect(link).toBeInTheDocument()
+    expect(link).not.toHaveAttribute('target')
+  },
 }
 
 export const ExternalLink: Story = {
@@ -81,6 +90,12 @@ export const ExternalLink: Story = {
           '外部リンクの例。外部リンクアイコンが表示され、新しいタブで開きます。',
       },
     },
+  },
+  play: async ({ canvasElement }) => {
+    const link = canvasElement.querySelector('a[href="https://react.dev"]')
+    expect(link).toBeInTheDocument()
+    expect(link).toHaveAttribute('target', '_blank')
+    expect(link).toHaveAttribute('rel', 'noopener noreferrer')
   },
 }
 

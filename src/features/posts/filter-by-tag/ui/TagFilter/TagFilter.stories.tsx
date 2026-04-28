@@ -1,3 +1,5 @@
+import { expect, userEvent, within } from 'storybook/test'
+
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import type { Post } from '@/shared/types/post'
 
@@ -98,6 +100,16 @@ export const Default: Story = {
       },
     },
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    expect(canvas.getByText('Next.jsで始めるブログ開発')).toBeInTheDocument()
+    expect(canvas.getByText('Reactの基礎を学ぶ')).toBeInTheDocument()
+
+    await userEvent.click(canvas.getByRole('button', { name: 'TypeScript' }))
+
+    expect(canvas.getByText('Next.jsで始めるブログ開発')).toBeInTheDocument()
+    expect(canvas.queryByText('Reactの基礎を学ぶ')).not.toBeInTheDocument()
+  },
 }
 
 export const SingleTag: Story = {
@@ -170,5 +182,9 @@ export const NoTags: Story = {
         story: 'タグが存在しない場合、メッセージが表示されます。',
       },
     },
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    expect(canvas.getByText('タグがありません。')).toBeInTheDocument()
   },
 }

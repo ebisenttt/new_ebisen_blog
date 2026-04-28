@@ -1,4 +1,8 @@
+import { expect, within } from 'storybook/test'
+
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
+
+import { TITLE } from '@/shared/config'
 
 import { Header } from './Header'
 
@@ -20,4 +24,10 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {}
+export const Default: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const link = canvas.getByRole('link', { name: TITLE })
+    expect(link).toHaveAttribute('href', '/')
+  },
+}
