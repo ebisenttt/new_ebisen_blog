@@ -1,0 +1,1 @@
+import{j as o}from"./iframe-Bd5CrwUb.js";const t="_markdown_17te8_3",e={markdown:t},n=({content:s})=>o.jsx("div",{className:"max-w-2xl mx-auto",children:o.jsx("div",{className:e.markdown,dangerouslySetInnerHTML:{__html:s}})});n.__docgenInfo={description:"",methods:[],displayName:"PostBody",props:{content:{required:!0,tsType:{name:"string"},description:""}}};export{n as P};

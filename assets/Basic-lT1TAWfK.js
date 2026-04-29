@@ -1,0 +1,1 @@
+import{j as s}from"./iframe-Bd5CrwUb.js";import{T as o}from"./metadata-BgGm_LXU.js";import{W as r}from"./Wrapper-DJFffFlK.js";const i=()=>s.jsx(r,{children:s.jsx("p",{style:{fontSize:64},children:o})});i.__docgenInfo={description:"",methods:[],displayName:"Basic"};export{i as B};
