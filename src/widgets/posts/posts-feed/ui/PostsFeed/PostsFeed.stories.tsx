@@ -1,6 +1,6 @@
+import preview from '#.storybook/preview'
 import { expect, within } from 'storybook/test'
 
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import type { PostsFeedPost } from './PostsFeed'
 
 import {
@@ -10,7 +10,7 @@ import {
 
 import { PostsFeed } from './PostsFeed'
 
-const meta = {
+const meta = preview.meta({
   title: 'Widgets/Posts/PostsFeed',
   component: PostsFeed,
   tags: ['autodocs'],
@@ -28,11 +28,7 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof PostsFeed>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
+})
 
 const createPost = (overrides: Partial<PostsFeedPost> = {}): PostsFeedPost => ({
   title: 'Sample Post',
@@ -45,7 +41,7 @@ const createPost = (overrides: Partial<PostsFeedPost> = {}): PostsFeedPost => ({
   ...overrides,
 })
 
-export const Default: Story = {
+export const Default = meta.story({
   args: {
     posts: [
       createPost({
@@ -88,13 +84,17 @@ export const Default: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    expect(canvas.getByRole('heading', { name: HOME_POSTS_SECTION_TITLE })).toBeInTheDocument()
-    expect(canvas.getByRole('region', { name: HOME_POSTS_SECTION_TITLE })).toBeInTheDocument()
+    expect(
+      canvas.getByRole('heading', { name: HOME_POSTS_SECTION_TITLE }),
+    ).toBeInTheDocument()
+    expect(
+      canvas.getByRole('region', { name: HOME_POSTS_SECTION_TITLE }),
+    ).toBeInTheDocument()
     expect(canvas.getByText('Next.jsで始めるブログ開発')).toBeInTheDocument()
   },
-}
+})
 
-export const Empty: Story = {
+export const Empty = meta.story({
   args: {
     posts: [],
   },
@@ -107,7 +107,9 @@ export const Empty: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    expect(canvas.getByRole('heading', { name: HOME_POSTS_SECTION_TITLE })).toBeInTheDocument()
+    expect(
+      canvas.getByRole('heading', { name: HOME_POSTS_SECTION_TITLE }),
+    ).toBeInTheDocument()
     expect(canvas.getByText(HOME_POSTS_EMPTY_MESSAGE)).toBeInTheDocument()
   },
-}
+})

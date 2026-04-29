@@ -1,11 +1,12 @@
+import addonA11y from "@storybook/addon-a11y";
+import addonDocs from "@storybook/addon-docs";
+import { definePreview } from '@storybook/nextjs-vite'
 import 'devicon'
 import '../src/shared/styles/index.css'
 
 import { withThemeByClassName } from '@storybook/addon-themes'
 
-import type { Preview } from '@storybook/nextjs-vite'
-
-const preview: Preview = {
+export default definePreview({
   parameters: {
     controls: {
       matchers: {
@@ -14,6 +15,7 @@ const preview: Preview = {
       },
     },
   },
+
   decorators: [
     withThemeByClassName({
       themes: {
@@ -23,6 +25,6 @@ const preview: Preview = {
       defaultTheme: 'dark',
     }),
   ],
-}
 
-export default preview
+  addons: [addonDocs(), addonA11y()]
+})

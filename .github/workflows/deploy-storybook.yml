@@ -7,7 +7,7 @@ on:
 
 # GitHub Pages へのデプロイ権限を付与
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -44,8 +44,9 @@ jobs:
           NODE_ENV: production
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+        uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e
         with:
-          github_token: ${{ secrets.GH_PAT }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./storybook-static
           publish_branch: gh-pages
+          keep_files: true
