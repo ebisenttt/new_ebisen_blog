@@ -1,10 +1,9 @@
+import preview from '#.storybook/preview'
 import { expect } from 'storybook/test'
 
 import { Logo } from '@/shared/ui/Logo'
 
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Shared/UI/Logo',
   component: Logo,
   tags: ['autodocs'],
@@ -33,13 +32,9 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof Logo>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Small: Story = {
+export const Small = meta.story({
   args: {
     width: 32,
     height: 32,
@@ -57,16 +52,16 @@ export const Small: Story = {
     expect(svg).toHaveAttribute('width', '32')
     expect(svg).toHaveAttribute('height', '32')
   },
-}
+})
 
-export const Medium: Story = {
+export const Medium = meta.story({
   args: {
     width: 64,
     height: 64,
   },
-}
+})
 
-export const Large: Story = {
+export const Large = meta.story({
   args: {
     width: 128,
     height: 128,
@@ -78,4 +73,4 @@ export const Large: Story = {
       },
     },
   },
-}
+})

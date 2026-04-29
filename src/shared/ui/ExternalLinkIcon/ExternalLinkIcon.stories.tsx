@@ -1,10 +1,9 @@
+import preview from '#.storybook/preview'
 import { expect, within } from 'storybook/test'
 
 import { ExternalLinkIcon } from '@/shared/ui/ExternalLinkIcon'
 
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Shared/UI/ExternalLinkIcon',
   component: ExternalLinkIcon,
   tags: ['autodocs'],
@@ -26,13 +25,9 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof ExternalLinkIcon>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {
+export const Default = meta.story({
   args: {
     title: '外部リンク',
   },
@@ -40,9 +35,9 @@ export const Default: Story = {
     const canvas = within(canvasElement)
     expect(canvas.getByRole('img', { name: '外部リンク' })).toBeInTheDocument()
   },
-}
+})
 
-export const InText: Story = {
+export const InText = meta.story({
   args: {
     title: '外部リンク',
   },
@@ -59,9 +54,9 @@ export const InText: Story = {
       },
     },
   },
-}
+})
 
-export const WithGrayColor: Story = {
+export const WithGrayColor = meta.story({
   args: {
     title: '外部リンク',
     className: 'h-4 w-4 text-gray-500',
@@ -79,4 +74,4 @@ export const WithGrayColor: Story = {
       },
     },
   },
-}
+})

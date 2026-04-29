@@ -1,10 +1,9 @@
+import preview from '#.storybook/preview'
 import { expect, within } from 'storybook/test'
 
 import { PostPreview } from '@/entities/post/ui/PostPreview'
 
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Entities/Post/PostPreview',
   component: PostPreview,
   tags: ['autodocs'],
@@ -46,13 +45,9 @@ const meta = {
       </div>
     ),
   ],
-} satisfies Meta<typeof PostPreview>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const InternalLink: Story = {
+export const InternalLink = meta.story({
   args: {
     title: 'Next.jsで始めるブログ開発',
     date: '2024-11-21',
@@ -73,9 +68,9 @@ export const InternalLink: Story = {
     expect(link).toBeInTheDocument()
     expect(link).not.toHaveAttribute('target')
   },
-}
+})
 
-export const ExternalLink: Story = {
+export const ExternalLink = meta.story({
   args: {
     title: 'React公式ドキュメント',
     date: '2024-11-20',
@@ -97,9 +92,9 @@ export const ExternalLink: Story = {
     expect(link).toHaveAttribute('target', '_blank')
     expect(link).toHaveAttribute('rel', 'noopener noreferrer')
   },
-}
+})
 
-export const WithCodeInTitle: Story = {
+export const WithCodeInTitle = meta.story({
   args: {
     title: '`Array.prototype.map()`の使い方',
     date: '2024-11-19',
@@ -114,9 +109,9 @@ export const WithCodeInTitle: Story = {
       },
     },
   },
-}
+})
 
-export const ManyTags: Story = {
+export const ManyTags = meta.story({
   args: {
     title: 'フルスタック開発の始め方',
     date: '2024-11-18',
@@ -137,9 +132,9 @@ export const ManyTags: Story = {
       },
     },
   },
-}
+})
 
-export const NoTags: Story = {
+export const NoTags = meta.story({
   args: {
     title: 'タグのない記事',
     date: '2024-11-17',
@@ -153,4 +148,4 @@ export const NoTags: Story = {
       },
     },
   },
-}
+})

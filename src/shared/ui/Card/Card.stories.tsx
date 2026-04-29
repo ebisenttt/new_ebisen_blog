@@ -1,8 +1,7 @@
+import preview from '#.storybook/preview'
 import { Card } from '@/shared/ui/Card'
 
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Shared/UI/Card',
   component: Card,
   tags: ['autodocs'],
@@ -25,19 +24,15 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof Card>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {
+export const Default = meta.story({
   args: {
     children: 'カードのデフォルト表示です。',
   },
-}
+})
 
-export const WithFlexLayout: Story = {
+export const WithFlexLayout = meta.story({
   args: {
     children: (
       <div className="flex h-full flex-col">
@@ -54,4 +49,4 @@ export const WithFlexLayout: Story = {
       },
     },
   },
-}
+})
