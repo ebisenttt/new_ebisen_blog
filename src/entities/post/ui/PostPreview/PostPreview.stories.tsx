@@ -3,8 +3,6 @@ import { expect, within } from 'storybook/test'
 
 import { PostPreview } from '@/entities/post/ui/PostPreview'
 
-import type { StoryObj } from '@storybook/nextjs-vite'
-
 const meta = preview.meta({
   title: 'Entities/Post/PostPreview',
   component: PostPreview,
@@ -48,8 +46,6 @@ const meta = preview.meta({
     ),
   ],
 })
-
-type Story = StoryObj<typeof meta>
 
 export const InternalLink = meta.story({
   args: {

@@ -3,8 +3,6 @@ import { expect, within } from 'storybook/test'
 
 import { Wrapper } from '@/shared/ui/OpenGraph/Wrapper'
 
-import type { StoryObj } from '@storybook/nextjs-vite'
-
 const meta = preview.meta({
   title: 'Shared/UI/OpenGraph/Wrapper',
   component: Wrapper,
@@ -26,8 +24,6 @@ const meta = preview.meta({
     ),
   ],
 })
-
-type Story = StoryObj<typeof meta>
 
 export const Default = meta.story({
   args: {

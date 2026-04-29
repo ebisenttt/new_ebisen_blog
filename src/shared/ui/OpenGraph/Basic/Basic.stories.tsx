@@ -3,8 +3,6 @@ import { expect, within } from 'storybook/test'
 
 import { Basic } from '@/shared/ui/OpenGraph/Basic'
 
-import type { StoryObj } from '@storybook/nextjs-vite'
-
 const meta = preview.meta({
   title: 'Shared/UI/OpenGraph/Basic',
   component: Basic,
@@ -26,8 +24,6 @@ const meta = preview.meta({
     ),
   ],
 })
-
-type Story = StoryObj<typeof meta>
 
 export const Default = meta.story({
   play: async ({ canvasElement }) => {

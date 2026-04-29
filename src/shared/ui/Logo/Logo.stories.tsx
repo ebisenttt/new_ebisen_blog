@@ -3,8 +3,6 @@ import { expect } from 'storybook/test'
 
 import { Logo } from '@/shared/ui/Logo'
 
-import type { StoryObj } from '@storybook/nextjs-vite'
-
 const meta = preview.meta({
   title: 'Shared/UI/Logo',
   component: Logo,
@@ -35,8 +33,6 @@ const meta = preview.meta({
     },
   },
 })
-
-type Story = StoryObj<typeof meta>
 
 export const Small = meta.story({
   args: {
