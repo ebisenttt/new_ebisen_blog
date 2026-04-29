@@ -1,10 +1,11 @@
+import preview from '#.storybook/preview'
 import { expect, within } from 'storybook/test'
 
 import { Basic } from '@/shared/ui/OpenGraph/Basic'
 
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
+import type { StoryObj } from '@storybook/nextjs-vite'
 
-const meta = {
+const meta = preview.meta({
   title: 'Shared/UI/OpenGraph/Basic',
   component: Basic,
   tags: ['autodocs'],
@@ -24,15 +25,13 @@ const meta = {
       </div>
     ),
   ],
-} satisfies Meta<typeof Basic>
-
-export default meta
+})
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
+export const Default = meta.story({
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     expect(canvas.getByText('ebisen blog.')).toBeInTheDocument()
   },
-}
+})
