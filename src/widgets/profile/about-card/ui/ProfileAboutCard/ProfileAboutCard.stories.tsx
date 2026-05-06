@@ -1,10 +1,9 @@
+import preview from '#.storybook/preview'
 import { expect, within } from 'storybook/test'
-
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 
 import { ProfileAboutCard } from './ProfileAboutCard'
 
-const meta = {
+const meta = preview.meta({
   title: 'Widgets/Profile/ProfileAboutCard',
   component: ProfileAboutCard,
   tags: ['autodocs'],
@@ -16,19 +15,17 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof ProfileAboutCard>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {
+export const Default = meta.story({
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     expect(canvas.getByRole('heading', { name: 'ebisen' })).toBeInTheDocument()
-    expect(canvas.getByRole('heading', { name: '使用技術' })).toBeInTheDocument()
+    expect(
+      canvas.getByRole('heading', { name: '使用技術' }),
+    ).toBeInTheDocument()
     expect(canvas.getByRole('heading', { name: '資格' })).toBeInTheDocument()
     expect(canvas.getByRole('img', { name: 'html' })).toBeInTheDocument()
     expect(canvas.getByRole('img', { name: 'python' })).toBeInTheDocument()
   },
-}
+})

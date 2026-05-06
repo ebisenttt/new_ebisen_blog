@@ -1,22 +1,18 @@
+import preview from '#.storybook/preview'
 import { expect, within } from 'storybook/test'
-
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 
 import { DateFormatter } from './DateFormatter'
 
-const meta = {
+const meta = preview.meta({
   title: 'entities/post/DateFormatter',
   component: DateFormatter,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof DateFormatter>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const DateOnly: Story = {
+export const DateOnly = meta.story({
   args: {
     dateString: '2024-01-15',
   },
@@ -26,16 +22,16 @@ export const DateOnly: Story = {
     expect(time).toBeInTheDocument()
     expect(time).toHaveAttribute('datetime', '2024-01-15')
   },
-}
+})
 
-export const WithTimezone: Story = {
+export const WithTimezone = meta.story({
   args: {
     dateString: '2024-01-15T16:20:47+09:00',
   },
-}
+})
 
-export const WithTimezoneUTC: Story = {
+export const WithTimezoneUTC = meta.story({
   args: {
     dateString: '2024-01-15T07:20:47Z',
   },
-}
+})

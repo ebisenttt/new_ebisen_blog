@@ -1,11 +1,11 @@
+import preview from '#.storybook/preview'
 import { expect, userEvent, within } from 'storybook/test'
 
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import type { Post } from '@/shared/types/post'
 
 import { TagFilter } from './TagFilter'
 
-const meta = {
+const meta = preview.meta({
   title: 'Features/Posts/TagFilter',
   component: TagFilter,
   tags: ['autodocs'],
@@ -35,11 +35,7 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof TagFilter>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
+})
 
 const samplePosts: Post[] = [
   {
@@ -79,7 +75,7 @@ const samplePosts: Post[] = [
   },
 ]
 
-export const Default: Story = {
+export const Default = meta.story({
   args: {
     posts: samplePosts,
     tags: ['Next.js', 'React', 'TypeScript', 'JavaScript', 'Tailwind CSS'],
@@ -110,9 +106,9 @@ export const Default: Story = {
     expect(canvas.getByText('Next.jsで始めるブログ開発')).toBeInTheDocument()
     expect(canvas.queryByText('Reactの基礎を学ぶ')).not.toBeInTheDocument()
   },
-}
+})
 
-export const SingleTag: Story = {
+export const SingleTag = meta.story({
   args: {
     posts: samplePosts.filter((p) => p.tags?.includes('TypeScript')),
     tags: ['TypeScript'],
@@ -128,9 +124,9 @@ export const SingleTag: Story = {
       },
     },
   },
-}
+})
 
-export const ManyTags: Story = {
+export const ManyTags = meta.story({
   args: {
     posts: samplePosts,
     tags: [
@@ -167,9 +163,9 @@ export const ManyTags: Story = {
       },
     },
   },
-}
+})
 
-export const NoTags: Story = {
+export const NoTags = meta.story({
   args: {
     posts: [],
     tags: [],
@@ -187,4 +183,4 @@ export const NoTags: Story = {
     const canvas = within(canvasElement)
     expect(canvas.getByText('タグがありません。')).toBeInTheDocument()
   },
-}
+})

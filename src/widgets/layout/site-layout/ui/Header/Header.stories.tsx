@@ -1,12 +1,11 @@
+import preview from '#.storybook/preview'
 import { expect, within } from 'storybook/test'
-
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 
 import { TITLE } from '@/shared/config'
 
 import { Header } from './Header'
 
-const meta = {
+const meta = preview.meta({
   title: 'Widgets/Layout/SiteLayout/Header',
   component: Header,
   tags: ['autodocs'],
@@ -18,16 +17,12 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof Header>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {
+export const Default = meta.story({
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     const link = canvas.getByRole('link', { name: TITLE })
     expect(link).toHaveAttribute('href', '/')
   },
-}
+})
