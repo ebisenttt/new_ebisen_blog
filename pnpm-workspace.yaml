@@ -1,0 +1,10 @@
+onlyBuiltDependencies:
+  - esbuild
+  - lefthook
+  - playwright
+  - "@playwright/test"
+  - lightningcss
+  - sharp
+strictDepBuilds: true
+minimumReleaseAge: 1440
+blockExoticSubdeps: true
