@@ -1,0 +1,1 @@
+import{i as e}from"./preload-helper-B-xQYkru.js";var t,n=e((()=>{t=e=>e.replace(/`([^`]+)`/g,`<code>$1</code>`)}));export{n,t};

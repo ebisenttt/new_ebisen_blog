@@ -1,0 +1,1 @@
+import{i as e}from"./preload-helper-B-xQYkru.js";var t,n=e((()=>{t=`ebisen blog.`})),r=e((()=>{})),i,a,o=e((()=>{i=`Latest Posts`,a=`記事がありません。`})),s=e((()=>{n(),r(),o()}));export{t as a,o as i,a as n,n as o,i as r,s as t};
