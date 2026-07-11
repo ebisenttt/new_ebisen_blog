@@ -1,8 +1,7 @@
+import preview from '#.storybook/preview'
 import { Container } from '@/shared/ui/Container'
 
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Shared/UI/Container',
   component: Container,
   tags: ['autodocs'],
@@ -20,13 +19,9 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof Container>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {
+export const Default = meta.story({
   args: {
     children: (
       <div>
@@ -37,9 +32,9 @@ export const Default: Story = {
       </div>
     ),
   },
-}
+})
 
-export const WithPageContent: Story = {
+export const WithPageContent = meta.story({
   args: {
     children: (
       <div>
@@ -62,4 +57,4 @@ export const WithPageContent: Story = {
       },
     },
   },
-}
+})

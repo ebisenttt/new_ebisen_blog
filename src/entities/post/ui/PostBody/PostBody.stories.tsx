@@ -1,10 +1,9 @@
+import preview from '#.storybook/preview'
 import { expect, within } from 'storybook/test'
 
 import { PostBody } from '@/entities/post/ui/PostBody'
 
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Entities/Post/PostBody',
   component: PostBody,
   tags: ['autodocs'],
@@ -22,23 +21,21 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof PostBody>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {
+export const Default = meta.story({
   args: {
     content: '<p>これは記事本文のサンプルテキストです。</p>',
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    expect(canvas.getByText('これは記事本文のサンプルテキストです。')).toBeInTheDocument()
+    expect(
+      canvas.getByText('これは記事本文のサンプルテキストです。'),
+    ).toBeInTheDocument()
   },
-}
+})
 
-export const WithHeadings: Story = {
+export const WithHeadings = meta.story({
   args: {
     content: `
       <h2>見出し2</h2>
@@ -54,9 +51,9 @@ export const WithHeadings: Story = {
       },
     },
   },
-}
+})
 
-export const WithList: Story = {
+export const WithList = meta.story({
   args: {
     content: `
       <p>箇条書きリストの例:</p>
@@ -85,9 +82,9 @@ export const WithList: Story = {
       },
     },
   },
-}
+})
 
-export const WithLink: Story = {
+export const WithLink = meta.story({
   args: {
     content: `
       <p>リンクのテスト: <a href="https://example.com">外部リンク</a>です。</p>
@@ -100,9 +97,9 @@ export const WithLink: Story = {
       },
     },
   },
-}
+})
 
-export const WithCodeBlock: Story = {
+export const WithCodeBlock = meta.story({
   args: {
     content: `
       <p>コードブロックの例:</p>
@@ -117,9 +114,9 @@ console.log(greeting);</code></pre>
       },
     },
   },
-}
+})
 
-export const FullArticle: Story = {
+export const FullArticle = meta.story({
   args: {
     content: `
       <h2>記事の概要</h2>
@@ -147,4 +144,4 @@ export const FullArticle: Story = {
       },
     },
   },
-}
+})

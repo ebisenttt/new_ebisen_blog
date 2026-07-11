@@ -1,10 +1,9 @@
+import preview from '#.storybook/preview'
 import { expect } from 'storybook/test'
-
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 
 import { Layout } from './Layout'
 
-const meta = {
+const meta = preview.meta({
   title: 'Widgets/Layout/SiteLayout/Layout',
   component: Layout,
   tags: ['autodocs'],
@@ -23,13 +22,9 @@ const meta = {
     },
     layout: 'fullscreen',
   },
-} satisfies Meta<typeof Layout>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {
+export const Default = meta.story({
   args: {
     children: (
       <div className="p-8">
@@ -48,9 +43,9 @@ export const Default: Story = {
     expect(main).not.toBeNull()
     expect(main).toHaveTextContent('ページタイトル')
   },
-}
+})
 
-export const WithArticle: Story = {
+export const WithArticle = meta.story({
   args: {
     children: (
       <article className="mx-auto max-w-2xl p-8 prose dark:prose-invert">
@@ -68,9 +63,9 @@ export const WithArticle: Story = {
       },
     },
   },
-}
+})
 
-export const MinimalContent: Story = {
+export const MinimalContent = meta.story({
   args: {
     children: (
       <div className="p-8">
@@ -86,4 +81,4 @@ export const MinimalContent: Story = {
       },
     },
   },
-}
+})
