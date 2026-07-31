@@ -87,10 +87,7 @@
 			"esbuild",
 			"lefthook",
 			"sharp"
-		],
-		"patchedDependencies": {
-			"devicon@2.17.0": "patches/devicon@2.17.0.patch"
-		}
+		]
 	},
 	"imports": {
 		"#*": [
