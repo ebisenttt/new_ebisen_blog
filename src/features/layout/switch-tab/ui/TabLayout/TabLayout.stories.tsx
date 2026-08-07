@@ -1,10 +1,9 @@
+import preview from '#.storybook/preview'
 import { expect, userEvent, within } from 'storybook/test'
-
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 
 import { TabLayout } from './TabLayout'
 
-const meta = {
+const meta = preview.meta({
   title: 'Features/Layout/TabLayout',
   component: TabLayout,
   tags: ['autodocs'],
@@ -30,13 +29,9 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof TabLayout>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {
+export const Default = meta.story({
   args: {
     menuTitles: ['Posts', 'Tags', 'Me'],
     bodies: [
@@ -60,17 +55,25 @@ export const Default: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    expect(canvas.getByText('記事一覧のコンテンツがここに表示されます。')).toBeInTheDocument()
-    expect(canvas.queryByText('タグ一覧のコンテンツがここに表示されます。')).not.toBeInTheDocument()
+    expect(
+      canvas.getByText('記事一覧のコンテンツがここに表示されます。'),
+    ).toBeInTheDocument()
+    expect(
+      canvas.queryByText('タグ一覧のコンテンツがここに表示されます。'),
+    ).not.toBeInTheDocument()
 
     await userEvent.click(canvas.getByRole('tab', { name: 'Tags' }))
 
-    expect(canvas.getByText('タグ一覧のコンテンツがここに表示されます。')).toBeInTheDocument()
-    expect(canvas.queryByText('記事一覧のコンテンツがここに表示されます。')).not.toBeInTheDocument()
+    expect(
+      canvas.getByText('タグ一覧のコンテンツがここに表示されます。'),
+    ).toBeInTheDocument()
+    expect(
+      canvas.queryByText('記事一覧のコンテンツがここに表示されます。'),
+    ).not.toBeInTheDocument()
   },
-}
+})
 
-export const TwoTabs: Story = {
+export const TwoTabs = meta.story({
   args: {
     menuTitles: ['Overview', 'Details'],
     bodies: [
@@ -91,9 +94,9 @@ export const TwoTabs: Story = {
       },
     },
   },
-}
+})
 
-export const WithInitialIndex: Story = {
+export const WithInitialIndex = meta.story({
   args: {
     menuTitles: ['Tab 1', 'Tab 2', 'Tab 3'],
     bodies: [
@@ -115,9 +118,9 @@ export const WithInitialIndex: Story = {
     expect(canvas.getByText('タブ3のコンテンツ')).toBeInTheDocument()
     expect(canvas.queryByText('タブ1のコンテンツ')).not.toBeInTheDocument()
   },
-}
+})
 
-export const WithRichContent: Story = {
+export const WithRichContent = meta.story({
   args: {
     menuTitles: ['Articles', 'Gallery'],
     bodies: [
@@ -145,4 +148,4 @@ export const WithRichContent: Story = {
       },
     },
   },
-}
+})

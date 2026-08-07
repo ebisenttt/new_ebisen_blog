@@ -1,4 +1,4 @@
-import 'devicon'
+import '../../styles/devicon.min.css'
 import { type ReactNode } from 'react'
 
 type Props = {

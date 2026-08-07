@@ -1,21 +1,18 @@
+import preview from '#.storybook/preview'
 import { expect, within } from 'storybook/test'
 
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import type { Post } from '@/shared/types/post'
 
 import { Posts } from './Posts'
 
-const meta = {
+const meta = preview.meta({
   title: 'entities/post/Posts',
   component: Posts,
   parameters: {
     layout: 'padded',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof Posts>
-
-export default meta
-type Story = StoryObj<typeof meta>
+})
 
 type PostWithLink = Post & {
   href?: string
@@ -32,7 +29,7 @@ const createPost = (overrides: Partial<PostWithLink> = {}): PostWithLink => ({
   ...overrides,
 })
 
-export const Default: Story = {
+export const Default = meta.story({
   args: {
     posts: [
       createPost({
@@ -70,9 +67,9 @@ export const Default: Story = {
     expect(canvas.getByText('Next.jsで始めるブログ開発')).toBeInTheDocument()
     expect(canvas.getByText('フルスタック開発の始め方')).toBeInTheDocument()
   },
-}
+})
 
-export const WithExternalLinks: Story = {
+export const WithExternalLinks = meta.story({
   args: {
     posts: [
       createPost({
@@ -92,9 +89,9 @@ export const WithExternalLinks: Story = {
       }),
     ],
   },
-}
+})
 
-export const SinglePost: Story = {
+export const SinglePost = meta.story({
   args: {
     posts: [
       createPost({
@@ -106,9 +103,9 @@ export const SinglePost: Story = {
       }),
     ],
   },
-}
+})
 
-export const ManyPosts: Story = {
+export const ManyPosts = meta.story({
   args: {
     posts: Array.from({ length: 6 }, (_, i) =>
       createPost({
@@ -120,10 +117,10 @@ export const ManyPosts: Story = {
       }),
     ),
   },
-}
+})
 
-export const Empty: Story = {
+export const Empty = meta.story({
   args: {
     posts: [],
   },
-}
+})
