@@ -9,11 +9,6 @@ overrides:
   smol-toml: '>=1.6.1'
   postcss: '>=8.5.10'
 
-patchedDependencies:
-  devicon@2.17.0:
-    hash: a54af855550f8d2de28321d6d1888597f80c3ba7a32c53cf4b1d409ef9f87a99
-    path: patches/devicon@2.17.0.patch
-
 importers:
 
   .:
@@ -35,7 +30,7 @@ importers:
         version: 4.4.0
       devicon:
         specifier: ^2.17.0
-        version: 2.17.0(patch_hash=a54af855550f8d2de28321d6d1888597f80c3ba7a32c53cf4b1d409ef9f87a99)
+        version: 2.17.0
       gray-matter:
         specifier: ^4.0.3
         version: 4.0.3
@@ -6030,7 +6025,7 @@ snapshots:
 
   detect-libc@2.1.2: {}
 
-  devicon@2.17.0(patch_hash=a54af855550f8d2de28321d6d1888597f80c3ba7a32c53cf4b1d409ef9f87a99): {}
+  devicon@2.17.0: {}
 
   devlop@1.1.0:
     dependencies:
