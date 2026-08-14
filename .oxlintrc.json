@@ -170,6 +170,12 @@
   },
   "overrides": [
     {
+      "files": ["postcss.config.js"],
+      "rules": {
+        "typescript/no-require-imports": "off"
+      }
+    },
+    {
       "files": [
         "src/shared/**/*.{ts,tsx}"
       ],
