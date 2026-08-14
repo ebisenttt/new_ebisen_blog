@@ -1,10 +1,9 @@
+import preview from '#.storybook/preview'
 import { expect, within } from 'storybook/test'
-
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 
 import { Footer } from './Footer'
 
-const meta = {
+const meta = preview.meta({
   title: 'Widgets/Layout/SiteLayout/Footer',
   component: Footer,
   tags: ['autodocs'],
@@ -17,18 +16,16 @@ const meta = {
     },
     layout: 'fullscreen',
   },
-} satisfies Meta<typeof Footer>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {
+export const Default = meta.story({
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    expect(canvas.getByRole('heading', { name: 'ebisen blog.' })).toBeInTheDocument()
+    expect(
+      canvas.getByRole('heading', { name: 'ebisen blog.' }),
+    ).toBeInTheDocument()
     expect(canvas.getByAltText('github')).toBeInTheDocument()
     expect(canvas.getByAltText('x-twitter')).toBeInTheDocument()
     expect(canvas.getByAltText('note')).toBeInTheDocument()
   },
-}
+})

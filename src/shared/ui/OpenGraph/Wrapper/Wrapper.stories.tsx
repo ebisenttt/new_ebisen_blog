@@ -1,10 +1,9 @@
+import preview from '#.storybook/preview'
 import { expect, within } from 'storybook/test'
 
 import { Wrapper } from '@/shared/ui/OpenGraph/Wrapper'
 
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Shared/UI/OpenGraph/Wrapper',
   component: Wrapper,
   tags: ['autodocs'],
@@ -24,13 +23,9 @@ const meta = {
       </div>
     ),
   ],
-} satisfies Meta<typeof Wrapper>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {
+export const Default = meta.story({
   args: {
     children: <p style={{ fontSize: 64 }}>OGイメージのコンテンツ</p>,
   },
@@ -38,9 +33,9 @@ export const Default: Story = {
     const canvas = within(canvasElement)
     expect(canvas.getByText('OGイメージのコンテンツ')).toBeInTheDocument()
   },
-}
+})
 
-export const WithCustomStyle: Story = {
+export const WithCustomStyle = meta.story({
   args: {
     style: { position: 'relative' },
     children: (
@@ -66,4 +61,4 @@ export const WithCustomStyle: Story = {
       },
     },
   },
-}
+})

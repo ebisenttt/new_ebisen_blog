@@ -1,10 +1,9 @@
+import preview from '#.storybook/preview'
 import { expect, within } from 'storybook/test'
 
 import { Badge } from '@/shared/ui/Badge'
 
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Shared/UI/Badge',
   component: Badge,
   tags: ['autodocs'],
@@ -23,61 +22,59 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof Badge>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {
+export const Default = meta.story({
   args: {
     text: 'Custom Badge',
   },
-}
+})
 
-export const Ruby: Story = {
+export const Ruby = meta.story({
   args: {
     text: 'ruby',
   },
-}
+})
 
-export const TypeScript: Story = {
+export const TypeScript = meta.story({
   args: {
     text: 'typescript',
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     expect(canvas.getByText('typescript')).toBeInTheDocument()
-    expect(canvasElement.querySelector('.devicon-typescript-plain')).not.toBeNull()
+    expect(
+      canvasElement.querySelector('.devicon-typescript-plain'),
+    ).not.toBeNull()
   },
-}
+})
 
-export const HTML: Story = {
+export const HTML = meta.story({
   args: {
     text: 'HTML',
   },
-}
+})
 
-export const Rails: Story = {
+export const Rails = meta.story({
   args: {
     text: 'rails',
   },
-}
+})
 
-export const ESLint: Story = {
+export const ESLint = meta.story({
   args: {
     text: 'eslint',
   },
-}
+})
 
-export const Markdown: Story = {
+export const Markdown = meta.story({
   args: {
     text: 'markdown',
   },
-}
+})
 
-export const UoPeople: Story = {
+export const UoPeople = meta.story({
   args: {
     text: 'UoPeople',
   },
-}
+})
