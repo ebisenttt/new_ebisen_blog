@@ -1,6 +1,6 @@
 // Strip UTF-8 BOM (U+FEFF) that Turbopack's CSS parser rejects.
 // Needed because devicon.min.css ships with a BOM character.
-module.exports = () => ({
+const plugin = () => ({
   postcssPlugin: 'postcss-strip-bom',
   Once(root) {
     if (root.source?.input?.hasBOM) {
@@ -8,4 +8,6 @@ module.exports = () => ({
     }
   },
 })
-module.exports.postcss = true
+plugin.postcss = true
+
+export default plugin
