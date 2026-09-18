@@ -1,4 +1,5 @@
-import 'devicon'
+// devicon.min.css has a BOM that Turbopack >=16.3.x can't parse; devicon-base.css is identical but BOM-free
+import 'devicon/devicon-base.css'
 import { type ReactNode } from 'react'
 
 type Props = {
