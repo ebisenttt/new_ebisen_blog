@@ -80,12 +80,7 @@
 			"minimatch": ">=10.2.3",
 			"smol-toml": ">=1.6.1",
 			"postcss": ">=8.5.10"
-		},
-		"onlyBuildDependencies": [
-			"esbuild",
-			"lefthook",
-			"sharp"
-		]
+		}
 	},
 	"imports": {
 		"#*": [
