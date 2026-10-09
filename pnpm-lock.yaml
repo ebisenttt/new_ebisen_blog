@@ -132,7 +132,7 @@ importers:
         specifier: ^1.64.0
         version: 1.64.0
       postcss:
-        specifier: ^8.5.29
+        specifier: '>=8.5.10'
         version: 8.5.29
       storybook:
         specifier: ^10.6.1
