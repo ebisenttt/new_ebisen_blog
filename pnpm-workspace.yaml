@@ -1,4 +1,4 @@
-onlyBuildDependencies:
+onlyBuiltDependencies:
   - esbuild
   - lefthook
   - lightningcss
